@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[XCode Dev for Gary Blog]]></title>
+  <title><![CDATA[XCode Dev  Gary]]></title>
   <link href="http://p709723778.github.io/atom.xml" rel="self"/>
   <link href="http://p709723778.github.io/"/>
-  <updated>2014-03-17T21:15:27+08:00</updated>
+  <updated>2014-03-17T21:43:09+08:00</updated>
   <id>http://p709723778.github.io/</id>
   <author>
-    <name><![CDATA[﹎倒計ヤ時‖]]></name>
+    <name><![CDATA[蒲晓涛]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
