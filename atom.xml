@@ -4,7 +4,7 @@
   <title><![CDATA[XCode Dev  Gary]]></title>
   <link href="http://p709723778.github.io/atom.xml" rel="self"/>
   <link href="http://p709723778.github.io/"/>
-  <updated>2014-03-17T22:40:03+08:00</updated>
+  <updated>2014-03-22T17:08:10+08:00</updated>
   <id>http://p709723778.github.io/</id>
   <author>
     <name><![CDATA[蒲晓涛]]></name>
@@ -12,5 +12,23 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[New Post]]></title>
+    <link href="http://p709723778.github.io/blog/2014/03/22/new-post/"/>
+    <updated>2014-03-22T17:08:00+08:00</updated>
+    <id>http://p709723778.github.io/blog/2014/03/22/new-post</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[iOS7时代我们用什么来追踪和识别用户？]]></title>
+    <link href="http://p709723778.github.io/blog/2014/03/22/ios7shi-dai-wo-men-yong-shi-yao-lai-zhui-zong-he-shi-bie-yong-hu-%3F/"/>
+    <updated>2014-03-22T17:07:11+08:00</updated>
+    <id>http://p709723778.github.io/blog/2014/03/22/ios7shi-dai-wo-men-yong-shi-yao-lai-zhui-zong-he-shi-bie-yong-hu-?</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
   
 </feed>
