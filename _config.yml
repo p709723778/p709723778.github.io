@@ -3,9 +3,9 @@
 # ----------------------- #
 
 url: http://p709723778.github.io
-title: XCode开发 for Gary Blog
-subtitle: A blogging framework for hackers.
-author: ﹎倒計ヤ時‖
+title: XCode Dev  Gary
+subtitle: Work is just a part of life! －Gary
+author: 蒲晓涛
 simple_search: https://www.google.com/search
 description:
 
@@ -50,7 +50,29 @@ titlecase: true       # Converts page and post titles to titlecase
 
 # list each of the sidebar modules you want to include, in the order you want them to appear.
 # To add custom asides, create files in /source/_includes/custom/asides/ and add them to the list like 'custom/asides/custom_aside_name.html'
-default_asides: [asides/recent_posts.html, asides/github.html, asides/delicious.html, asides/pinboard.html, asides/googleplus.html]
+default_asides: [asides/recent_posts.html, asides/sinaWeiBo.html, asides/github.html, asides/delicious.html, asides/pinboard.html, asides/googleplus.html]
+
+# 其它内容....
+ 
+# Weibo
+# Please refer to http://weibo.com/tool/weiboshow to get your uid and verifier. 
+weibo_uid: 1903254520
+weibo_verifier: abd54ad9
+weibo_fansline: 0   # 粉丝显示多少行
+weibo_show: true    # 是否显示最近微博内容
+weibo_pic: true     # 是否显示微博中的图片
+weibo_skin: 10      # 使用哪种配色风格，数字为从1开始的微博秀风格序号
+
+# Weibo
+# Please refer to http://weibo.com/tool/weiboshow to get your uid and verifier. 
+weibo_uid: 1903254520
+weibo_verifier: abd54ad9
+weibo_fansline: 0   # How many lines for the fan list
+weibo_show: true    # Whether you want your weibo content to be shown
+weibo_pic: true     # Whether you want the pictures in weibo to be shown
+weibo_skin: 10      # Please refer to http://weibo.com/tool/weiboshow
+weibo_share: true   # Whether show the sharing button
+
 
 # Each layout uses the default asides, but they can have their own asides instead. Simply uncomment the lines below
 # and add an array with the asides you want to use.
