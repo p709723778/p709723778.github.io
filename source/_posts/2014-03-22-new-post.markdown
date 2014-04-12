@@ -1,7 +1,8 @@
 ---
 layout: post
-title: "New Post"
+title: "博客迁移"
 date: 2014-03-22 17:08:00 +0800
 comments: true
 categories: 
 ---
+octopress与wordpress最大的不同就是使用的都是静态页面html.octopress工程安装在你本地就可以了。然后通过工具生成静态页面，然后可以同步到服务器上面，没有数据库。相对于动态工程来说，同步更简单、更返璞归真。但有些弊端就是没有数据库无法做评论等系统。但可以借助第三方评论，octopress里面默认安装了disqus插件。
