@@ -4,7 +4,7 @@
   <title><![CDATA[XCode Dev  Gary]]></title>
   <link href="http://p709723778.github.io/atom.xml" rel="self"/>
   <link href="http://p709723778.github.io/"/>
-  <updated>2014-04-12T16:19:25+08:00</updated>
+  <updated>2014-04-12T16:21:08+08:00</updated>
   <id>http://p709723778.github.io/</id>
   <author>
     <name><![CDATA[蒲晓涛]]></name>
@@ -48,9 +48,10 @@ PS：尘埃落定，跟着Apple走，大家不用再犹豫了。</p>
 <h4>idfa</h4>
 
 <p>全名：advertisingIdentifier
-代码：
-<code>#import</code>
-<code>NSString *adId = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];</code></p>
+代码：</p>
+
+<p><code>#import  
+NSString *adId = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];</code></p>
 
 <p>来源：iOS6.0及以后</p>
 
