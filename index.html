@@ -9,8 +9,7 @@
   <meta name="author" content="蒲晓涛">
 
   
-  <meta name="description" content="找到这个目录,然后双击截图插件ScreenCapture 注:路径 /Applications/QQ.app/Contents/Library/LoginItems/ScreenCapture 这样就可以使用截图了
-">
+  <meta name="description" content="Dealloc 让我们看看这些错误，然后一个一个的修复他们。 我们从 dealloc 开始： dealloc 中的每一行都会有一个错误。 我们不再被允许调用 [release] 了， 也不允许调用 [super dealloc]。 因为我们在 dealloc 不再做任何操作了， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -69,6 +68,50 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/04/14/ioskai-fa-zhi-arcxia-de-deallocbao-liu-yuan-yin/">IOS开发之 &#8212;- ARC下的dealloc保留原因</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-04-14T19:41:42+08:00" pubdate data-updated="true">Apr 14<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>Dealloc</h2>
+
+<p>让我们看看这些错误，然后一个一个的修复他们。 我们从 dealloc 开始：<br/>
+<img src="/images/0024NRrygy6I1EZW5ywb0&690.png"></p>
+
+<p>dealloc 中的每一行都会有一个错误。 我们不再被允许调用 [release] 了， 也不允许调用 [super dealloc]。 因为我们在 dealloc 不再做任何操作了， 所以我们可以直接把这个方法删除掉。
+唯一一个留着 dealloc 方法的原因就是， 你需要释放一些不在 ARC 控制下的资源。 例如 Core Foundation 对象中调用 CFRelease()， 对那些通过 malloc() 分配的内存调用 free(), 注销通知，停止 Tiner， 等等。
+如果你是一个对象的代理的话，有时必须显式的断开和它的连接，但通常这都是自动的。 大部分情况下，代理都是弱引用(我们马上会介绍到)， 当一个即将被释放的对象是其他对象的代理的话， 当这个对象被销毁时，代理指针将会被自动设置为 nil。 弱指针在这之后会被自动清楚。
+另外， 在你的 dealloc 方法中， 你仍然可以使用实例变量， 因为他们在这时候还没被释放掉。 在 dealloc 返回之前，都不会被释放。</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -251,6 +294,10 @@ CFUUID、NSUUID等自己生成，自己存储管理的就不细说啦。</p>
     <section>
   <h1>最新帖子</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/04/14/ioskai-fa-zhi-arcxia-de-deallocbao-liu-yuan-yin/">IOS开发之 &#8212;- ARC下的dealloc保留原因</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/04/14/macosxzhi-qqjie-tu-ou-er-bu-neng-shi-yong-wen-ti/">MacOSX之 &#8212;- QQ截图偶尔不能使用问题</a>
