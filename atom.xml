@@ -4,7 +4,7 @@
   <title><![CDATA[XCode Dev  Gary]]></title>
   <link href="http://p709723778.github.io/atom.xml" rel="self"/>
   <link href="http://p709723778.github.io/"/>
-  <updated>2014-04-14T01:49:28+08:00</updated>
+  <updated>2014-04-14T19:39:03+08:00</updated>
   <id>http://p709723778.github.io/</id>
   <author>
     <name><![CDATA[蒲晓涛]]></name>
@@ -12,6 +12,22 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[MacOSX之 ---- QQ截图偶尔不能使用问题]]></title>
+    <link href="http://p709723778.github.io/blog/2014/04/14/macosxzhi-qqjie-tu-ou-er-bu-neng-shi-yong-wen-ti/"/>
+    <updated>2014-04-14T19:35:50+08:00</updated>
+    <id>http://p709723778.github.io/blog/2014/04/14/macosxzhi-qqjie-tu-ou-er-bu-neng-shi-yong-wen-ti</id>
+    <content type="html"><![CDATA[<p>找到这个目录,然后双击截图插件ScreenCapture
+<img src="http://p709723778.github.io/images/QQCutImage.jpeg"></p>
+
+<h4>注:路径</h4>
+
+<p>/Applications/QQ.app/Contents/Library/LoginItems/ScreenCapture</p>
+
+<p>这样就可以使用截图了</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[博客迁移]]></title>
