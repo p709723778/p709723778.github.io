@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="baidu-site-verification" content="7cj80g9SOU" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+     Soto
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+  
+  
+
+  
+
+<link rel="alternate" href="/atom.xml" title="Soto" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
+    <main class="content on">
+      
+<section class="cover">
+    
+      
+      <a class="forkMe" href="https://github.com/p709723778"
+        target="_blank"><img width="149" height="149" src="/images/forkme.png"
+          class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
+    
+  <div class="cover-frame">
+    <div class="bg-box">
+      <img src="/images/cover1.jpg" alt="image frame" />
+    </div>
+    <div class="cover-inner text-center text-white">
+      <h1><a href="/">Soto</a></h1>
+      <div id="subtitle-box">
+        
+        <span id="subtitle"></span>
+        
+      </div>
+      <div>
+        
+      </div>
+    </div>
+  </div>
+  <div class="cover-learn-more">
+    <a href="javascript:void(0)" class="anchor"><i class="ri-arrow-down-line"></i></a>
+  </div>
+</section>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js"></script>
+
+
+<!-- Subtitle -->
+
+  <script>
+    try {
+      var typed = new Typed("#subtitle", {
+        strings: ['面朝大海，春暖花开', '愿你一生努力，一生被爱', '想要的都拥有，得不到的都释怀'],
+        startDelay: 0,
+        typeSpeed: 200,
+        loop: true,
+        backSpeed: 100,
+        showCursor: true
+      });
+    } catch (err) {
+      console.log(err)
+    }
+  </script>
+  
+<div id="main">
+  <section class="outer">
+  
+  
+  
+
+<div class="notice" style="margin-top:50px">
+    <i class="ri-heart-fill"></i>
+    <div class="notice-content" id="broad"></div>
+</div>
+<script type="text/javascript">
+    fetch('https://v1.hitokoto.cn')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("broad").innerHTML = data.hitokoto;
+        })
+        .catch(console.error)
+</script>
+
+<style>
+    .notice {
+        padding: 20px;
+        border: 1px dashed #e6e6e6;
+        color: #969696;
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        background: #fbfbfb50;
+        border-radius: 10px;
+    }
+
+    .notice i {
+        float: left;
+        color: #999;
+        font-size: 16px;
+        padding-right: 10px;
+        vertical-align: middle;
+        margin-top: -2px;
+    }
+
+    .notice-content {
+        display: initial;
+        vertical-align: middle;
+    }
+</style>
+  
+  <article class="articles">
+    
+    
+    
+    
+    <article
+  id="post-Hexo-相关说明"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2015/03/24/Hexo-%E7%9B%B8%E5%85%B3%E8%AF%B4%E6%98%8E/"
+    >Hexo ~ 相关介绍
+  <i class="article-topping">置顶</i>
+</a> 
+</h2>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2015/03/24/Hexo-%E7%9B%B8%E5%85%B3%E8%AF%B4%E6%98%8E/" class="article-date">
+  <time datetime="2015-03-24T21:30:11.000Z" itemprop="datePublished">2015-03-24</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Hexo/">Hexo</a>
+  </div>
+ 
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="Hexo-命令"><a href="#Hexo-命令" class="headerlink" title="Hexo 命令"></a>Hexo 命令</h1><table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="center">命令说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">hexo new “My New Post”</td>
+<td align="center">创建文章</td>
+</tr>
+<tr>
+<td align="left">hexo server</td>
+<td align="center">启动服务</td>
+</tr>
+<tr>
+<td align="left">hexo generate</td>
+<td align="center">生成静态文件</td>
+</tr>
+<tr>
+<td align="left">hexo deploy</td>
+<td align="center">hexo 部署</td>
+</tr>
+<tr>
+<td align="left">hexo clean</td>
+<td align="center">hexo清理编译文件</td>
+</tr>
+<tr>
+<td align="left">hexo new page categories</td>
+<td align="center">创建分类</td>
+</tr>
+<tr>
+<td align="left">hexo new page tags</td>
+<td align="center">创建标签</td>
+</tr>
+<tr>
+<td align="left">hexo new page photos</td>
+<td align="center">创建相册</td>
+</tr>
+</tbody></table> 
+      <a class="article-more-link" href="/2015/03/24/Hexo-%E7%9B%B8%E5%85%B3%E8%AF%B4%E6%98%8E/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
+  id="post-Dart-运算符"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/12/02/Dart-%E8%BF%90%E7%AE%97%E7%AC%A6/"
+    >Dart ~ 运算符</a> 
+</h2>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/12/02/Dart-%E8%BF%90%E7%AE%97%E7%AC%A6/" class="article-date">
+  <time datetime="2020-12-02T20:30:05.000Z" itemprop="datePublished">2020-12-02</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Flutter%E5%BC%80%E5%8F%91/">Flutter开发</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="1-Dart在线编辑器"><a href="#1-Dart在线编辑器" class="headerlink" title="1.Dart在线编辑器"></a>1.Dart在线编辑器</h2><ul>
+<li><a href="https://repl.it/" target="_blank" rel="noopener">Repl</a></li>
+<li><a href="https://dart.dev/tutorials/web/get-started" target="_blank" rel="noopener">Dart官方在线编辑器</a></li>
+</ul>
+<blockquote>
+<p>Dart 运算符和绝大部分编程语言的运算符一样，所以你可以用熟悉的方式去执行程序代码运算。</p>
+</blockquote>
+<h2 id="2-运算符"><a href="#2-运算符" class="headerlink" title="2.运算符"></a>2.运算符</h2><p><strong>?. 运算符</strong></p>
+<p>它的意思是左边如果为空返回 null，否则返回右边的值。</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> main() &#123;</span><br><span class="line">  Animal animal = <span class="keyword">new</span> Animal(<span class="string">'cat'</span>);</span><br><span class="line">  Animal empty = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//animal 非空，返回 animal.name 的值 cat</span></span><br><span class="line">  <span class="built_in">print</span>(animal?.name);</span><br><span class="line">  <span class="comment">//empty 为空，返回 null</span></span><br><span class="line">  <span class="built_in">print</span>(empty?.name);</span><br><span class="line"></span><br><span class="line">  <span class="comment">//animal 非空，可以直接访问 animal.name 的值 cat</span></span><br><span class="line">  <span class="built_in">print</span>(animal.name);</span><br><span class="line">  <span class="comment">//empty 为空，抛出异常</span></span><br><span class="line">  <span class="built_in">print</span>(empty.name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">  <span class="keyword">final</span> <span class="built_in">String</span> name;</span><br><span class="line">  Animal(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>?? 运算符</strong></p>
+<p>如果 a 不为 null，返回 a 的值，否则返回 b。在 Java 或者 C++ 中，我们需要通过三元表达式 (a != null)? a : b 来实现这种情况。而在 Dart 中，这类代码可以简化为 a ?? b。</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> main() &#123;</span><br><span class="line">  C c = <span class="keyword">new</span> C(<span class="string">'Case 1'</span>);</span><br><span class="line">  B b = <span class="keyword">new</span> B(c);</span><br><span class="line">  A a = <span class="keyword">new</span> A(b);</span><br><span class="line"></span><br><span class="line"><span class="comment">//   C c = new C(null);</span></span><br><span class="line"><span class="comment">//   B b = new B(c);</span></span><br><span class="line"><span class="comment">//   A a = new A(b);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//   C c = new C('Case 2');</span></span><br><span class="line"><span class="comment">//   B b = null;</span></span><br><span class="line"><span class="comment">//   A a = new A(b);</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//直接使用.来最终获取 c 的变量 value</span></span><br><span class="line">  <span class="keyword">if</span> (a != <span class="keyword">null</span> &amp;&amp; a.bMember != <span class="keyword">null</span> &amp;&amp; a.bMember.cMember != <span class="keyword">null</span>) &#123;</span><br><span class="line">    <span class="built_in">print</span>(a.bMember.cMember.value);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="keyword">null</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//直接使用.来最终获取 c 的变量 value，为空时返回 unknown</span></span><br><span class="line">  <span class="keyword">if</span> (a != <span class="keyword">null</span> &amp;&amp; a.bMember != <span class="keyword">null</span> &amp;&amp; a.bMember.cMember != <span class="keyword">null</span>) &#123;</span><br><span class="line">    <span class="built_in">String</span> value = a.bMember.cMember.value;</span><br><span class="line">    <span class="keyword">if</span> (value == <span class="keyword">null</span>) &#123;</span><br><span class="line">      value = <span class="string">'unknown'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">print</span>(value);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'unknown'</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//dart 使用?.来最终获取 c 的变量 value</span></span><br><span class="line">  <span class="built_in">print</span>(a?.bMember?.cMember?.value);</span><br><span class="line">  <span class="comment">//dart 使用?.来最终获取 c 的变量 value，为空时使用 ?? 返回 unknown</span></span><br><span class="line">  <span class="built_in">print</span>(a?.bMember?.cMember?.value??<span class="string">'unknown'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">  <span class="keyword">final</span> B bMember;</span><br><span class="line">  A(<span class="keyword">this</span>.bMember);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> </span>&#123;</span><br><span class="line">  <span class="keyword">final</span> C cMember;</span><br><span class="line">  B(<span class="keyword">this</span>.cMember);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> </span>&#123;</span><br><span class="line">  <span class="keyword">final</span> <span class="built_in">String</span> value;</span><br><span class="line">  C(<span class="keyword">this</span>.value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>??= 运算符</strong></p>
+<p>这种用默认值兜底的赋值语句在 Dart 中我们可以用 a ??= value 表示。如果 a 为 null，则给 a 赋值 value，否则跳过。</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> main() &#123;</span><br><span class="line">  Animal animal = <span class="keyword">new</span> Animal(<span class="string">'cat'</span>);</span><br><span class="line">  Animal empty = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">print</span>(empty?.name);</span><br><span class="line">  <span class="comment">//empty 为空，则给empty赋值为animal</span></span><br><span class="line">  empty ??= animal;</span><br><span class="line">  <span class="built_in">print</span>(empty.name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">  <span class="keyword">final</span> <span class="built_in">String</span> name;</span><br><span class="line">  Animal(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>? : 运算符 (三目运算)</p>
+<p>bool-expr ? value1 : value2;<br>如果 bool-expr 为 true 就返回 value1, 如果 bool-expr 为 false 就返回 value2</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> main() &#123;</span><br><span class="line">  <span class="built_in">bool</span> isOpen = <span class="keyword">false</span>;</span><br><span class="line">	<span class="keyword">var</span> value1 = <span class="string">"开"</span>;</span><br><span class="line">	<span class="keyword">var</span> value2 = <span class="string">"关"</span>;</span><br><span class="line">  <span class="built_in">print</span>(isOpen ? value1 : value2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dart/" rel="tag">Dart</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
+  id="post-iOS开发之-iOS14-广告标识IDFA"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/07/23/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-iOS14-%E5%B9%BF%E5%91%8A%E6%A0%87%E8%AF%86IDFA/"
+    >iOS开发之 ~ iOS14 广告标识IDFA</a> 
+</h2>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/07/23/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-iOS14-%E5%B9%BF%E5%91%8A%E6%A0%87%E8%AF%86IDFA/" class="article-date">
+  <time datetime="2020-07-23T16:53:32.000Z" itemprop="datePublished">2020-07-23</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/iOS%E5%BC%80%E5%8F%91/">iOS开发</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <blockquote>
+<p>用手机自带Safari 打开 <a href="/download/iOS_14_DP_Beta_Profile.mobileconfig">iOS14_Beta_Profile</a> 可以进行下载描述文件安装体验iOS14系统</p>
+</blockquote>
+<h4 id="适配方案"><a href="#适配方案" class="headerlink" title="适配方案:"></a>适配方案:</h4><p>1.需要在info.plist 中添加 <code>NSUserTrackingUsageDescription</code> 对应的描述文案</p>
+<p>2.iOS14下新增了IDFA 权限申请 API 添加申请权限的代码,代码如下:</p>
+<p>​    首先要导入系统框架</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@import</span> AdSupport;</span><br><span class="line"><span class="keyword">@import</span> AppTrackingTransparency;</span><br></pre></td></tr></table></figure>
+
+<p>​    适配代码</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="built_in">NSString</span> *)idfa</span><br><span class="line">&#123;</span><br><span class="line">    __block <span class="built_in">NSString</span> *advertisingId = <span class="string">@""</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (@available(iOS <span class="number">14</span>, *)) &#123;</span><br><span class="line">        <span class="keyword">if</span> (ATTrackingManager.trackingAuthorizationStatus != ATTrackingManagerAuthorizationStatusAuthorized) &#123;</span><br><span class="line">            [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) &#123;</span><br><span class="line">                <span class="keyword">if</span> (status == ATTrackingManagerAuthorizationStatusAuthorized) &#123;</span><br><span class="line">                    <span class="built_in">NSLog</span>(<span class="string">@"用户选择了同意授权IDFA权限 %@"</span>, advertisingId);</span><br><span class="line">                    advertisingId = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="built_in">NSLog</span>(<span class="string">@"用户选择了拒绝授权IDFA权限"</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            advertisingId = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// ios14以下</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> ([[ASIdentifierManager sharedManager] isAdvertisingTrackingEnabled]) &#123;</span><br><span class="line">            advertisingId = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"请在设置 -&gt; 隐私 -&gt; 广告 -&gt; 限制广告跟踪打开广告跟踪功能"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> advertisingId;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 
+      <a class="article-more-link" href="/2020/07/23/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-iOS14-%E5%B9%BF%E5%91%8A%E6%A0%87%E8%AF%86IDFA/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IDFA/" rel="tag">IDFA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
+  id="post-iOS开发之-dSYM-文件结构"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/04/17/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-dSYM-%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/"
+    >iOS开发之 ~ dSYM 文件结构</a> 
+</h2>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/04/17/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-dSYM-%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/" class="article-date">
+  <time datetime="2020-04-17T19:26:01.000Z" itemprop="datePublished">2020-04-17</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/iOS%E5%BC%80%E5%8F%91/">iOS开发</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="1-获取Crash文件"><a href="#1-获取Crash文件" class="headerlink" title="1. 获取Crash文件"></a>1. 获取Crash文件</h2><ul>
+<li><p>iPhone设备上获取: 设置 -&gt; 隐私 -&gt; 分析与改进 -&gt; 分析数据 -&gt; 找到对应应用的.ips文件(获取到的 .ips 改后缀为 .crash 即可)</p>
+</li>
+<li><p>Xcode 上查看: Xcode -&gt; Window -&gt; Devices and Simulators -&gt; 选中Crash的设备 -&gt; View Device Logs -&gt; This Device -&gt; 找到对应的进程crash文件 -&gt; 右键Export Log -&gt; 保存到需要保存的位置</p>
+</li>
+</ul> 
+      <a class="article-more-link" href="/2020/04/17/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-dSYM-%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Crash/" rel="tag">Crash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dSYM/" rel="tag">dSYM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
+  id="post-App-Store-Connect-Operation-Error-集合"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/12/24/App-Store-Connect-Operation-Error-%E9%9B%86%E5%90%88/"
+    >iOS开发之 ~ App Store Connect Operation Error 集合</a> 
+</h2>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2019/12/24/App-Store-Connect-Operation-Error-%E9%9B%86%E5%90%88/" class="article-date">
+  <time datetime="2019-12-24T19:10:52.000Z" itemprop="datePublished">2019-12-24</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/iOS%E5%BC%80%E5%8F%91/">iOS开发</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h3 id="一-、常用的上传工具"><a href="#一-、常用的上传工具" class="headerlink" title="一 、常用的上传工具"></a>一 、常用的上传工具</h3><h6 id="1-Transporter-GUI工具-推荐"><a href="#1-Transporter-GUI工具-推荐" class="headerlink" title="1. Transporter GUI工具 推荐"></a>1. Transporter GUI工具 推荐</h6><p>使用说明: <a href="https://help.apple.com/itc/transporter/" target="_blank" rel="noopener">https://help.apple.com/itc/transporter/</a></p>
+<h6 id="2-iTMSTransporter-macOS-Windows-Linux都有提供-推荐"><a href="#2-iTMSTransporter-macOS-Windows-Linux都有提供-推荐" class="headerlink" title="2. iTMSTransporter (macOS / Windows / Linux都有提供) 推荐"></a>2. iTMSTransporter (macOS / Windows / Linux都有提供) 推荐</h6><p>使用说明: <a href="https://help.apple.com/itc/transporteruserguide/" target="_blank" rel="noopener">https://help.apple.com/itc/transporteruserguide/</a></p>
+<h6 id="3-Application-Loader-集成在Xcode内部，但是该工具已经被苹果弱化-不推荐"><a href="#3-Application-Loader-集成在Xcode内部，但是该工具已经被苹果弱化-不推荐" class="headerlink" title="3. Application Loader (集成在Xcode内部，但是该工具已经被苹果弱化) ~   不推荐"></a>3. <del>Application Loader (集成在Xcode内部，但是该工具已经被苹果弱化) ~</del>   不推荐</h6><p>使用说明: <a href="https://help.apple.com/itc/apploader/" target="_blank" rel="noopener">https://help.apple.com/itc/apploader/</a></p>
+<br/> 
+      <a class="article-more-link" href="/2019/12/24/App-Store-Connect-Operation-Error-%E9%9B%86%E5%90%88/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
+  id="post-iOS开发之-NSUUID-CFUUID-唯一标识符"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/07/02/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-NSUUID-CFUUID-%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6/"
+    >iOS开发之 ~ NSUUID , CFUUID 唯一标识符</a> 
+</h2>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2019/07/02/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-NSUUID-CFUUID-%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6/" class="article-date">
+  <time datetime="2019-07-02T15:50:09.000Z" itemprop="datePublished">2019-07-02</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/iOS%E5%BC%80%E5%8F%91/">iOS开发</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h3 id="CFUUID"><a href="#CFUUID" class="headerlink" title="CFUUID"></a>CFUUID</h3><p>从iOS2.0开始，<code>CFUUID</code>就已经出现了。它是<strong>CoreFoundatio</strong>包的一部分，因此API属于C语言风格。CFUUIDCreate 方法用来创建CFUUIDRef，并且可以获得一个相应的NSString字符串</p>
+<p>如下代码：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CFUUIDRef</span> cfuuid = <span class="built_in">CFUUIDCreate</span>(kCFAllocatorDefault);</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSString</span> *cfuuidString = (<span class="built_in">NSString</span> </span><br><span class="line">*)<span class="built_in">CFBridgingRelease</span>(<span class="built_in">CFUUIDCreateString</span>(kCFAllocatorDefault, cfuuid));</span><br><span class="line"></span><br><span class="line"><span class="built_in">CFRelease</span>(cfuuid);</span><br></pre></td></tr></table></figure>
+
+<p>获得的这个CFUUID值系统并没有存储。每次调用CFUUIDCreate，系统都会返回一个新的唯一标示符。</p> 
+      <a class="article-more-link" href="/2019/07/02/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-NSUUID-CFUUID-%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UUID/" rel="tag">UUID</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
+  id="post-iOS开发之-IDFA唯一标识符-二"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/07/01/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-IDFA%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6-%E4%BA%8C/"
+    >iOS开发之 ~ IDFA唯一标识符 (二)</a> 
+</h2>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2019/07/01/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-IDFA%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6-%E4%BA%8C/" class="article-date">
+  <time datetime="2019-07-01T15:45:02.000Z" itemprop="datePublished">2019-07-01</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/iOS%E5%BC%80%E5%8F%91/">iOS开发</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>在此浅谈一下App再提交AppStore的时候,需要选择你的应用是否用到了IDFA,用到IDFA的场景是哪一种?下面来描述一下.此文也有参考别人的博客!</p>
+<img src="/2019/07/01/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-IDFA%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6-%E4%BA%8C/%E6%88%AA%E5%9B%BE1.png" class="" title="预览效果">
+
+<p>以上4项代表的含义：</p>
+<h3 id="1-在-App-内投放广告"><a href="#1-在-App-内投放广告" class="headerlink" title="1. 在 App 内投放广告"></a>1. 在 App 内投放广告</h3><blockquote>
+<p>服务应用中的广告。如果你的应用中集成了广告的时候，你需要勾选这一项。</p>
+</blockquote> 
+      <a class="article-more-link" href="/2019/07/01/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-IDFA%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6-%E4%BA%8C/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IDFA/" rel="tag">IDFA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
+  id="post-iOS开发之-IDFA唯一标识符-一"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/06/24/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-IDFA%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6-%E4%B8%80/"
+    >iOS开发之 ~ IDFA唯一标识符 (一)</a> 
+</h2>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2019/06/24/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-IDFA%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6-%E4%B8%80/" class="article-date">
+  <time datetime="2019-06-24T20:50:14.000Z" itemprop="datePublished">2019-06-24</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/iOS%E5%BC%80%E5%8F%91/">iOS开发</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>通过网上查资料看,我发现有一部分人使用IDFA用来做设备唯一标识,我个人觉的不是很好!有很大的缺陷,为什么呢?下面来详细解说</p>
+<p>要使用IDFA首先要导入系统库 <code>@import AdSupport;</code></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">NSUUID</span> *advertisingIdentifier;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>IDFA是每个设备特有的字母数字串，仅用于服务广告。(官方解释)<br><br>可以理解为广告标识符，在同一个设备上的所有App都会取到相同的值，是苹果专门给各广告提供商用来追踪用户而设的。广告标示符是由系统存储着的。<br>适用于对外：例如广告推广，换量等跨应用的用户追踪等。</p>
+</blockquote> 
+      <a class="article-more-link" href="/2019/06/24/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-IDFA%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6-%E4%B8%80/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IDFA/" rel="tag">IDFA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
+  id="post-如何在Mac上搭建Web服务器-Apache"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/06/21/%E5%A6%82%E4%BD%95%E5%9C%A8Mac%E4%B8%8A%E6%90%AD%E5%BB%BAWeb%E6%9C%8D%E5%8A%A1%E5%99%A8-Apache/"
+    >Mac ~ 如何在Mac上搭建Web服务器(Apache)</a> 
+</h2>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2019/06/21/%E5%A6%82%E4%BD%95%E5%9C%A8Mac%E4%B8%8A%E6%90%AD%E5%BB%BAWeb%E6%9C%8D%E5%8A%A1%E5%99%A8-Apache/" class="article-date">
+  <time datetime="2019-06-21T19:51:26.000Z" itemprop="datePublished">2019-06-21</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Mac/">Mac</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>局域网搭建 Web 服务器测试环境,因为Mac OS X 自带了 Apache 和 PHP 环境，我们只需要简单的启动它就行了。惊不惊喜,意不意外!😄</p>
+<h1 id="1-相关命令"><a href="#1-相关命令" class="headerlink" title="1.相关命令"></a>1.相关命令</h1><p>a.启动 Apache 命令 :   <code>sudo apachectl start</code><br>b.停止 Apache 命令 :   <code>sudo apachectl stop</code><br>c.重启 Apache 命令 :   <code>sudo apachectl restart</code></p> 
+      <a class="article-more-link" href="/2019/06/21/%E5%A6%82%E4%BD%95%E5%9C%A8Mac%E4%B8%8A%E6%90%AD%E5%BB%BAWeb%E6%9C%8D%E5%8A%A1%E5%99%A8-Apache/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web%E6%9C%8D%E5%8A%A1/" rel="tag">web服务</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
+  id="post-Mac-如何解决-app已损坏，打不开。你应该将它移到废纸篓"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2017/12/11/Mac-%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3-app%E5%B7%B2%E6%8D%9F%E5%9D%8F%EF%BC%8C%E6%89%93%E4%B8%8D%E5%BC%80%E3%80%82%E4%BD%A0%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93/"
+    >Mac ~ 如何解决 app已损坏，打不开。你应该将它移到废纸篓</a> 
+</h2>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2017/12/11/Mac-%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3-app%E5%B7%B2%E6%8D%9F%E5%9D%8F%EF%BC%8C%E6%89%93%E4%B8%8D%E5%BC%80%E3%80%82%E4%BD%A0%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93/" class="article-date">
+  <time datetime="2017-12-11T16:40:20.000Z" itemprop="datePublished">2017-12-11</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Mac/">Mac</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <blockquote>
+<p>如遇：「xxx.app已损坏,打不开.你应该将它移到废纸篓」，并非你安装的软件已损坏，而是Mac系统的安全设置问题，因为这些应用都是破解或者汉化的,那么解决方法就是临时改变Mac系统安全设置。</p>
+<p>出现这个问题的解决方法：</p>
+<p>修改系统配置：系统偏好设置 -&gt; 安全性与隐私。修改为任何来源</p>
+</blockquote>
+<p>如果没有这个选项的话,打开终端，执行以下对应命令</p> 
+      <a class="article-more-link" href="/2017/12/11/Mac-%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3-app%E5%B7%B2%E6%8D%9F%E5%9D%8F%EF%BC%8C%E6%89%93%E4%B8%8D%E5%BC%80%E3%80%82%E4%BD%A0%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/" rel="tag">Mac</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+  </article>
+  
+
+  
+  <nav class="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+  </nav>
+  
+</section>
+</div>
+
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2012-2021
+        <i class="ri-heart-fill heart_icon"></i> Soto Pu
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        由 <a href="https://hexo.io" target="_blank">Hexo</a> 强力驱动
+        <span class="division">|</span>
+        主题 - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+         <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+        <!-- <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script> -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="Soto"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/photos">摄影</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2015/03/24/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+
+<script src="/js/clickBoom2.js"></script>
+
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,1245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Dart ~ 运算符</title>
+    <url>/2020/12/02/Dart-%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
+    <content><![CDATA[<h2 id="1-Dart在线编辑器"><a href="#1-Dart在线编辑器" class="headerlink" title="1.Dart在线编辑器"></a>1.Dart在线编辑器</h2><ul>
+<li><a href="https://repl.it/" target="_blank" rel="noopener">Repl</a></li>
+<li><a href="https://dart.dev/tutorials/web/get-started" target="_blank" rel="noopener">Dart官方在线编辑器</a></li>
+</ul>
+<blockquote>
+<p>Dart 运算符和绝大部分编程语言的运算符一样，所以你可以用熟悉的方式去执行程序代码运算。</p>
+</blockquote>
+<h2 id="2-运算符"><a href="#2-运算符" class="headerlink" title="2.运算符"></a>2.运算符</h2><p><strong>?. 运算符</strong></p>
+<p>它的意思是左边如果为空返回 null，否则返回右边的值。</p>
+<figure class="highlight dart"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> main() &#123;</span><br><span class="line">  Animal animal = <span class="keyword">new</span> Animal(<span class="string">'cat'</span>);</span><br><span class="line">  Animal empty = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//animal 非空，返回 animal.name 的值 cat</span></span><br><span class="line">  <span class="built_in">print</span>(animal?.name);</span><br><span class="line">  <span class="comment">//empty 为空，返回 null</span></span><br><span class="line">  <span class="built_in">print</span>(empty?.name);</span><br><span class="line"></span><br><span class="line">  <span class="comment">//animal 非空，可以直接访问 animal.name 的值 cat</span></span><br><span class="line">  <span class="built_in">print</span>(animal.name);</span><br><span class="line">  <span class="comment">//empty 为空，抛出异常</span></span><br><span class="line">  <span class="built_in">print</span>(empty.name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">  <span class="keyword">final</span> <span class="built_in">String</span> name;</span><br><span class="line">  Animal(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>?? 运算符</strong></p>
+<p>如果 a 不为 null，返回 a 的值，否则返回 b。在 Java 或者 C++ 中，我们需要通过三元表达式 (a != null)? a : b 来实现这种情况。而在 Dart 中，这类代码可以简化为 a ?? b。</p>
+<figure class="highlight dart"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> main() &#123;</span><br><span class="line">  C c = <span class="keyword">new</span> C(<span class="string">'Case 1'</span>);</span><br><span class="line">  B b = <span class="keyword">new</span> B(c);</span><br><span class="line">  A a = <span class="keyword">new</span> A(b);</span><br><span class="line"></span><br><span class="line"><span class="comment">//   C c = new C(null);</span></span><br><span class="line"><span class="comment">//   B b = new B(c);</span></span><br><span class="line"><span class="comment">//   A a = new A(b);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//   C c = new C('Case 2');</span></span><br><span class="line"><span class="comment">//   B b = null;</span></span><br><span class="line"><span class="comment">//   A a = new A(b);</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//直接使用.来最终获取 c 的变量 value</span></span><br><span class="line">  <span class="keyword">if</span> (a != <span class="keyword">null</span> &amp;&amp; a.bMember != <span class="keyword">null</span> &amp;&amp; a.bMember.cMember != <span class="keyword">null</span>) &#123;</span><br><span class="line">    <span class="built_in">print</span>(a.bMember.cMember.value);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="keyword">null</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//直接使用.来最终获取 c 的变量 value，为空时返回 unknown</span></span><br><span class="line">  <span class="keyword">if</span> (a != <span class="keyword">null</span> &amp;&amp; a.bMember != <span class="keyword">null</span> &amp;&amp; a.bMember.cMember != <span class="keyword">null</span>) &#123;</span><br><span class="line">    <span class="built_in">String</span> value = a.bMember.cMember.value;</span><br><span class="line">    <span class="keyword">if</span> (value == <span class="keyword">null</span>) &#123;</span><br><span class="line">      value = <span class="string">'unknown'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">print</span>(value);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'unknown'</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//dart 使用?.来最终获取 c 的变量 value</span></span><br><span class="line">  <span class="built_in">print</span>(a?.bMember?.cMember?.value);</span><br><span class="line">  <span class="comment">//dart 使用?.来最终获取 c 的变量 value，为空时使用 ?? 返回 unknown</span></span><br><span class="line">  <span class="built_in">print</span>(a?.bMember?.cMember?.value??<span class="string">'unknown'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">  <span class="keyword">final</span> B bMember;</span><br><span class="line">  A(<span class="keyword">this</span>.bMember);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> </span>&#123;</span><br><span class="line">  <span class="keyword">final</span> C cMember;</span><br><span class="line">  B(<span class="keyword">this</span>.cMember);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> </span>&#123;</span><br><span class="line">  <span class="keyword">final</span> <span class="built_in">String</span> value;</span><br><span class="line">  C(<span class="keyword">this</span>.value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>??= 运算符</strong></p>
+<p>这种用默认值兜底的赋值语句在 Dart 中我们可以用 a ??= value 表示。如果 a 为 null，则给 a 赋值 value，否则跳过。</p>
+<figure class="highlight dart"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> main() &#123;</span><br><span class="line">  Animal animal = <span class="keyword">new</span> Animal(<span class="string">'cat'</span>);</span><br><span class="line">  Animal empty = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">print</span>(empty?.name);</span><br><span class="line">  <span class="comment">//empty 为空，则给empty赋值为animal</span></span><br><span class="line">  empty ??= animal;</span><br><span class="line">  <span class="built_in">print</span>(empty.name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">  <span class="keyword">final</span> <span class="built_in">String</span> name;</span><br><span class="line">  Animal(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>? : 运算符 (三目运算)</p>
+<p>bool-expr ? value1 : value2;<br>如果 bool-expr 为 true 就返回 value1, 如果 bool-expr 为 false 就返回 value2</p>
+<figure class="highlight dart"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> main() &#123;</span><br><span class="line">  <span class="built_in">bool</span> isOpen = <span class="keyword">false</span>;</span><br><span class="line">	<span class="keyword">var</span> value1 = <span class="string">"开"</span>;</span><br><span class="line">	<span class="keyword">var</span> value2 = <span class="string">"关"</span>;</span><br><span class="line">  <span class="built_in">print</span>(isOpen ? value1 : value2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Flutter开发</category>
+      </categories>
+      <tags>
+        <tag>Dart</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>iOS开发之 ~ iOS14 广告标识IDFA</title>
+    <url>/2020/07/23/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-iOS14-%E5%B9%BF%E5%91%8A%E6%A0%87%E8%AF%86IDFA/</url>
+    <content><![CDATA[<blockquote>
+<p>用手机自带Safari 打开 <a href="/download/iOS_14_DP_Beta_Profile.mobileconfig">iOS14_Beta_Profile</a> 可以进行下载描述文件安装体验iOS14系统</p>
+</blockquote>
+<h4 id="适配方案"><a href="#适配方案" class="headerlink" title="适配方案:"></a>适配方案:</h4><p>1.需要在info.plist 中添加 <code>NSUserTrackingUsageDescription</code> 对应的描述文案</p>
+<p>2.iOS14下新增了IDFA 权限申请 API 添加申请权限的代码,代码如下:</p>
+<p>​    首先要导入系统框架</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@import</span> AdSupport;</span><br><span class="line"><span class="keyword">@import</span> AppTrackingTransparency;</span><br></pre></td></tr></table></figure>
+
+<p>​    适配代码</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">+ (<span class="built_in">NSString</span> *)idfa</span><br><span class="line">&#123;</span><br><span class="line">    __block <span class="built_in">NSString</span> *advertisingId = <span class="string">@""</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (@available(iOS <span class="number">14</span>, *)) &#123;</span><br><span class="line">        <span class="keyword">if</span> (ATTrackingManager.trackingAuthorizationStatus != ATTrackingManagerAuthorizationStatusAuthorized) &#123;</span><br><span class="line">            [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) &#123;</span><br><span class="line">                <span class="keyword">if</span> (status == ATTrackingManagerAuthorizationStatusAuthorized) &#123;</span><br><span class="line">                    <span class="built_in">NSLog</span>(<span class="string">@"用户选择了同意授权IDFA权限 %@"</span>, advertisingId);</span><br><span class="line">                    advertisingId = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="built_in">NSLog</span>(<span class="string">@"用户选择了拒绝授权IDFA权限"</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            advertisingId = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// ios14以下</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> ([[ASIdentifierManager sharedManager] isAdvertisingTrackingEnabled]) &#123;</span><br><span class="line">            advertisingId = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"请在设置 -&gt; 隐私 -&gt; 广告 -&gt; 限制广告跟踪打开广告跟踪功能"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> advertisingId;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<ul>
+<li><p>查看IDFA的授权状态</p>
+<p> 通过 <code>trackingAuthorizationStatus</code> 属性获取授权状态</p>
+</li>
+<li><p>获取IDFA权限</p>
+<p> 通过 <code>+ (void)requestTrackingAuthorizationWithCompletionHandler:(void(^)(ATTrackingManagerAuthorizationStatus status))completion;</code> 函数获取IDFA值</p>
+</li>
+</ul>
+<h4 id="IDFA授权提示框"><a href="#IDFA授权提示框" class="headerlink" title="IDFA授权提示框"></a>IDFA授权提示框</h4><img src="/2020/07/23/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-iOS14-%E5%B9%BF%E5%91%8A%E6%A0%87%E8%AF%86IDFA/1.png" class="" title="预览效果">
+
+
+
+<h4 id="如何找IDFA授权开关"><a href="#如何找IDFA授权开关" class="headerlink" title="如何找IDFA授权开关"></a>如何找IDFA授权开关</h4><p>设置 -&gt; 隐私 - &gt; 跟踪</p>
+<img src="/2020/07/23/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-iOS14-%E5%B9%BF%E5%91%8A%E6%A0%87%E8%AF%86IDFA/2.png" class="" title="预览效果">
+
+
+
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结:"></a>总结:</h4><ol>
+<li><p>线上AppStore没有适配的包安装到 iOS14 系统下是无法获取IDFA的,系统接口默认返回 <code>00000000-0000-0000-0000-000000000000</code>,因为在 iOS14 下IDFA需要单独申请权限, 在xcode12下系统新增了一个系统库 <code>AppTrackingTransparency.framework</code> 来专门管理IDFA权限,此库提供了查看IDFA的授权状态及获取IDFA权限的接口</p>
+</li>
+<li><p>IDFA总开关 关闭再打开时,IDFA的值会发生变化</p>
+</li>
+<li><p>IDFA 应用授权列表里面的所有应用全部关闭再打开时,IDFA的值发生变化</p>
+</li>
+<li><p>IDFA 应用授权列表里面的应用超过两个以上,保证其中有一个应用授权没有关闭时,其他应用授权关闭打开,IDFA的值不会发生变化</p>
+</li>
+<li><p>IDFA 应用授权列表里面只有一个应用时, 单独关闭再打开开关时,IDFA的值发生变化</p>
+</li>
+<li><p>IDFA总开关是关闭状态时,应用不会提示让用户授权IDFA权限</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>iOS开发</category>
+      </categories>
+      <tags>
+        <tag>iOS</tag>
+        <tag>IDFA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>iOS开发之 ~ dSYM 文件结构</title>
+    <url>/2020/04/17/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-dSYM-%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/</url>
+    <content><![CDATA[<h2 id="1-获取Crash文件"><a href="#1-获取Crash文件" class="headerlink" title="1. 获取Crash文件"></a>1. 获取Crash文件</h2><ul>
+<li><p>iPhone设备上获取: 设置 -&gt; 隐私 -&gt; 分析与改进 -&gt; 分析数据 -&gt; 找到对应应用的.ips文件(获取到的 .ips 改后缀为 .crash 即可)</p>
+</li>
+<li><p>Xcode 上查看: Xcode -&gt; Window -&gt; Devices and Simulators -&gt; 选中Crash的设备 -&gt; View Device Logs -&gt; This Device -&gt; 找到对应的进程crash文件 -&gt; 右键Export Log -&gt; 保存到需要保存的位置</p>
+</li>
+</ul>
+<a id="more"></a>
+
+<h2 id="2-获取-dSYM-符号表"><a href="#2-获取-dSYM-符号表" class="headerlink" title="2. 获取 dSYM 符号表"></a>2. 获取 dSYM 符号表</h2><blockquote>
+<p>.dSYM文件是什么?</p>
+<p>简称 : Debugger Symbols</p>
+<p>.dSYM文件是一个符号表文件, 这里面包含了一个16进制的保存函数地址映射信息的中转文件, 所有Debug的symbols都在这个文件中(包括文件名、函数名、行号等).</p>
+</blockquote>
+<br/>
+
+<ul>
+<li><p>通过 Finder 目录查找: Users -&gt; Home -&gt; Library -&gt; Developer -&gt; Xcode/Archives -&gt; 找到对应的.xcarchive -&gt; 右键显示包内容-&gt; dSYMs -&gt; xxxx.app.dSYM</p>
+</li>
+<li><p>Xcode 上查看: Xcode -&gt; Window -&gt; Organizer -&gt; Archives -&gt; 选中你打包的Archive -&gt; 右击Show In Finder -&gt; 目标Archive -&gt; 右键显示包内容-&gt; dSYMs -&gt; xxxx.app.dSYM</p>
+</li>
+</ul>
+<p><del>很久之前iTunes Connect -&gt; 我的App -&gt; 对应App -&gt; 活动 -&gt; 所有构建版本 -&gt; 选择对应构建版本 -&gt; 包含符号</del></p>
+<p><del>包含符号这里之前是可以”下载dSYM”文件,现在苹果不提供下载功能</del></p>
+<h2 id="3-通过Xcode分析Crash原因"><a href="#3-通过Xcode分析Crash原因" class="headerlink" title="3. 通过Xcode分析Crash原因"></a>3. 通过Xcode分析Crash原因</h2><ul>
+<li>Xcode 上查看: Xcode -&gt; Window -&gt; Organizer -&gt; Crashes -&gt; 选择对应版本获取Crash原因线程树(如果需要获取符号化后的,在上传 AppStore 的时候勾选上传symbols)</li>
+</ul>
+<img src="/2020/04/17/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-dSYM-%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/1.png" class="" title="预览效果">
+
+<h2 id="4-dSYM-文件结构"><a href="#4-dSYM-文件结构" class="headerlink" title="4. dSYM 文件结构"></a>4. dSYM 文件结构</h2><table>
+<thead>
+<tr>
+<th align="center">字段</th>
+<th align="left">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Incident Identifier</td>
+<td align="left">报告的唯一标识符，两份报告决不会共享同一个事件标识符。</td>
+</tr>
+<tr>
+<td align="center">CrashReporter Key</td>
+<td align="left">每个设备的匿名标识符，来自同一设备的两个报告将包含相同的值。</td>
+</tr>
+<tr>
+<td align="center">Hardware Model</td>
+<td align="left">设备类型</td>
+</tr>
+<tr>
+<td align="center">Process</td>
+<td align="left">进程名称[进程 id]，进程通常是 app 名字</td>
+</tr>
+<tr>
+<td align="center">Path</td>
+<td align="left">可执行程序的位置</td>
+</tr>
+<tr>
+<td align="center">Identifier</td>
+<td align="left">App包名,例如:com.xxx.appName</td>
+</tr>
+<tr>
+<td align="center">Version</td>
+<td align="left">App版本号</td>
+</tr>
+<tr>
+<td align="center">Code Type</td>
+<td align="left">CPU 架构</td>
+</tr>
+<tr>
+<td align="center">Role</td>
+<td align="left">在发生Crash时进程的的task_role</td>
+</tr>
+<tr>
+<td align="center">Parent Process</td>
+<td align="left">父进程，iOS中App通常都是单进程的，一般父进程都是 launchd</td>
+</tr>
+<tr>
+<td align="center">Date/Time</td>
+<td align="left">Crash发生的时间，可读的字符串</td>
+</tr>
+<tr>
+<td align="center">Launch Time</td>
+<td align="left">程序开始运行时间</td>
+</tr>
+<tr>
+<td align="center">OS Version</td>
+<td align="left">系统版本（build 号）</td>
+</tr>
+<tr>
+<td align="center">Baseband Version</td>
+<td align="left">基带版本</td>
+</tr>
+<tr>
+<td align="center">Report Version</td>
+<td align="left">Crash日志的格式，目前基本上都是104，不同的version里面包含的字段可能有不同</td>
+</tr>
+<tr>
+<td align="center">Exception Type</td>
+<td align="left">异常类型</td>
+</tr>
+<tr>
+<td align="center">Exception Codes</td>
+<td align="left">异常代码,常见代码有以下几种:<br/>1. 0x8badf00d错误码：Watchdog超时，意为“ate bad food”  <br/>2. 0xdeadfa11错误码：系统无法响应时用户强制退出，意为“dead fall”<br/>3. 0xbaaaaaad错误码：用户按住Home键和音量键，获取当前内存状态，不代表崩溃<br/>4. 0xbad22222错误码：当VOIP程序在后台太过频繁的激活时，系统可能会终止此类程序<br/>5. 0xc00010ff错误码：程序执行大量耗费CPU和GPU的运算，导致设备过热，触发系统过热保护被系统终止，意为“cool off”<br/>6. 0xdead10cc错误码：程序退到后台时还占用系统资源，如通讯录被系统终止，意为“dead lock”</td>
+</tr>
+<tr>
+<td align="center">Termination Signal</td>
+<td align="left">终止信号</td>
+</tr>
+<tr>
+<td align="center">Termination Reason</td>
+<td align="left">终止原因</td>
+</tr>
+<tr>
+<td align="center">Terminating Process</td>
+<td align="left">终止进程</td>
+</tr>
+<tr>
+<td align="center">Triggered by Thread</td>
+<td align="left">在某一个线程出了问题导致crash，Thread 0 为主线程、其它的都为子线程</td>
+</tr>
+<tr>
+<td align="center">Binary Images</td>
+<td align="left">二进制映像</td>
+</tr>
+<tr>
+<td align="center">Last Exception Backtrace</td>
+<td align="left">最后异常回溯，一般根据这个代码就能找到crash的具体问题</td>
+</tr>
+</tbody></table>
+<p>Crash分析工具推荐</p>
+<ul>
+<li>SYM</li>
+</ul>
+<p><a href="https://github.com/zqqf16/SYM" target="_blank" rel="noopener">https://github.com/zqqf16/SYM</a></p>
+<ul>
+<li>dSYMTools</li>
+</ul>
+<p><a href="https://github.com/answer-huang/dSYMTools" target="_blank" rel="noopener">https://github.com/answer-huang/dSYMTools</a></p>
+]]></content>
+      <categories>
+        <category>iOS开发</category>
+      </categories>
+      <tags>
+        <tag>iOS</tag>
+        <tag>dSYM</tag>
+        <tag>Crash</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>iOS开发之 ~ App Store Connect Operation Error 集合</title>
+    <url>/2019/12/24/App-Store-Connect-Operation-Error-%E9%9B%86%E5%90%88/</url>
+    <content><![CDATA[<h3 id="一-、常用的上传工具"><a href="#一-、常用的上传工具" class="headerlink" title="一 、常用的上传工具"></a>一 、常用的上传工具</h3><h6 id="1-Transporter-GUI工具-推荐"><a href="#1-Transporter-GUI工具-推荐" class="headerlink" title="1. Transporter GUI工具 推荐"></a>1. Transporter GUI工具 推荐</h6><p>使用说明: <a href="https://help.apple.com/itc/transporter/" target="_blank" rel="noopener">https://help.apple.com/itc/transporter/</a></p>
+<h6 id="2-iTMSTransporter-macOS-Windows-Linux都有提供-推荐"><a href="#2-iTMSTransporter-macOS-Windows-Linux都有提供-推荐" class="headerlink" title="2. iTMSTransporter (macOS / Windows / Linux都有提供) 推荐"></a>2. iTMSTransporter (macOS / Windows / Linux都有提供) 推荐</h6><p>使用说明: <a href="https://help.apple.com/itc/transporteruserguide/" target="_blank" rel="noopener">https://help.apple.com/itc/transporteruserguide/</a></p>
+<h6 id="3-Application-Loader-集成在Xcode内部，但是该工具已经被苹果弱化-不推荐"><a href="#3-Application-Loader-集成在Xcode内部，但是该工具已经被苹果弱化-不推荐" class="headerlink" title="3. Application Loader (集成在Xcode内部，但是该工具已经被苹果弱化) ~   不推荐"></a>3. <del>Application Loader (集成在Xcode内部，但是该工具已经被苹果弱化) ~</del>   不推荐</h6><p>使用说明: <a href="https://help.apple.com/itc/apploader/" target="_blank" rel="noopener">https://help.apple.com/itc/apploader/</a></p>
+<br/>
+
+<a id="more"></a>
+
+<h3 id="二-、上传App-Store-Connect提示的错误以及解决方案"><a href="#二-、上传App-Store-Connect提示的错误以及解决方案" class="headerlink" title="二 、上传App Store Connect提示的错误以及解决方案"></a>二 、上传App Store Connect提示的错误以及解决方案</h3><ul>
+<li><p>ERROR ITMS-90023: </p>
+<p>“Missing required icon file. The bundle does not contain an app icon for iPad of exactly ‘76x76’ pixels, in .png format for iOS versions &gt;= 7.0. To support older operating systems, the icon may be required in the bundle outside of an asset catalog. Make sure the Info.plist file includes appropriate entries referencing the file. See <a href="https://developer.apple.com/documentation/bundleresources/information_property_list/user_interface&quot;" target="_blank" rel="noopener">https://developer.apple.com/documentation/bundleresources/information_property_list/user_interface&quot;</a></p>
+<p><span style="color:green">解决方案:给应用添加指定规格大小的png格式的Icon</span></p>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p>ERROR ITMS-90704: </p>
+<p>“Missing App Icon. An app icon measuring 1024 by 1024 pixels in PNG format must be included in the Asset Catalog of apps built for iOS, iPadOS, or watchOS. Without this icon, apps cannot be submitted for review. For details, see <a href="https://developer.apple.com/ios/human-interface-guidelines/icons-and-images/app-icon/.&quot;" target="_blank" rel="noopener">https://developer.apple.com/ios/human-interface-guidelines/icons-and-images/app-icon/.&quot;</a></p>
+<p><span style="color:green">解决方案:给应用添加1024*1024的png格式的Icon</span></p>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p>ERROR ITMS-90085: </p>
+<p>“No architectures in the binary. Lipo failed to detect any architectures in the bundle executable.”</p>
+<p><span style="color:green">解决方案:安装lipo命令工具或者最新Command LIne Tools</span></p>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p>ERROR ITMS-90535:</p>
+<p>“Unexpected CFBundleExecutable Key. The bundle at <code>&#39;**/*.app/xxxx.bundle&#39;</code> does not contain a bundle executable. If this bundle intentionally does not contain an executable, consider removing the <code>CFBundleExecutable</code> key from its Info.plist and using a CFBundlePackageType of BNDL. If this bundle is part of a third-party framework, consider contacting the developer of the framework for an update to address this issue.”</p>
+<p><span style="color:green">解决方案:找到工程中.bundle对应的plist文件 删除Executable file配置的哪一行，即可</span></p>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p>ITMS-90737: </p>
+<p>“Invalid Document Configuration. Document Based Apps should support either the Document Browser (UISupportsDocumentBrowser = YES) or implement Open In Place (LSSupportsOpeningDocumentsInPlace = YES/NO). Visit <a href="https://developer.apple.com/document-based-apps/" target="_blank" rel="noopener">https://developer.apple.com/document-based-apps/</a> for more information.”</p>
+<p><span style="color:green">解决方案:在工程配置文件info.plist中增加Supports Document Browser字段并设置其值为YES</span></p>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p>ITMS-90809: </p>
+<p>此错误会有两种提示,解决方案都是一样的</p>
+</li>
+</ul>
+<ol>
+<li>Deprecated API Usage - App updates that use UIWebView will no longer be accepted as of December 2020. Instead, use WKWebView for improved security and reliability. Learn more (<a href="https://developer.apple.com/documentation/uikit/uiwebview" target="_blank" rel="noopener">https://developer.apple.com/documentation/uikit/uiwebview</a>).</li>
+</ol>
+<ol start="2">
+<li><p>Deprecated API Usage - New apps that use UIWebView are no longer accepted. Instead, use WKWebView for improved security and reliability. Learn more (<a href="https://developer.apple.com/documentation/uikit/uiwebview" target="_blank" rel="noopener">https://developer.apple.com/documentation/uikit/uiwebview</a>).</p>
+<p><span style="color:green">解决方案:把工程里面的UIWebView 都改为 WKWebView</span></p>
+</li>
+</ol>
+<hr>
+<ul>
+<li><p>ITMS-90737: </p>
+<p>Missing Info.plist value - A value for the Info.plist key ‘CFBundleIconName’ is missing in the bundle ‘com.xxx.xxx’. Apps built with iOS 11 or later SDK must supply app icons in an asset catalog and must also provide a value for this Info.plist key. For more information see <a href="http://help.apple.com/xcode/mac/current/#/dev10510b1f7" target="_blank" rel="noopener">http://help.apple.com/xcode/mac/current/#/dev10510b1f7</a>.</p>
+<p><span style="color:green">解决方案:给应用配置Icon图即可</span></p>
+</li>
+</ul>
+<hr>
+]]></content>
+      <categories>
+        <category>iOS开发</category>
+      </categories>
+      <tags>
+        <tag>iOS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>iOS开发之 ~ NSUUID , CFUUID 唯一标识符</title>
+    <url>/2019/07/02/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-NSUUID-CFUUID-%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6/</url>
+    <content><![CDATA[<h3 id="CFUUID"><a href="#CFUUID" class="headerlink" title="CFUUID"></a>CFUUID</h3><p>从iOS2.0开始，<code>CFUUID</code>就已经出现了。它是<strong>CoreFoundatio</strong>包的一部分，因此API属于C语言风格。CFUUIDCreate 方法用来创建CFUUIDRef，并且可以获得一个相应的NSString字符串</p>
+<p>如下代码：</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="built_in">CFUUIDRef</span> cfuuid = <span class="built_in">CFUUIDCreate</span>(kCFAllocatorDefault);</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSString</span> *cfuuidString = (<span class="built_in">NSString</span> </span><br><span class="line">*)<span class="built_in">CFBridgingRelease</span>(<span class="built_in">CFUUIDCreateString</span>(kCFAllocatorDefault, cfuuid));</span><br><span class="line"></span><br><span class="line"><span class="built_in">CFRelease</span>(cfuuid);</span><br></pre></td></tr></table></figure>
+
+<p>获得的这个CFUUID值系统并没有存储。每次调用CFUUIDCreate，系统都会返回一个新的唯一标示符。</p>
+<a id="more"></a>
+
+<h3 id="NSUUID"><a href="#NSUUID" class="headerlink" title="NSUUID"></a>NSUUID</h3><p><code>NSUUID</code>在iOS 6中才出现，这跟<code>CFUUID</code>几乎完全一样，只不过它是Objective-C接口。+ (id)UUID 是一个类方法，调用该方法可以获得一个UUID。通过下面的代码可以获得一个UUID字符串：</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *uuid = [[<span class="built_in">NSUUID</span> UUID] UUIDString];</span><br></pre></td></tr></table></figure>
+
+<p>跟<code>CFUUID</code>一样，这个值系统也不会存储，每次调用的时候都会获得一个新的唯一标示符。在我读取NSUUID时，注意到获取到的这个值跟CFUUID完全一样（不过也可能不一样）：</p>
+<p>格式示例: <code>973FC752-75EA-4217-BEB3-CF5DD0610FC2</code></p>
+]]></content>
+      <categories>
+        <category>iOS开发</category>
+      </categories>
+      <tags>
+        <tag>UUID</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>iOS开发之 ~ IDFA唯一标识符 (二)</title>
+    <url>/2019/07/01/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-IDFA%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6-%E4%BA%8C/</url>
+    <content><![CDATA[<p>在此浅谈一下App再提交AppStore的时候,需要选择你的应用是否用到了IDFA,用到IDFA的场景是哪一种?下面来描述一下.此文也有参考别人的博客!</p>
+<img src="/2019/07/01/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-IDFA%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6-%E4%BA%8C/%E6%88%AA%E5%9B%BE1.png" class="" title="预览效果">
+
+<p>以上4项代表的含义：</p>
+<h3 id="1-在-App-内投放广告"><a href="#1-在-App-内投放广告" class="headerlink" title="1. 在 App 内投放广告"></a>1. 在 App 内投放广告</h3><blockquote>
+<p>服务应用中的广告。如果你的应用中集成了广告的时候，你需要勾选这一项。</p>
+</blockquote>
+<a id="more"></a>
+
+<h3 id="2-将此-App-安装归因于先前投放的特定广告"><a href="#2-将此-App-安装归因于先前投放的特定广告" class="headerlink" title="2. 将此 App 安装归因于先前投放的特定广告"></a>2. 将此 App 安装归因于先前投放的特定广告</h3><blockquote>
+<p>跟踪广告带来的安装。如果你使用了第三方的工具来跟踪广告带来的激活以及一些其他事件，但是应用里并没有展示广告你需要勾选这一项。</p>
+</blockquote>
+<h3 id="3-将此-App-中发生的操作归因于先前投放的特定广告"><a href="#3-将此-App-中发生的操作归因于先前投放的特定广告" class="headerlink" title="3.将此 App 中发生的操作归因于先前投放的特定广告"></a>3.将此 App 中发生的操作归因于先前投放的特定广告</h3><blockquote>
+<p>跟踪广告带来的用户的后续行为。如果你使用了第三方的工具来跟踪广告带来的激活以及一些其他事件。</p>
+</blockquote>
+<h3 id="4-iOS-中的“限制广告跟踪”设置"><a href="#4-iOS-中的“限制广告跟踪”设置" class="headerlink" title="4. iOS 中的“限制广告跟踪”设置"></a>4. iOS 中的“限制广告跟踪”设置</h3><blockquote>
+<p>对您的应用使用 IDFA 的目的做下确认，只要您获取了 IDFA，那么这一项都是需要勾选的。</p>
+</blockquote>
+<p><strong>提交以供审核时：</strong></p>
+<ul>
+<li>如果您的应用里只是集成了广告，不追踪广告带来的激活行为，那么选择 <code>1 和 4</code>。</li>
+<li>如果您的应用没有广告，而又获取了 IDFA。我们建议选择 <code>2 和 4</code>。</li>
+</ul>
+<p>官方文档:<br><a href="https://developer.apple.com/documentation/adsupport/asidentifiermanager?language=objc" target="_blank" rel="noopener">https://developer.apple.com/documentation/adsupport/asidentifiermanager?language=objc</a></p>
+<h3 id="如何检查项目内部是否使用到了IDFA"><a href="#如何检查项目内部是否使用到了IDFA" class="headerlink" title="如何检查项目内部是否使用到了IDFA?"></a>如何检查项目内部是否使用到了IDFA?</h3><blockquote>
+<ul>
+<li>打开终端cd到要检查的文件的根目录。</li>
+<li>执行下列语句：grep -r advertisingIdentifier .   （别少了最后那个点号）。</li>
+</ul>
+</blockquote>
+]]></content>
+      <categories>
+        <category>iOS开发</category>
+      </categories>
+      <tags>
+        <tag>iOS</tag>
+        <tag>IDFA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>iOS开发之 ~ IDFA唯一标识符 (一)</title>
+    <url>/2019/06/24/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-IDFA%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6-%E4%B8%80/</url>
+    <content><![CDATA[<p>通过网上查资料看,我发现有一部分人使用IDFA用来做设备唯一标识,我个人觉的不是很好!有很大的缺陷,为什么呢?下面来详细解说</p>
+<p>要使用IDFA首先要导入系统库 <code>@import AdSupport;</code></p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">NSUUID</span> *advertisingIdentifier;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>IDFA是每个设备特有的字母数字串，仅用于服务广告。(官方解释)<br><br>可以理解为广告标识符，在同一个设备上的所有App都会取到相同的值，是苹果专门给各广告提供商用来追踪用户而设的。广告标示符是由系统存储着的。<br>适用于对外：例如广告推广，换量等跨应用的用户追踪等。</p>
+</blockquote>
+<a id="more"></a>
+
+<p>此属性与identifierForVendor(IDFV)不同,它在同一个设备上,所有供应商返回的都是同一个值,可能会改变: 例如:手机重置(抹掉所有内容和设置)会导致变化。</p>
+<p>有以下几种情况会导致变化:</p>
+<h4 id="1-设置-gt-通用-gt-还原-gt-抹掉所有内容和设置"><a href="#1-设置-gt-通用-gt-还原-gt-抹掉所有内容和设置" class="headerlink" title="1.设置 -&gt; 通用 -&gt; 还原 -&gt; 抹掉所有内容和设置"></a>1.设置 -&gt; 通用 -&gt; 还原 -&gt; 抹掉所有内容和设置</h4><img src="/2019/06/24/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-IDFA%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6-%E4%B8%80/%E6%88%AA%E5%9B%BE1.png" class="" title="预览效果">
+
+<h4 id="2-设置-gt-隐私-gt-广告-gt-限制广告跟踪-开-关"><a href="#2-设置-gt-隐私-gt-广告-gt-限制广告跟踪-开-关" class="headerlink" title="2.设置 -&gt; 隐私 -&gt; 广告 -&gt; 限制广告跟踪(开 / 关)"></a>2.设置 -&gt; 隐私 -&gt; 广告 -&gt; 限制广告跟踪(开 / 关)</h4><blockquote>
+<p>下面限制广告跟踪开关<br>关闭时: 可以获取到IDFA<br>打开时: 无法获取到IDFA</p>
+</blockquote>
+<img src="/2019/06/24/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-IDFA%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6-%E4%B8%80/%E6%88%AA%E5%9B%BE2.png" class="" title="预览效果">
+
+
+<blockquote>
+<p>a.打开限制的情况下</p>
+</blockquote>
+<img src="/2019/06/24/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-IDFA%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6-%E4%B8%80/%E6%88%AA%E5%9B%BE3.png" class="" title="预览效果">
+
+
+
+<blockquote>
+<p>b.关闭限制的情况下</p>
+</blockquote>
+<img src="/2019/06/24/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-IDFA%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6-%E4%B8%80/%E6%88%AA%E5%9B%BE4.png" class="" title="预览效果">
+
+
+
+<ul>
+<li><strong>官方也提供了广告跟踪是否可用的接口</strong></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="built_in">BOOL</span> isEnabled = [[ASIdentifierManager sharedManager] isAdvertisingTrackingEnabled];</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>小结:<br>1.限制广告追踪开关切换会导致变化;<br>2.重置手机也会导致变化<br>总结:由于各种不稳定,个人建议使用 <code>IDFV + KeyChain</code> 做为用户的设备唯一标识,此方式会在后面继续讲解.</p>
+</blockquote>
+<p>Demo下载地址:</p>
+<p><a href="/download/testIDFA.zip">点击下载</a></p>
+]]></content>
+      <categories>
+        <category>iOS开发</category>
+      </categories>
+      <tags>
+        <tag>iOS</tag>
+        <tag>IDFA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mac ~ 如何在Mac上搭建Web服务器(Apache)</title>
+    <url>/2019/06/21/%E5%A6%82%E4%BD%95%E5%9C%A8Mac%E4%B8%8A%E6%90%AD%E5%BB%BAWeb%E6%9C%8D%E5%8A%A1%E5%99%A8-Apache/</url>
+    <content><![CDATA[<p>局域网搭建 Web 服务器测试环境,因为Mac OS X 自带了 Apache 和 PHP 环境，我们只需要简单的启动它就行了。惊不惊喜,意不意外!😄</p>
+<h1 id="1-相关命令"><a href="#1-相关命令" class="headerlink" title="1.相关命令"></a>1.相关命令</h1><p>a.启动 Apache 命令 :   <code>sudo apachectl start</code><br>b.停止 Apache 命令 :   <code>sudo apachectl stop</code><br>c.重启 Apache 命令 :   <code>sudo apachectl restart</code></p>
+<a id="more"></a>
+
+<h1 id="2-Apache相关信息"><a href="#2-Apache相关信息" class="headerlink" title="2.Apache相关信息"></a>2.Apache相关信息</h1><p>a.Apache服务器默认的web根目录在：<code>/Library/WebServer/Documents</code><br>b.Apache的配置文件在：<code>/etc/apache2</code></p>
+<h1 id="3-预览内容-请再浏览器输入以下两个任意地址"><a href="#3-预览内容-请再浏览器输入以下两个任意地址" class="headerlink" title="3.预览内容,请再浏览器输入以下两个任意地址:"></a>3.预览内容,请再浏览器输入以下两个任意地址:</h1><p>a. <a href="http://localhost/" target="_blank" rel="noopener">http://localhost/</a><br>b. <a href="http://127.0.0.1/" target="_blank" rel="noopener">http://127.0.0.1/</a></p>
+<img src="/2019/06/21/%E5%A6%82%E4%BD%95%E5%9C%A8Mac%E4%B8%8A%E6%90%AD%E5%BB%BAWeb%E6%9C%8D%E5%8A%A1%E5%99%A8-Apache/MacServerDefaultPage.png" class="" title="Mac默认web页面">
+
+
+<h1 id="4-如何查看自己编写的文件"><a href="#4-如何查看自己编写的文件" class="headerlink" title="4.如何查看自己编写的文件"></a>4.如何查看自己编写的文件</h1><p>将自己编写的html文件复制到 <code>/Library/WebServer/Documents</code> 文件夹下,无需重启服务,及时浏览内容.</p>
+<img src="/2019/06/21/%E5%A6%82%E4%BD%95%E5%9C%A8Mac%E4%B8%8A%E6%90%AD%E5%BB%BAWeb%E6%9C%8D%E5%8A%A1%E5%99%A8-Apache/DocumentsPath.png" class="" title="html路径">
+
+<p>浏览器访问 <code>index.html</code> 文件,浏览方式有三种:</p>
+<p>1.<code>http://localhost/index.html</code></p>
+<p>2.<code>http://127.0.0.1/index.html</code></p>
+<p>3.<code>本机ip/index.html</code></p>
+<img src="/2019/06/21/%E5%A6%82%E4%BD%95%E5%9C%A8Mac%E4%B8%8A%E6%90%AD%E5%BB%BAWeb%E6%9C%8D%E5%8A%A1%E5%99%A8-Apache/webPage.png" class="" title="预览效果">]]></content>
+      <categories>
+        <category>Mac</category>
+      </categories>
+      <tags>
+        <tag>web服务</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mac ~ 如何解决 app已损坏，打不开。你应该将它移到废纸篓</title>
+    <url>/2017/12/11/Mac-%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3-app%E5%B7%B2%E6%8D%9F%E5%9D%8F%EF%BC%8C%E6%89%93%E4%B8%8D%E5%BC%80%E3%80%82%E4%BD%A0%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93/</url>
+    <content><![CDATA[<blockquote>
+<p>如遇：「xxx.app已损坏,打不开.你应该将它移到废纸篓」，并非你安装的软件已损坏，而是Mac系统的安全设置问题，因为这些应用都是破解或者汉化的,那么解决方法就是临时改变Mac系统安全设置。</p>
+<p>出现这个问题的解决方法：</p>
+<p>修改系统配置：系统偏好设置 -&gt; 安全性与隐私。修改为任何来源</p>
+</blockquote>
+<p>如果没有这个选项的话,打开终端，执行以下对应命令</p>
+<a id="more"></a>
+
+<ul>
+<li>显示”任何来源”选项</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo spctl --master-disable</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>不显示”任何来源”选项</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo spctl --master-enable</span><br></pre></td></tr></table></figure>
+
+<img src="/2017/12/11/Mac-%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3-app%E5%B7%B2%E6%8D%9F%E5%9D%8F%EF%BC%8C%E6%89%93%E4%B8%8D%E5%BC%80%E3%80%82%E4%BD%A0%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93/1.png" class="" title="Mac安全性与隐私设置页面">]]></content>
+      <categories>
+        <category>Mac</category>
+      </categories>
+      <tags>
+        <tag>Mac</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>iOS开发之 ~ Apple Open Source</title>
+    <url>/2017/09/08/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-Apple-Open-Source/</url>
+    <content><![CDATA[<blockquote>
+<ul>
+<li>源码下载:</li>
+</ul>
+<p>压缩文件: <a href="https://opensource.apple.com/tarballs/" target="_blank" rel="noopener">https://opensource.apple.com/tarballs/</a></p>
+<p>源代码文件: <a href="https://opensource.apple.com/source/" target="_blank" rel="noopener">https://opensource.apple.com/source/</a></p>
+</blockquote>
+<a id="more"></a>
+
+<h3 id="Apple-开源-Open-Source"><a href="#Apple-开源-Open-Source" class="headerlink" title="Apple 开源 Open Source"></a>Apple 开源 Open Source</h3><ul>
+<li>操作系统相关：</li>
+</ul>
+<p><a href="http://opensource.apple.com/" target="_blank" rel="noopener">http://opensource.apple.com/</a></p>
+<ul>
+<li>CoreFoundation源码:</li>
+</ul>
+<p><a href="https://opensource.apple.com/tarballs/CF/" target="_blank" rel="noopener">https://opensource.apple.com/tarballs/CF/</a></p>
+<ul>
+<li>runtime(objc4)</li>
+</ul>
+<p><a href="https://opensource.apple.com/tarballs/objc4/" target="_blank" rel="noopener">https://opensource.apple.com/tarballs/objc4/</a></p>
+<ul>
+<li>跨平台的CoreFoundation:</li>
+</ul>
+<p><a href="https://github.com/apple/swift-corelibs-foundation/" target="_blank" rel="noopener">https://github.com/apple/swift-corelibs-foundation/</a></p>
+<ul>
+<li>GNU Step:</li>
+</ul>
+<p><a href="http://www.gnustep.org/" target="_blank" rel="noopener">http://www.gnustep.org/</a></p>
+<ul>
+<li>objc_msgSend在各种体系架构下的汇编实现：</li>
+</ul>
+<p><a href="https://opensource.apple.com/source/objc4/objc4-723/runtime/Messengers.subproj/" target="_blank" rel="noopener">https://opensource.apple.com/source/objc4/objc4-723/runtime/Messengers.subproj/</a></p>
+<h3 id="Git托管-Open-Source"><a href="#Git托管-Open-Source" class="headerlink" title="Git托管 Open Source"></a>Git托管 Open Source</h3><ul>
+<li><p>Objective-c语言：<a href="https://github.com/opensource-apple" target="_blank" rel="noopener">https://github.com/opensource-apple</a></p>
+</li>
+<li><p>Swift语言：<a href="https://github.com/apple/swift" target="_blank" rel="noopener">https://github.com/apple/swift</a></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>iOS开发</category>
+      </categories>
+      <tags>
+        <tag>iOS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>iOS开发之 ~ GCD深度解析</title>
+    <url>/2017/08/19/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-GCD%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90/</url>
+    <content><![CDATA[<h4 id="1-当同步遇到了串行"><a href="#1-当同步遇到了串行" class="headerlink" title="1.当同步遇到了串行"></a>1.当同步遇到了串行</h4><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"1"</span>); <span class="comment">// 任务1</span></span><br><span class="line"><span class="built_in">dispatch_sync</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"2"</span>); <span class="comment">// 任务2</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"3"</span>); <span class="comment">// 任务3</span></span><br></pre></td></tr></table></figure>
+
+<p><code>控制台输出结果: 1</code></p>
+<a id="more"></a>
+
+<blockquote>
+<p>分析：</p>
+<p>dispatch_sync表示是一个同步线程；</p>
+<p>dispatch_get_main_queue表示运行在主线程中的主队列；</p>
+<p>任务2是同步线程的任务。</p>
+<p>任务3需要等待任务2结束之后再执行.</p>
+<p>首先执行任务1，这是肯定没问题的，只是接下来，程序遇到了同步线程，那么它会进入等待，等待任务2执行完，然后执行任务3。但这是主队列，是一个特殊的串行队列,有任务来，当然会将任务加到队尾，然后遵循FIFO原则执行任务。那么，现在任务2就会被加到最后，任务3排在了任务2前面，问题来了：</p>
+<p>任务3要等任务2执行完才能执行，任务2又排在任务3后面，意味着任务2要在任务3执行完才能执行，所以他们进入了互相等待的局面。【既然这样，那干脆就卡在这里吧】这就是死锁。</p>
+</blockquote>
+<h4 id="2-当同步遇到了并行"><a href="#2-当同步遇到了并行" class="headerlink" title="2.当同步遇到了并行"></a>2.当同步遇到了并行</h4><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"1"</span>); <span class="comment">// 任务1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">dispatch_sync</span>(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, <span class="number">0</span>), ^&#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">NSLog</span>(<span class="string">@"2"</span>); <span class="comment">// 任务2</span></span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"3"</span>); <span class="comment">// 任务3</span></span><br></pre></td></tr></table></figure>
+
+<p><code>控制台输出结果为:  1  2  3</code></p>
+<blockquote>
+<p>分析：</p>
+<p>首先执行任务1，接下来会遇到一个同步线程，程序会进入等待。等待任务2执行完成以后，才能继续执行任务3。从dispatch_get_global_queue可以看出，任务2被加入到了全局的并行队列中，当并行队列执行完任务2以后，返回到主队列，继续执行任务3。</p>
+</blockquote>
+<h4 id="3-同步异步都有"><a href="#3-同步异步都有" class="headerlink" title="3.同步异步都有"></a>3.同步异步都有</h4><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="built_in">dispatch_queue_t</span> queue = dispatch_queue_create(<span class="string">"com.demo.serialQueue"</span>, DISPATCH_QUEUE_SERIAL);</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"1"</span>); <span class="comment">// 任务1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">dispatch_async</span>(queue, ^&#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">NSLog</span>(<span class="string">@"2"</span>); <span class="comment">// 任务2</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">dispatch_sync</span>(queue, ^&#123;  </span><br><span class="line"></span><br><span class="line">​    <span class="built_in">NSLog</span>(<span class="string">@"3"</span>); <span class="comment">// 任务3</span></span><br><span class="line"></span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="built_in">NSLog</span>(<span class="string">@"4"</span>); <span class="comment">// 任务4</span></span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"5"</span>); <span class="comment">// 任务5</span></span><br></pre></td></tr></table></figure>
+
+<p><code>控制台输出结果:</code></p>
+<p><code>1</code></p>
+<p><code>5</code></p>
+<p><code>2</code></p>
+<p><code>//2 和 5 的顺序不一定 ,3,4没有输出</code></p>
+<blockquote>
+<p>分析：</p>
+<p>这个案例没有使用系统提供的串行或并行队列，而是自己通过dispatch_queue_create函数创建了一个DISPATCH_QUEUE_SERIAL的串行队列。</p>
+<p>1&gt;执行任务1；</p>
+<p>2&gt;遇到异步线程，将【任务2、同步线程、任务4】加入串行队列中。因为是异步线程，所以在主线程中的任务5不必等待异步线程中的所有任务完成；</p>
+<p>3&gt;因为任务5不必等待，所以2和5的输出顺序不能确定；</p>
+<p>4&gt;任务2执行完以后，遇到同步线程，这时，将任务3加入串行队列；</p>
+<p>5&gt;又因为任务4比任务3早加入串行队列，所以，任务3要等待任务4完成以后，才能执行。但是任务3所在的同步线程会阻塞，所以任务4必须等任务3执行完以后再执行。这就又陷入了无限的等待中，造成死锁。</p>
+</blockquote>
+<h4 id="4-异步遇到同步回主线程"><a href="#4-异步遇到同步回主线程" class="headerlink" title="4.异步遇到同步回主线程"></a>4.异步遇到同步回主线程</h4><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"1"</span>); <span class="comment">// 任务1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">dispatch_async</span>(dispatch_get_global_queue(<span class="number">0</span>, <span class="number">0</span>), ^&#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">NSLog</span>(<span class="string">@"2"</span>); <span class="comment">// 任务2</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">dispatch_sync</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line"></span><br><span class="line">​    <span class="built_in">NSLog</span>(<span class="string">@"3"</span>); <span class="comment">// 任务3</span></span><br><span class="line"></span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="built_in">NSLog</span>(<span class="string">@"4"</span>); <span class="comment">// 任务4</span></span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"5"</span>); <span class="comment">// 任务5</span></span><br></pre></td></tr></table></figure>
+
+<p><code>控制台输出结果:</code></p>
+<p><code>1</code></p>
+<p><code>5</code></p>
+<p><code>2</code></p>
+<p><code>3</code></p>
+<p><code>4</code></p>
+<p><code>// 5 和 2 顺序不一定</code></p>
+<blockquote>
+<p>分析：</p>
+<p>1&gt;执行任务1；</p>
+<p>2&gt;遇到异步线程，将【任务2、同步线程、任务4】加入并行队列中。因为是异步线程，所以在主线程中的任务5不必等待异步线程中的所有任务完成；</p>
+<p>3&gt;因为任务5不必等待,所以在任务1后就开始执行；</p>
+<p>4&gt;任务2执行完以后，遇到同步线程，这时，将任务3加入主线程串队列；</p>
+<p>5&gt;因为任务4被加入并行队列中(重新开辟了线程),所以要等待同步主线程的任务3执行完再执行(保证任务3和4不在同一条串行队列就不会产生死锁现象)</p>
+</blockquote>
+<h4 id="5-遇到了主线程上出现无限循环的时候"><a href="#5-遇到了主线程上出现无限循环的时候" class="headerlink" title="5.遇到了主线程上出现无限循环的时候"></a>5.遇到了主线程上出现无限循环的时候</h4><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="built_in">dispatch_async</span>(dispatch_get_global_queue(<span class="number">0</span>, <span class="number">0</span>), ^&#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">NSLog</span>(<span class="string">@"1"</span>); <span class="comment">// 任务1</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">dispatch_sync</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line"></span><br><span class="line">​    <span class="built_in">NSLog</span>(<span class="string">@"2"</span>); <span class="comment">// 任务2</span></span><br><span class="line"></span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="built_in">NSLog</span>(<span class="string">@"3"</span>); <span class="comment">// 任务3</span></span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"4"</span>); <span class="comment">// 任务4</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"5"</span>); <span class="comment">// 任务5</span></span><br></pre></td></tr></table></figure>
+
+<p><code>打印台输出结果:</code></p>
+<p><code>4</code></p>
+<p><code>1</code></p>
+<p><code>// 4 和 1 顺序不一定</code></p>
+<blockquote>
+<p>分析：</p>
+<p>和上面几个案例的分析类似，先来看看都有哪些任务加入了Main Queue：【异步线程、任务4、死循环、任务5】。</p>
+<p>在加入到Global Queue异步线程中的任务有：【任务1、同步线程、任务3】。</p>
+<p>第一个就是异步线程，任务4不用等待，所以结果任务1和任务4顺序不一定。</p>
+<p>任务4完成后，程序进入死循环，Main Queue阻塞。但是加入到Global Queue的异步线程不受影响，继续执行任务1后面的同步线程。</p>
+<p>同步线程中，将任务2加入到了主线程，并且，任务3等待任务2完成以后才能执行。这时的主线程，已经被死循环阻塞了。所以任务2无法执行，当然任务3也无法执行，在死循环后的任务5也不会执行。</p>
+</blockquote>
+<p><strong>附加:</strong></p>
+<p><strong>假如去掉无线循环</strong></p>
+<p><strong>控制台输出结果:</strong></p>
+<p><strong>4</strong></p>
+<p><strong>5</strong></p>
+<p><strong>1</strong></p>
+<p><strong>2</strong></p>
+<p><strong>3</strong></p>
+<p><strong>// 4, 5 和 1  顺序不一定</strong></p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">串行</th>
+<th align="center">并行</th>
+<th align="center">主队列</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">同步</td>
+<td align="center">没有开启新线程,串行执行任务</td>
+<td align="center">没有开启新线程,串行执行任务</td>
+<td align="center">死锁</td>
+</tr>
+<tr>
+<td align="center">异步</td>
+<td align="center">开启新线程,串行执行任务</td>
+<td align="center">开启新线程,并发执行任务</td>
+<td align="center">没有开启新线程,串行执行任务</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>iOS开发</category>
+      </categories>
+      <tags>
+        <tag>iOS</tag>
+        <tag>GCD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>iOS开发之 ~ Xcode 调试区图标含义</title>
+    <url>/2017/03/26/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-Xcode-%E8%B0%83%E8%AF%95%E5%8C%BA%E5%9B%BE%E6%A0%87%E5%90%AB%E4%B9%89/</url>
+    <content><![CDATA[<p>好奇Xcode调试区域每个字母表示什么含义的同学可以参考一下<br>图片引用自苹果官方文档说明<br><a href="https://developer.apple.com/library/archive/documentation/DeveloperTools/Conceptual/debugging_with_xcode/chapters/debugging_tools.html" target="_blank" rel="noopener">https://developer.apple.com/library/archive/documentation/DeveloperTools/Conceptual/debugging_with_xcode/chapters/debugging_tools.html</a></p>
+<img src="/2017/03/26/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-Xcode-%E8%B0%83%E8%AF%95%E5%8C%BA%E5%9B%BE%E6%A0%87%E5%90%AB%E4%B9%89/%E6%88%AA%E5%9B%BE1.png" class="" title="预览效果">
+
+<a id="more"></a>
+
+<h3 id="中英文翻译"><a href="#中英文翻译" class="headerlink" title="中英文翻译"></a>中英文翻译</h3><table>
+<thead>
+<tr>
+<th align="center">英文</th>
+<th align="center">中文</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Local Variable</td>
+<td align="center">局部变量</td>
+</tr>
+<tr>
+<td align="center">Argument</td>
+<td align="center">实际参数(内容上下文)</td>
+</tr>
+<tr>
+<td align="center">Static Variable</td>
+<td align="center">静态变量</td>
+</tr>
+<tr>
+<td align="center">Global Variable</td>
+<td align="center">全局变量</td>
+</tr>
+<tr>
+<td align="center">Register</td>
+<td align="center">寄存器</td>
+</tr>
+<tr>
+<td align="center">Instance Variable</td>
+<td align="center">实例变量</td>
+</tr>
+<tr>
+<td align="center">Expression</td>
+<td align="center">表达式</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>iOS开发</category>
+      </categories>
+      <tags>
+        <tag>Xcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>iOS开发之 ~ NSProxy浅说</title>
+    <url>/2016/12/29/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-NSProxy%E6%B5%85%E8%AF%B4/</url>
+    <content><![CDATA[<h3 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h3><blockquote>
+<p>NSProxy是一个抽象的超类,它遵守了 NSObject 协议，并且是不继承自NSObject的。可以通过它的API为其它的Object对象或者不存在的对象提供替身。</p>
+</blockquote>
+<p>.h头文件声明如下</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@class</span> <span class="title">NSMethodSignature</span>, <span class="title">NSInvocation</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">NS_ROOT_CLASS</span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">NSProxy</span> &lt;<span class="title">NSObject</span>&gt; </span>&#123;</span><br><span class="line">    Class	isa;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">+ (<span class="keyword">id</span>)alloc;</span><br><span class="line">+ (<span class="keyword">id</span>)allocWithZone:(<span class="keyword">nullable</span> <span class="built_in">NSZone</span> *)zone <span class="built_in">NS_AUTOMATED_REFCOUNT_UNAVAILABLE</span>;</span><br><span class="line">+ (Class)<span class="keyword">class</span>;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)forwardInvocation:(<span class="built_in">NSInvocation</span> *)invocation;</span><br><span class="line">- (<span class="keyword">nullable</span> <span class="built_in">NSMethodSignature</span> *)methodSignatureForSelector:(SEL)sel <span class="built_in">NS_SWIFT_UNAVAILABLE</span>(<span class="string">"NSInvocation and related APIs not available"</span>);</span><br><span class="line">- (<span class="keyword">void</span>)dealloc;</span><br><span class="line">- (<span class="keyword">void</span>)finalize;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">readonly</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *description;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">readonly</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *debugDescription;</span><br><span class="line">+ (<span class="built_in">BOOL</span>)respondsToSelector:(SEL)aSelector;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">BOOL</span>)allowsWeakReference API_UNAVAILABLE(macos, ios, watchos, tvos);</span><br><span class="line">- (<span class="built_in">BOOL</span>)retainWeakReference API_UNAVAILABLE(macos, ios, watchos, tvos);</span><br><span class="line"></span><br><span class="line"><span class="comment">// - (id)forwardingTargetForSelector:(SEL)aSelector;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+
+<p><code>NSProxy</code> 的使用一般比较少,没了解之前看到它心里就冒出”这什么鬼,有点深奥呦!”的想法,其实非常简单，通常你只需要实现两个方法：</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)forwardInvocation:(<span class="built_in">NSInvocation</span> *)invocation;</span><br><span class="line">- (<span class="keyword">nullable</span> <span class="built_in">NSMethodSignature</span> *)methodSignatureForSelector:(SEL)sel <span class="built_in">NS_SWIFT_UNAVAILABLE</span>(<span class="string">"NSInvocation and related APIs not available"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>那么我们通过Demo来给大家演示一下NSProxy的使用.</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">MyProxy</span> : <span class="title">NSProxy</span></span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">id</span> _object;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">+ (<span class="keyword">id</span>)proxyForObject:(<span class="keyword">id</span>)obj;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">MyProxy</span></span></span><br><span class="line"></span><br><span class="line">+ (<span class="keyword">id</span>)proxyForObject:(<span class="keyword">id</span>)obj &#123;</span><br><span class="line">    MyProxy *instance = [MyProxy alloc];</span><br><span class="line">    instance-&gt;_object = obj;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> instance;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSMethodSignature</span> *)methodSignatureForSelector:(SEL)sel &#123;</span><br><span class="line">    <span class="keyword">return</span> [_object methodSignatureForSelector:sel];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)forwardInvocation:(<span class="built_in">NSInvocation</span> *)invocation &#123;</span><br><span class="line">    <span class="keyword">if</span> ([_object respondsToSelector:invocation.selector]) &#123;</span><br><span class="line">        <span class="built_in">NSString</span> *selectorName = <span class="built_in">NSStringFromSelector</span>(invocation.selector);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"Before calling \"%@\"."</span>, selectorName);</span><br><span class="line">        [invocation invokeWithTarget:_object];</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"After calling \"%@\"."</span>, selectorName);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 调用堆栈的符号</span></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, [<span class="built_in">NSThread</span> callStackSymbols]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+
+<p>这是我们的 Proxy 简单实现，我们需要持有一个被代理对象的引用，然后将消息转发到这个对象上，在转发之前和以后我们就可以做自己想做的事情了。</p>
+<p><code>methodSignatureForSelector:</code> 方法需要获取一个方法签名，用来生成 NSInvocation，我们直接将这个调用转发到被代理对象中。紧接着，<code>forwardInvocation:</code> 会被调用，将 NSInvocation 用被代理对象调用。我们就可以在这个方法里做一些手脚，比如埋点计数等。在这个例子中，我只是简单地将对象所调用的方法的 selector 打印出来。</p>
+<p>然后我们看看用于测试的主函数：</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions &#123;</span><br><span class="line">    <span class="comment">// Override point for customization after application launch.</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSURL</span> *url = [MyProxy proxyForObject:[<span class="built_in">NSURL</span> URLWithString:<span class="string">@"https://www.baidu.com/"</span>]];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSURLSessionDataTask</span> *task = [[<span class="built_in">NSURLSession</span> sharedSession] dataTaskWithURL:url completionHandler:^(<span class="built_in">NSData</span> *_Nullable data, <span class="built_in">NSURLResponse</span> *_Nullable response, <span class="built_in">NSError</span> *_Nullable error) &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;];</span><br><span class="line"></span><br><span class="line">    [task resume];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>就是简单构造一个 <code>NSURL</code>，只不过我们先用了 <code>MyProxy</code> 封装代理后传给 <code>NSURLSession</code> 去使用，输出结果如下：</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="number">2016</span><span class="number">-12</span><span class="number">-29</span> <span class="number">18</span>:<span class="number">40</span>:<span class="number">24.998735</span>+<span class="number">0800</span> test[<span class="number">12184</span>:<span class="number">851334</span>] Before calling <span class="string">"absoluteURL"</span>.</span><br><span class="line"><span class="number">2016</span><span class="number">-12</span><span class="number">-29</span> <span class="number">18</span>:<span class="number">40</span>:<span class="number">24.998814</span>+<span class="number">0800</span> test[<span class="number">12184</span>:<span class="number">851334</span>] After calling <span class="string">"absoluteURL"</span>.</span><br></pre></td></tr></table></figure>
+
+<p>也就是说，系统用 <code>NSURL</code> 的 <code>absoluteURL</code> 属性来获取真正的 URL 数据，至此我们就已经可以跟踪已有类的行为了，甚至还可以通过 <code>[NSThread callStackSymbols]</code> 来跟踪调用改方法的函数调用栈：</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="number">2016</span><span class="number">-12</span><span class="number">-29</span> <span class="number">18</span>:<span class="number">40</span>:<span class="number">25.000404</span>+<span class="number">0800</span> test[<span class="number">12184</span>:<span class="number">851334</span>] (</span><br><span class="line">	<span class="number">0</span>   test                                <span class="number">0x0000000102575108</span> -[MyProxy forwardInvocation:] + <span class="number">296</span></span><br><span class="line">	<span class="number">1</span>   CoreFoundation                      <span class="number">0x00000001a3042e64</span> <span class="number">271</span>BBB21<span class="number">-28</span>D6<span class="number">-37</span>CE<span class="number">-894</span>F<span class="number">-43</span>B3352DA6CE + <span class="number">1162852</span></span><br><span class="line">	<span class="number">2</span>   CoreFoundation                      <span class="number">0x00000001a304509c</span> _CF_forwarding_prep_0 + <span class="number">92</span></span><br><span class="line">	<span class="number">3</span>   CoreFoundation                      <span class="number">0x00000001a3011758</span> <span class="built_in">CFURLCopyAbsoluteURL</span> + <span class="number">68</span></span><br><span class="line">	<span class="number">4</span>   <span class="built_in">CFNetwork</span>                           <span class="number">0x00000001a361acb8</span> <span class="built_in">CFNetwork</span> + <span class="number">23736</span></span><br><span class="line">	<span class="number">5</span>   <span class="built_in">CFNetwork</span>                           <span class="number">0x00000001a361ab80</span> <span class="built_in">CFNetwork</span> + <span class="number">23424</span></span><br><span class="line">	<span class="number">6</span>   <span class="built_in">CFNetwork</span>                           <span class="number">0x00000001a361f7b4</span> <span class="built_in">CFNetwork</span> + <span class="number">42932</span></span><br><span class="line">	<span class="number">7</span>   test                                <span class="number">0x0000000102575b54</span> -[AppDelegate application:didFinishLaunchingWithOptions:] + <span class="number">276</span></span><br><span class="line">	<span class="number">8</span>   <span class="built_in">UIKitCore</span>                           <span class="number">0x00000001a588c9dc</span> FBF3D986<span class="number">-2</span>D16<span class="number">-3</span>B6C-BE71<span class="number">-216144</span>F6307F + <span class="number">11676124</span></span><br><span class="line">	<span class="number">9</span>   <span class="built_in">UIKitCore</span>                           <span class="number">0x00000001a588e97c</span> FBF3D986<span class="number">-2</span>D16<span class="number">-3</span>B6C-BE71<span class="number">-216144</span>F6307F + <span class="number">11684220</span></span><br><span class="line">	<span class="number">10</span>  <span class="built_in">UIKitCore</span>                           <span class="number">0x00000001a58940dc</span> FBF3D986<span class="number">-2</span>D16<span class="number">-3</span>B6C-BE71<span class="number">-216144</span>F6307F + <span class="number">11706588</span></span><br><span class="line">	<span class="number">11</span>  <span class="built_in">UIKitCore</span>                           <span class="number">0x00000001a4f6eef4</span> FBF3D986<span class="number">-2</span>D16<span class="number">-3</span>B6C-BE71<span class="number">-216144</span>F6307F + <span class="number">2117364</span></span><br><span class="line">	<span class="number">12</span>  <span class="built_in">UIKitCore</span>                           <span class="number">0x00000001a589005c</span> FBF3D986<span class="number">-2</span>D16<span class="number">-3</span>B6C-BE71<span class="number">-216144</span>F6307F + <span class="number">11690076</span></span><br><span class="line">	<span class="number">13</span>  <span class="built_in">UIKitCore</span>                           <span class="number">0x00000001a5890464</span> FBF3D986<span class="number">-2</span>D16<span class="number">-3</span>B6C-BE71<span class="number">-216144</span>F6307F + <span class="number">11691108</span></span><br><span class="line">	<span class="number">14</span>  <span class="built_in">UIKitCore</span>                           <span class="number">0x00000001a5895a08</span> <span class="built_in">UIApplicationMain</span> + <span class="number">164</span></span><br><span class="line">	<span class="number">15</span>  test                                <span class="number">0x0000000102574ecc</span> main + <span class="number">332</span></span><br><span class="line">	<span class="number">16</span>  libdyld.dylib                       <span class="number">0x00000001a2c99588</span> A333D9F4<span class="number">-8</span>DA0<span class="number">-330</span>D-B17E<span class="number">-0</span>A92EC3DEF07 + <span class="number">5512</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>并借此来跟踪一些系统行为。</p>
+]]></content>
+      <categories>
+        <category>iOS开发</category>
+      </categories>
+      <tags>
+        <tag>iOS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>iOS开发之 ~ NSTimer 循环引用</title>
+    <url>/2016/12/23/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-NSTimer-%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h2><blockquote>
+<p>在使用NSTimer，如果使用不得当特别会引起循环引用，造成内存泄露。所以怎么避免循环引用问题，下面我提出几种解决NSTimer的几种循环引用。</p>
+</blockquote>
+<p>在iOS中，NSTimer的使用是非常频繁的，但是NSTimer在使用中需要注意，避免循环引用的问题。之前经常这样写</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)setupTimer &#123;</span><br><span class="line">    <span class="keyword">self</span>.timer = [<span class="built_in">NSTimer</span> scheduledTimerWithTimeInterval:<span class="number">1</span> target:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(timerAction) userInfo:<span class="literal">nil</span> repeats:<span class="literal">YES</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)dealloc &#123;</span><br><span class="line">    [<span class="keyword">self</span>.timer invalidate];</span><br><span class="line">    <span class="keyword">self</span>.timer = <span class="literal">nil</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>由于self强引用了timer，同时timer也强引用了self，所以循环引用造成dealloc方法根本不会走，self和timer都不会被释放，造成内存泄漏。</p>
+<a id="more"></a>
+
+<h2 id="2-解决方案"><a href="#2-解决方案" class="headerlink" title="2. 解决方案"></a>2. 解决方案</h2><ul>
+<li>在ViewController执行dealloc前释放timer（不推荐）</li>
+<li>对定时器NSTimer封装</li>
+<li>苹果API接口解决方案（iOS 10.0以上可用）</li>
+<li>使用block进行解决</li>
+<li>使用NSProxy进行解决</li>
+</ul>
+<h3 id="2-1-在ViewController执行dealloc前释放timer（不推荐）"><a href="#2-1-在ViewController执行dealloc前释放timer（不推荐）" class="headerlink" title="2.1 在ViewController执行dealloc前释放timer（不推荐）"></a>2.1 在ViewController执行dealloc前释放timer（不推荐）</h3><blockquote>
+<p>在viewWillAppear中创建timer</p>
+<p>在viewWillDisappear中销毁timer</p>
+</blockquote>
+<p>在某些情况下，这种做法是可以解决问题的，但是有时却会引起其他问题，比如控制器push到下一个控制器，viewDidDisappear后，timer被释放，此时再回来，timer已经不复存在了。</p>
+<p>所以，这种”方案”并不是合理的。</p>
+<h3 id="2-2-对定时器NSTimer封装"><a href="#2-2-对定时器NSTimer封装" class="headerlink" title="2.2 对定时器NSTimer封装"></a>2.2 对定时器NSTimer封装</h3><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">//STTimer.h文件</span></span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">STTimer</span> : <span class="title">NSObject</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//开启定时器</span></span><br><span class="line">- (<span class="keyword">void</span>)startTimer;</span><br><span class="line"></span><br><span class="line"><span class="comment">//暂停定时器</span></span><br><span class="line">- (<span class="keyword">void</span>)stopTimer;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#import <span class="meta-string">"STTimer.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">STTimer</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSTimer</span> *_timer;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)stopTimer&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (_timer == <span class="literal">nil</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    [_timer invalidate];</span><br><span class="line">    _timer = <span class="literal">nil</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)startTimer&#123;</span><br><span class="line">    </span><br><span class="line">    _timer = [<span class="built_in">NSTimer</span> scheduledTimerWithTimeInterval:<span class="number">1.0</span> target:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(work) userInfo:<span class="literal">nil</span> repeats:<span class="literal">YES</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)work&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"正在计时中。。。。。。"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)dealloc&#123;</span><br><span class="line">    </span><br><span class="line">   <span class="built_in">NSLog</span>(<span class="string">@"%s"</span>,__func__);</span><br><span class="line">    [_timer invalidate];</span><br><span class="line">    _timer = <span class="literal">nil</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+
+<p>在ViewController中使用代码如下：</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"ViewController1.h"</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">"STTimer.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> ()</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) STTimer *timer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ViewController</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewWillDisappear:(<span class="built_in">BOOL</span>)animated &#123;</span><br><span class="line">    </span><br><span class="line">    [<span class="keyword">super</span> viewWillDisappear:animated];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    <span class="keyword">self</span>.title = <span class="string">@"VC1"</span>;</span><br><span class="line">    <span class="keyword">self</span>.view.backgroundColor = [<span class="built_in">UIColor</span> whiteColor];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//自定义timer</span></span><br><span class="line">    STTimer *timer = [[STTimer alloc] init];</span><br><span class="line">    <span class="keyword">self</span>.timer = timer;</span><br><span class="line">    [timer startTimer];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)dealloc &#123;</span><br><span class="line">   </span><br><span class="line">    [<span class="keyword">self</span>.timer stopTimer];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%s"</span>,__func__);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行打印结果：</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">-[ViewController dealloc]</span><br><span class="line">-[STTimer dealloc]</span><br></pre></td></tr></table></figure>
+
+<p>这个方式主要就是让STTimer强引用NSTimer，NSTimer强引用PFTimer,避免让NSTimer强引用ViewController，这样就不会引起循环引用，然后在dealloc方法中执行NSTimer的销毁，相对的PFTimer也会进行销毁了。</p>
+<h3 id="2-3-苹果系统API可以解决（iOS10以上）"><a href="#2-3-苹果系统API可以解决（iOS10以上）" class="headerlink" title="2.3 苹果系统API可以解决（iOS10以上）"></a>2.3 苹果系统API可以解决（iOS10以上）</h3><p>在iOS 10.0以后，苹果官方新增了关于NSTimer的三个API：</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">+ (<span class="built_in">NSTimer</span> *)timerWithTimeInterval:(<span class="built_in">NSTimeInterval</span>)interval repeats:</span><br><span class="line">(<span class="built_in">BOOL</span>)repeats block:(<span class="keyword">void</span> (^)(<span class="built_in">NSTimer</span> *timer))block </span><br><span class="line">API_AVAILABLE(macosx(<span class="number">10.12</span>), ios(<span class="number">10.0</span>), watchos(<span class="number">3.0</span>), tvos(<span class="number">10.0</span>));</span><br><span class="line"></span><br><span class="line">+ (<span class="built_in">NSTimer</span> *)scheduledTimerWithTimeInterval:(<span class="built_in">NSTimeInterval</span>)interval repeats:</span><br><span class="line">(<span class="built_in">BOOL</span>)repeats block:(<span class="keyword">void</span> (^)(<span class="built_in">NSTimer</span> *timer))block </span><br><span class="line">API_AVAILABLE(macosx(<span class="number">10.12</span>), ios(<span class="number">10.0</span>), watchos(<span class="number">3.0</span>), tvos(<span class="number">10.0</span>));</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">instancetype</span>)initWithFireDate:(<span class="built_in">NSDate</span> *)date interval:</span><br><span class="line">(<span class="built_in">NSTimeInterval</span>)interval repeats:(<span class="built_in">BOOL</span>)repeats block:(<span class="keyword">void</span> (^)(<span class="built_in">NSTimer</span> *timer))block </span><br><span class="line">API_AVAILABLE(macosx(<span class="number">10.12</span>), ios(<span class="number">10.0</span>), watchos(<span class="number">3.0</span>), tvos(<span class="number">10.0</span>));</span><br></pre></td></tr></table></figure>
+
+<p>这三个方法都有一个Block的回调方法。关于block参数，官方文档有说明：</p>
+<blockquote>
+<p>the timer itself is passed as the parameter to this block when executed<br>to aid in avoiding cyclical references。</p>
+<p>翻译过来就是说，定时器在执行时，将自身作为参数传递给block，来帮助避免循环引用。</p>
+</blockquote>
+<p>使用很简单，但是要注意两点：</p>
+<blockquote>
+<p>1.避免block的循环引用，使用 __weak 和  __strong 来避免<br>2.在持用NSTimer对象的类的方法中-(void)dealloc调用NSTimer 的- (void)invalidate方法；</p>
+</blockquote>
+<h3 id="2-4-使用block来解决"><a href="#2-4-使用block来解决" class="headerlink" title="2.4 使用block来解决"></a>2.4 使用block来解决</h3><p>该方案主要要点：</p>
+<ul>
+<li>将计时器所应执行的任务封装成”Block”，在调用计时器函数时，把block作为userInfo参数传进去。</li>
+<li>userInfo参数用来存放”不透明值”，只要计时器有效，就会一直保留它。</li>
+<li>在传入参数时要通过copy方法，将block拷贝到”堆区”，否则等到稍后要执行它的时候，该blcok可能已经无效了。</li>
+<li>计时器现在的target是NSTimer类对象，这是个单例，因此计时器是否会保留它，其实都无所谓。此处依然有保留环，然而因为类对象（class object）无需回收，所以不用担心。</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">NSTimer</span> (<span class="title">STBlocks</span>)</span></span><br><span class="line"></span><br><span class="line">+ (<span class="built_in">NSTimer</span> *)st_scheduledTimeWithTimeInterval:(<span class="built_in">NSTimeInterval</span>)interval</span><br><span class="line">                                         block:(<span class="keyword">void</span>(^)())block</span><br><span class="line">                                       repeats:(<span class="built_in">BOOL</span>)repeats;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#import <span class="meta-string">"NSTimer+STBlocks.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSTimer</span> (<span class="title">STBlocks</span>)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">+ (<span class="built_in">NSTimer</span> *)st_scheduledTimeWithTimeInterval:(<span class="built_in">NSTimeInterval</span>)interval</span><br><span class="line">                                         block:(<span class="keyword">void</span>(^)())block</span><br><span class="line">                                       repeats:(<span class="built_in">BOOL</span>)repeats</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> [<span class="keyword">self</span> scheduledTimerWithTimeInterval:interval</span><br><span class="line">                                         target:<span class="keyword">self</span></span><br><span class="line">                                       selector:<span class="keyword">@selector</span>(st_blockInvoke:) userInfo:[block <span class="keyword">copy</span>]</span><br><span class="line">                                        repeats:repeats];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)st_blockInvoke:(<span class="built_in">NSTimer</span> *)timer</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">void</span> (^block)() = timer.userInfo;</span><br><span class="line">    <span class="keyword">if</span>(block)</span><br><span class="line">    &#123;</span><br><span class="line">        block();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+
+<p>封装后如何使用:</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">__<span class="keyword">weak</span> __<span class="keyword">typeof</span>(<span class="keyword">self</span>) weakSelf = <span class="keyword">self</span>;</span><br><span class="line">[<span class="built_in">NSTimer</span> st_scheduledTimeWithTimeInterval:<span class="number">4.0</span>f</span><br><span class="line">                                     block:^&#123;</span><br><span class="line">                                         __<span class="keyword">strong</span> __<span class="keyword">typeof</span>(<span class="keyword">self</span>) strongSelf = weakSelf;</span><br><span class="line">                                         [strongSelf doSomething];</span><br><span class="line">                                     &#125;</span><br><span class="line">                                   repeats:<span class="literal">YES</span>];</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-5-使用NSProxy来解决循环引用"><a href="#2-5-使用NSProxy来解决循环引用" class="headerlink" title="2.5 使用NSProxy来解决循环引用"></a>2.5 使用NSProxy来解决循环引用</h3><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// STProxy.h</span></span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="built_in">NS_ASSUME_NONNULL_BEGIN</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">STProxy</span> : <span class="title">NSProxy</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//通过创建对象</span></span><br><span class="line">- (<span class="keyword">instancetype</span>)initWithObjc:(<span class="keyword">id</span>)object;</span><br><span class="line"></span><br><span class="line"><span class="comment">//通过类方法创建创建</span></span><br><span class="line">+ (<span class="keyword">instancetype</span>)proxyWithObjc:(<span class="keyword">id</span>)object;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">NS_ASSUME_NONNULL_END</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// STProxy.m</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#import <span class="meta-string">"STProxy.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">STProxy</span>()</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">weak</span>) <span class="keyword">id</span> object;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">STProxy</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">instancetype</span>)initWithObjc:(<span class="keyword">id</span>)object &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">self</span>.object = object;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">+ (<span class="keyword">instancetype</span>)proxyWithObjc:(<span class="keyword">id</span>)object &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> [[<span class="keyword">self</span> alloc] initWithObjc:object];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)forwardInvocation:(<span class="built_in">NSInvocation</span> *)invocation &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span>.object respondsToSelector:invocation.selector]) &#123;</span><br><span class="line">        </span><br><span class="line">        [invocation invokeWithTarget:<span class="keyword">self</span>.object];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSMethodSignature</span> *)methodSignatureForSelector:(SEL)sel &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> [<span class="keyword">self</span>.object methodSignatureForSelector:sel];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+
+<p>在使用的时候如下代码：</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"ViewController.h"</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">"STProxy.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> ()</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//使用NSProxy</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSTimer</span> *timer2;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ViewController</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewWillDisappear:(<span class="built_in">BOOL</span>)animated &#123;</span><br><span class="line">    </span><br><span class="line">    [<span class="keyword">super</span> viewWillDisappear:animated];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    <span class="keyword">self</span>.title = <span class="string">@"VC1"</span>;</span><br><span class="line">    <span class="keyword">self</span>.view.backgroundColor = [<span class="built_in">UIColor</span> whiteColor];</span><br><span class="line">    </span><br><span class="line">    STProxy *proxy = [[STProxy alloc] initWithObjc:<span class="keyword">self</span>];</span><br><span class="line">    <span class="keyword">self</span>.timer2 = [<span class="built_in">NSTimer</span> scheduledTimerWithTimeInterval:<span class="number">1.0</span> target:proxy selector:<span class="keyword">@selector</span>(timerHandle) userInfo:<span class="literal">nil</span> repeats:<span class="literal">YES</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//定时触发的事件</span></span><br><span class="line">- (<span class="keyword">void</span>)timerHandle &#123;</span><br><span class="line">     <span class="built_in">NSLog</span>(<span class="string">@"正在计时中。。。。。。"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)dealloc &#123;</span><br><span class="line">    [<span class="keyword">self</span>.timer2 invalidate];</span><br><span class="line">    <span class="keyword">self</span>.timer2 = <span class="literal">nil</span>;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%s"</span>,__func__);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+
+<p>当pop当前viewController时候，打印结果：</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">-[ViewController dealloc]</span><br></pre></td></tr></table></figure>
+
+<p>通过STProxy这个伪基类（相当于ViewController的复制类），避免直接让timer和viewController造成循环。</p>
+<p>原理如下图:</p>
+<img src="/2016/12/23/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-NSTimer-%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8/1.png" class="" title="原理图">]]></content>
+      <categories>
+        <category>iOS开发</category>
+      </categories>
+      <tags>
+        <tag>iOS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>iOS开发之 ~ 循环引用</title>
+    <url>/2016/12/11/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h2><blockquote>
+<p>iOS内存中的分区有：堆、栈、静态区。其中，栈和静态区是操作系统自己管理回收，不会造成循环引用。在堆中的相互引用无法回收，有可能造成循环引用。</p>
+</blockquote>
+<ul>
+<li><p>循环引用的实质：多个对象相互之间有强引用，不能施放让系统回收。</p>
+</li>
+<li><p>解决循环引用一般是将 strong 引用改为 weak 引用。</p>
+</li>
+</ul>
+<a id="more"></a>
+
+<h2 id="2-循环引用场景分析及解决方案"><a href="#2-循环引用场景分析及解决方案" class="headerlink" title="2. 循环引用场景分析及解决方案"></a>2. 循环引用场景分析及解决方案</h2><h3 id="2-1-父类与子类"><a href="#2-1-父类与子类" class="headerlink" title="2.1 父类与子类"></a>2.1 父类与子类</h3><p>在使用UITableView 的时候，将 UITableView 给 Cell 使用，cell 中的 strong 引用会造成循环引用。</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Controller中的代码</span></span><br><span class="line">- (<span class="built_in">UITableViewCell</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView cellForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath &#123;</span><br><span class="line">    TestTableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:<span class="string">@"UITableViewCellId"</span> forIndexPath:indexPath];</span><br><span class="line">    cell.tableView = tableView;</span><br><span class="line">    <span class="keyword">return</span> cell;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 自定义Cell中的代码</span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">TestTableViewCell</span> : <span class="title">UITableViewCell</span></span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">UITableView</span> *tableView; <span class="comment">// strong 造成循环引用</span></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+
+<p><code>解决方案：</code></p>
+<p><code>strong 改为 weak</code></p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 自定义Cell中的代码</span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">TestTableViewCell</span> : <span class="title">UITableViewCell</span></span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">weak</span>) <span class="built_in">UITableView</span> *tableView; <span class="comment">// strong 改为 weak</span></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-2-代码块-Block"><a href="#2-2-代码块-Block" class="headerlink" title="2.2 代码块 Block"></a>2.2 代码块 Block</h3><p>block在copy时都会对block内部用到的对象进行强引用的。</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="keyword">self</span>.testObject.testCircleBlock = ^&#123;</span><br><span class="line">   [<span class="keyword">self</span> doSomething];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><code>解决方案:</code></p>
+<p><code>self将block作为自己的属性变量，而在block的方法体里面又引用了 self 本身，此时就很简单的形成了一个循环引用。</code></p>
+<p><code>应该将 self 改为弱引用</code></p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">__<span class="keyword">weak</span> <span class="keyword">typeof</span>(<span class="keyword">self</span>) weakSelf = <span class="keyword">self</span>;</span><br><span class="line"> <span class="keyword">self</span>.testObject.testCircleBlock = ^&#123;</span><br><span class="line">      __<span class="keyword">strong</span> <span class="keyword">typeof</span> (weakSelf) strongSelf = weakSelf;</span><br><span class="line">      [strongSelf doSomething];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3-代理方法-Delegate"><a href="#2-3-代理方法-Delegate" class="headerlink" title="2.3 代理方法 Delegate"></a>2.3 代理方法 Delegate</h3><p>delegate 属性的声明为strong会导致循环引用</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// delegate 属性的声明</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="keyword">id</span> &lt;BViewControllerDelegate&gt; delegate;</span><br><span class="line"></span><br><span class="line"><span class="comment">// self -&gt; AViewController</span></span><br><span class="line">BViewController *bVc = [BViewController new];</span><br><span class="line">bVc.delegate = <span class="keyword">self</span>; </span><br><span class="line">[<span class="keyword">self</span>.navigationController pushViewController: bVc animated:<span class="literal">YES</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 假如是 strong 的情况</span></span><br><span class="line"><span class="comment">// bVc.delegate ===&gt; AViewController (也就是 A 的引用计数 + 1)</span></span><br><span class="line"><span class="comment">// AViewController 本身又是引用了 &lt;BViewControllerDelegate&gt; ===&gt; delegate 引用计数 + 1</span></span><br><span class="line"><span class="comment">// 导致： AViewController &lt;======&gt; Delegate ，也就循环引用啦</span></span><br></pre></td></tr></table></figure>
+
+<p><code>解决方案:</code></p>
+<p><code>将 delegate 属性声明 strong 改为 weak，否则会造成循环引用</code></p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// delegate 属性的声明</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">weak</span>) <span class="keyword">id</span> &lt;BViewControllerDelegate&gt; delegate;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-4-计时器NSTimer"><a href="#2-4-计时器NSTimer" class="headerlink" title="2.4 计时器NSTimer"></a>2.4 计时器NSTimer</h3><p>NSTimer 的 target 对传入的参数都是强引用（即使是 weak 对象）</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// 一般使用NSTimer代码如下</span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    <span class="built_in">NSTimer</span> *timer = [[<span class="built_in">NSTimer</span> alloc] initWithFireDate:[<span class="built_in">NSDate</span> date] interval:<span class="number">1</span> target:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(timerFire) userInfo:<span class="literal">nil</span> repeats:<span class="literal">YES</span>];</span><br><span class="line">    [[<span class="built_in">NSRunLoop</span> currentRunLoop] addTimer:timer forMode:<span class="built_in">NSDefaultRunLoopMode</span>];</span><br><span class="line">    <span class="keyword">self</span>.timer = timer;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">- (<span class="keyword">void</span>)timerFire &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"timer fire"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<img src="/2016/12/11/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8/1.png" class="" title="预览效果">
+
+<p><code>解决方案:</code> </p>
+<ol>
+<li><code>在ViewController执行dealloc前释放timer（不推荐）</code></li>
+<li><code>对定时器NSTimer封装</code></li>
+<li><code>苹果API新增3个接口解决循环引用（iOS 10.0以上可用）</code></li>
+<li><code>使用block进行解决</code></li>
+<li><code>使用NSProxy进行解决</code></li>
+</ol>
+<p>此处就介绍第4种方案,后续详细介绍其他方式</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">NSTimer</span> (<span class="title">STBlocks</span>)</span></span><br><span class="line"></span><br><span class="line">+ (<span class="built_in">NSTimer</span> *)st_scheduledTimeWithTimeInterval:(<span class="built_in">NSTimeInterval</span>)interval</span><br><span class="line">                                         block:(<span class="keyword">void</span>(^)())block</span><br><span class="line">                                       repeats:(<span class="built_in">BOOL</span>)repeats;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#import <span class="meta-string">"NSTimer+STBlocks.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSTimer</span> (<span class="title">STBlocks</span>)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">+ (<span class="built_in">NSTimer</span> *)st_scheduledTimeWithTimeInterval:(<span class="built_in">NSTimeInterval</span>)interval</span><br><span class="line">                                         block:(<span class="keyword">void</span>(^)())block</span><br><span class="line">                                       repeats:(<span class="built_in">BOOL</span>)repeats</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> [<span class="keyword">self</span> scheduledTimerWithTimeInterval:interval</span><br><span class="line">                                         target:<span class="keyword">self</span></span><br><span class="line">                                       selector:<span class="keyword">@selector</span>(st_blockInvoke:) userInfo:[block <span class="keyword">copy</span>]</span><br><span class="line">                                        repeats:repeats];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)st_blockInvoke:(<span class="built_in">NSTimer</span> *)timer</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">void</span> (^block)() = timer.userInfo;</span><br><span class="line">    <span class="keyword">if</span>(block)</span><br><span class="line">    &#123;</span><br><span class="line">        block();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+
+<p>封装后如何使用:</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">__<span class="keyword">weak</span> __<span class="keyword">typeof</span>(<span class="keyword">self</span>) weakSelf = <span class="keyword">self</span>;</span><br><span class="line">[<span class="built_in">NSTimer</span> st_scheduledTimeWithTimeInterval:<span class="number">4.0</span>f</span><br><span class="line">                                     block:^&#123;</span><br><span class="line">                                         __<span class="keyword">strong</span> __<span class="keyword">typeof</span>(<span class="keyword">self</span>) strongSelf = weakSelf;</span><br><span class="line">                                         [strongSelf doSomething];</span><br><span class="line">                                     &#125;</span><br><span class="line">                                   repeats:<span class="literal">YES</span>];</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>计时器保留其目标对象，反复执行任务导致的循环，确实要注意，另外在dealloc的时候，不要忘了调用计时器中的 invalidate方法。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>iOS开发</category>
+      </categories>
+      <tags>
+        <tag>iOS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Sourcetree ~ 不停的提示 password required</title>
+    <url>/2015/03/25/Sourcetree-password-required/</url>
+    <content><![CDATA[<br/>
+
+<blockquote>
+<p>问题: Sourcetree 不停的让输入密码，报 password required</p>
+</blockquote>
+<br/>
+
+<p>按以下步骤可以解决:</p>
+<p>1.在终端（Terminal）打开你的工程目录</p>
+<p>2.输入以下命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config credential.helper store</span><br></pre></td></tr></table></figure>
+
+<p>3.拉取代码</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git pull</span><br></pre></td></tr></table></figure>
+
+<p>4.输入用户名密码</p>
+]]></content>
+      <categories>
+        <category>开发工具</category>
+      </categories>
+      <tags>
+        <tag>Sourcetree</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>个人简介</title>
+    <url>/2015/03/24/about/</url>
+    <content><![CDATA[<blockquote>
+<p>An iOS Engineer, Live in Shenzhen, Guangdong, China.</p>
+</blockquote>
+<p><img style="margin-top: 3px" align="left" src="/2015/03/24/about/2.png"  alt="姓名" />&nbsp; <font face="黑体" size=1 >Soto Pu </font><br><img style="margin-top: 5px" align="left" src="/2015/03/24/about/3.png"  alt="微信" />&nbsp; <font face="黑体" size=1>p709723778 </font><br><img style="margin-top: 3px" align="left" src="/2015/03/24/about/1.png"  alt="地址" />&nbsp; <font face="黑体" size=1>Shenzhen, China </font><br><img style="margin-top: 3px" align="left" src="/2015/03/24/about/company.png"  alt="公司" />&nbsp; <font face="黑体" size=1><a href="https://www.idreamsky.com/" target="_blank" rel="noopener">iDreamSky Technology Limited</a></font><br><img style="margin-top: 4px" align="left" src="/2015/03/24/about/10.png"  alt="facebook" />&nbsp; <font face="黑体" size=1><a href="http://blog.sina.com.cn/u/1903254520" target="_blank" rel="noopener">http://blog.sina.com.cn/u/1903254520</a> </font><br><img style="margin-top: 5px" align="left" src="/2015/03/24/about/6.png"  alt="github" />&nbsp; <font face="黑体" size=1><a href="https://github.com/p709723778" target="_blank" rel="noopener">https://github.com/p709723778</a> </font><br><img style="margin-top: 5px" align="left" src="/2015/03/24/about/7.png"  alt="码云" />&nbsp; <font face="黑体" size=1><a href="https://gitee.com/p709723778" target="_blank" rel="noopener">https://gitee.com/p709723778</a> </font><br><img style="margin-top: 8px" align="left" src="/2015/03/24/about/4.png"  alt="邮箱" />&nbsp; <font face="黑体" size=1><a href="mailto:p709723778@126.com">p709723778@126.com</a> </font></p>
+<img src="/2015/03/24/about/avatar.png" class="" title="预览效果">
+
+
+
+]]></content>
+      <tags>
+        <tag>about</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo ~ 相关介绍</title>
+    <url>/2015/03/24/Hexo-%E7%9B%B8%E5%85%B3%E8%AF%B4%E6%98%8E/</url>
+    <content><![CDATA[<h1 id="Hexo-命令"><a href="#Hexo-命令" class="headerlink" title="Hexo 命令"></a>Hexo 命令</h1><table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="center">命令说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">hexo new “My New Post”</td>
+<td align="center">创建文章</td>
+</tr>
+<tr>
+<td align="left">hexo server</td>
+<td align="center">启动服务</td>
+</tr>
+<tr>
+<td align="left">hexo generate</td>
+<td align="center">生成静态文件</td>
+</tr>
+<tr>
+<td align="left">hexo deploy</td>
+<td align="center">hexo 部署</td>
+</tr>
+<tr>
+<td align="left">hexo clean</td>
+<td align="center">hexo清理编译文件</td>
+</tr>
+<tr>
+<td align="left">hexo new page categories</td>
+<td align="center">创建分类</td>
+</tr>
+<tr>
+<td align="left">hexo new page tags</td>
+<td align="center">创建标签</td>
+</tr>
+<tr>
+<td align="left">hexo new page photos</td>
+<td align="center">创建相册</td>
+</tr>
+</tbody></table>
+<a id="more"></a>
+
+<br/>
+
+
+
+<h1 id="Hexo-插件"><a href="#Hexo-插件" class="headerlink" title="Hexo 插件"></a>Hexo 插件</h1><blockquote>
+<p>搜索:  <a href="https://github.com/theme-next/hexo-generator-searchdb" target="_blank" rel="noopener">hexo-generator-searchdb</a></p>
+<p>RSS订阅:  <a href="https://github.com/hexojs/hexo-generator-feed" target="_blank" rel="noopener">hexo-generate-feed</a> </p>
+<p>文章置顶:  <a href="https://github.com/netcan/hexo-generator-index-pin-top" target="_blank" rel="noopener">hexo-generator-index-pin-top</a></p>
+<p>文章加密:  <a href="https://github.com/MikeCoder/hexo-blog-encrypt/blob/master/ReadMe.zh.md" target="_blank" rel="noopener">hexo-blog-encrypt</a></p>
+<p>播放音乐:  <a href="https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md" target="_blank" rel="noopener">hexo-tag-aplayer</a></p>
+<p>播放视频: <a href="https://github.com/MoePlayer/hexo-tag-dplayer" target="_blank" rel="noopener">hexo-tag-dplayer</a></p>
+<p>二次元看板娘:  <a href="https://github.com/EYHN/hexo-helper-live2d/blob/master/README.zh-CN.md" target="_blank" rel="noopener">hexo-helper-live2d</a></p>
+<p>更多插件,请查看<a href="https://hexo.io/plugins/" target="_blank" rel="noopener">hexo插件市场</a></p>
+</blockquote>
+<h1 id="图床"><a href="#图床" class="headerlink" title="图床"></a>图床</h1><p>推荐使用：<a href="https://sm.ms/" target="_blank" rel="noopener">SM.MS</a>，<a href="https://www.superbed.cn/" target="_blank" rel="noopener">聚合图床</a></p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mac ~ iTerm2 快捷操作</title>
+    <url>/2014/09/11/Mac-iTerm2%20%E5%BF%AB%E6%8D%B7%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<blockquote>
+<p>iTerm2是一款专为Mac OS X编写的，功能齐全的终端仿真程序，旨在为用户提供OS X下最佳的命令行经验。如果你能了解更多mac终端iTerm2快捷键，使用起来会更顺手。</p>
+<p>官网: <a href="https://iterm2.com/" target="_blank" rel="noopener">https://iterm2.com/</a></p>
+</blockquote>
+<h3 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h3><hr>
+<ul>
+<li><p>新建标签：command + t</p>
+</li>
+<li><p>关闭标签：command + w</p>
+</li>
+<li><p>切换标签：command + 数字 command + 左右方向键</p>
+</li>
+<li><p>切换全屏：command + enter</p>
+</li>
+<li><p>查找：command + f</p>
+<a id="more"></a>
+
+</li>
+</ul>
+<h3 id="分屏"><a href="#分屏" class="headerlink" title="分屏"></a>分屏</h3><hr>
+<ul>
+<li>垂直分屏：command + d</li>
+<li>水平分屏：command + shift + d</li>
+<li>切换屏幕：command + option + 方向键 command + [ 或 command + ]</li>
+<li>查看历史命令：command + ;</li>
+<li>查看剪贴板历史：command + shift + h</li>
+</ul>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><hr>
+<ul>
+<li>清除当前行：ctrl + u</li>
+<li>到行首：ctrl + a</li>
+<li>到行尾：ctrl + e</li>
+<li>前进后退：ctrl + f/b (相当于左右方向键)</li>
+<li>上一条命令：ctrl + p</li>
+<li>搜索命令历史：ctrl + r</li>
+<li>删除当前光标的字符：ctrl + d</li>
+<li>删除光标之前的字符：ctrl + h</li>
+<li>删除光标之前的单词：ctrl + w</li>
+<li>删除到文本末尾：ctrl + k</li>
+<li>交换光标处文本：ctrl + t</li>
+<li>清屏1：command + r</li>
+<li>清屏2：ctrl + l</li>
+</ul>
+<h3 id="自带实用的功能-快捷键"><a href="#自带实用的功能-快捷键" class="headerlink" title="自带实用的功能/快捷键"></a>自带实用的功能/快捷键</h3><hr>
+<ul>
+<li>⌘ + 数字在各 tab 标签直接来回切换</li>
+<li>选择即复制 + 鼠标中键粘贴，这个很实用</li>
+<li>⌘ + f 所查找的内容会被自动复制</li>
+<li>⌘ + d 横着分屏 / ⌘ + shift + d 竖着分屏</li>
+<li>⌘ + r = clear，而且只是换到新一屏，不会想 clear 一样创建一个空屏</li>
+<li>ctrl + u 清空当前行，无论光标在什么位置</li>
+<li>输入开头命令后 按 ⌘ + ; 会自动列出输入过的命令</li>
+<li>⌘ + shift + h 会列出剪切板历史</li>
+<li>可以在 Preferences &gt; keys 设置全局快捷键调出 iterm，这个也可以用过 Alfred 实现</li>
+</ul>
+<h3 id="我常用的一些快捷键"><a href="#我常用的一些快捷键" class="headerlink" title="我常用的一些快捷键"></a>我常用的一些快捷键</h3><hr>
+<ul>
+<li>⌘ + 1 / 2 左右 tab 之间来回切换，这个在 前面 已经介绍过了</li>
+<li>⌘← / ⌘→ 到一行命令最左边/最右边 ，这个功能同 C+a / C+e</li>
+<li>⌥← / ⌥→ 按单词前移/后移，相当与 C+f / C+b，其实这个功能在Iterm中已经预定义好了，⌥f / ⌥b，看个人习惯了</li>
+</ul>
+<h3 id="设置方法如下"><a href="#设置方法如下" class="headerlink" title="设置方法如下"></a>设置方法如下</h3><hr>
+<p>当然除了这些可以自定义的也不能忘了 linux 下那些好用的组合</p>
+<ul>
+<li>C+a / C+e 这个几乎在哪都可以使用</li>
+<li>C+p / !! 上一条命令</li>
+<li>C+k 从光标处删至命令行尾 (本来 C+u 是删至命令行首，但iterm中是删掉整行)</li>
+<li>C+w A+d 从光标处删至字首/尾</li>
+<li>C+h C+d 删掉光标前后的自负</li>
+<li>C+y 粘贴至光标后</li>
+<li>C+r 搜索命令历史，这个较常用</li>
+</ul>
+<h3 id="选择喜欢的配色方案"><a href="#选择喜欢的配色方案" class="headerlink" title="选择喜欢的配色方案"></a>选择喜欢的配色方案</h3><hr>
+<ul>
+<li>在Preferences-&gt;Profiles-&gt;Colors的load presets可以选择某个配色方案。也可以自己下载。在网站<a href="https://link.jianshu.com?t=http%3A%2F%2Fiterm2colorschemes.com%2F" target="_blank" rel="noopener">http://iterm2colorschemes.com/</a>，几乎可以找到所有可用的配色方案。</li>
+</ul>
+<h3 id="选中即复制"><a href="#选中即复制" class="headerlink" title="选中即复制"></a>选中即复制</h3><hr>
+<p>iterm2有2种好用的选中即复制模式。</p>
+<ul>
+<li>一种是用鼠标，在iterm2中，选中某个路径或者某个词汇，那么，iterm2就自动复制了。</li>
+<li>另一种是无鼠标模式，command+f,弹出iterm2的查找模式，输入要查找并复制的内容的前几个字母，确认找到的是自己的内容之后，输入tab，查找窗口将自动变化内容，并将其复制。如果输入的是shift+tab，则自动将查找内容的左边选中并复制。</li>
+</ul>
+<h3 id="自动完成"><a href="#自动完成" class="headerlink" title="自动完成"></a>自动完成</h3><hr>
+<ul>
+<li>输入打头几个字母，然后输入command+; iterm2将自动列出之前输入过的类似命令。</li>
+</ul>
+<h3 id="剪切历史"><a href="#剪切历史" class="headerlink" title="剪切历史"></a>剪切历史</h3><hr>
+<ul>
+<li>输入command+shift+h，iterm2将自动列出剪切板的历史记录。如果需要将剪切板的历史记录保存到磁盘，在Preferences &gt; General &gt; Save copy/paste history to disk.中设置。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Mac</category>
+      </categories>
+      <tags>
+        <tag>Mac</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SVN ~ Status字段含义小记</title>
+    <url>/2013/09/10/SVN-Status%E5%AD%97%E6%AE%B5%E5%90%AB%E4%B9%89%E5%B0%8F%E8%AE%B0/</url>
+    <content><![CDATA[<p>执行SVN up和svn merge等命令出现在首位置的各字母含义如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">字符</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">A</td>
+<td align="center">新增</td>
+</tr>
+<tr>
+<td align="center">C</td>
+<td align="center">冲突</td>
+</tr>
+<tr>
+<td align="center">D</td>
+<td align="center">删除</td>
+</tr>
+<tr>
+<td align="center">G</td>
+<td align="center">合并</td>
+</tr>
+<tr>
+<td align="center">I</td>
+<td align="center">忽略</td>
+</tr>
+<tr>
+<td align="center">M</td>
+<td align="center">改变</td>
+</tr>
+<tr>
+<td align="center">R</td>
+<td align="center">替换</td>
+</tr>
+<tr>
+<td align="center">X</td>
+<td align="center">未纳入版本控制，但被外部定义所用</td>
+</tr>
+<tr>
+<td align="center">?</td>
+<td align="center">未纳入版本控制</td>
+</tr>
+<tr>
+<td align="center">!</td>
+<td align="center">该项目已遗失 (被非 svn 命令所删除) 或是不完整</td>
+</tr>
+<tr>
+<td align="center">~</td>
+<td align="center">版本控制下的项目与其它类型的项目重名</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>SVN</category>
+      </categories>
+      <tags>
+        <tag>SVN</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>iOS开发之 ~ 如何判断推送开关是否打开</title>
+    <url>/2013/02/21/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E6%8E%A8%E9%80%81%E5%BC%80%E5%85%B3%E6%98%AF%E5%90%A6%E6%89%93%E5%BC%80/</url>
+    <content><![CDATA[<ul>
+<li>iOS8以前</li>
+</ul>
+<p>根据 <code>[[UIApplication sharedApplication] enabledRemoteNotificationTypes]</code> 的返回值来进行判断，该返回值是一个枚举值，如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">typedef enum &#123;</span><br><span class="line"></span><br><span class="line">  UIRemoteNotificationTypeNone   &#x3D; 0,</span><br><span class="line"></span><br><span class="line">  UIRemoteNotificationTypeBadge  &#x3D; 1 &lt;&lt; 0,</span><br><span class="line"></span><br><span class="line">  UIRemoteNotificationTypeSound  &#x3D; 1 &lt;&lt; 1,</span><br><span class="line"></span><br><span class="line">  UIRemoteNotificationTypeAlert  &#x3D; 1 &lt;&lt; 2,</span><br><span class="line"></span><br><span class="line">  UIRemoteNotificationTypeNewsstandContentAvailability &#x3D; 1 &lt;&lt; 3,</span><br><span class="line"></span><br><span class="line">&#125; UIRemoteNotificationType;</span><br></pre></td></tr></table></figure>
+
+<p>如果是 <code>UIRemoteNotificationTypeNone</code> ，则可以认为推送开关没有打开，反之亦然。</p>
+<a id="more"></a>
+
+<ul>
+<li>iOS8以后</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 返回值为BOOL类型,true为打开 false为关闭</span><br><span class="line">[[UIApplication sharedApplication] isRegisteredForRemoteNotifications];</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>iOS开发</category>
+      </categories>
+      <tags>
+        <tag>iOS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mac ~ 让隐藏的资源库文件设置为显示</title>
+    <url>/2012/09/03/Mac-%E8%AE%A9%E9%9A%90%E8%97%8F%E7%9A%84%E8%B5%84%E6%BA%90%E5%BA%93%E6%96%87%E4%BB%B6%E8%AE%BE%E7%BD%AE%E4%B8%BA%E6%98%BE%E7%A4%BA/</url>
+    <content><![CDATA[<blockquote>
+<p>在 Mac OS X 10.7 Lion 系统中，用户资源库文件夹（Library）被默认隐藏了，可能是由于苹果担心用户不小心误删除用户资源库中的系统必须文件，而故意将这个文件夹隐藏掉了。</p>
+</blockquote>
+<p>不过，想让这个文件夹显示出来也非常的简单，直接在终端中执行下面这条命令就可以了：</p>
+<ul>
+<li>不隐藏</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chflags nohidden ~/Library/</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<ul>
+<li>隐藏</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chflags hidden ~/Library</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Mac</category>
+      </categories>
+      <tags>
+        <tag>Mac</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mac ~ 教你怎么显示隐藏文件，或者关闭显示隐藏文件</title>
+    <url>/2012/09/01/Mac-%E6%95%99%E4%BD%A0%E6%80%8E%E4%B9%88%E6%98%BE%E7%A4%BA%E9%9A%90%E8%97%8F%E6%96%87%E4%BB%B6%EF%BC%8C%E6%88%96%E8%80%85%E5%85%B3%E9%97%AD%E6%98%BE%E7%A4%BA%E9%9A%90%E8%97%8F%E6%96%87%E4%BB%B6/</url>
+    <content><![CDATA[<p>缺省情况下，在 Mac 下是不显示隐藏文件的，Finder 也未提供设置是否显示隐藏文件的选项，不像 Windows 下，有一个“文件夹选项“设置界面里可以控制，但这并不表示 Mac 下无法显示隐藏文件，我可以通过“终端”，用命令行设置这个选项</p>
+<h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一 :"></a>方法一 :</h4><ul>
+<li>显示：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">defaults write com.apple.finder AppleShowAllFiles -bool <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>隐藏：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">defaults write com.apple.finder AppleShowAllFiles -bool <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h4 id="方法二"><a href="#方法二" class="headerlink" title="方法二:"></a>方法二:</h4><p>ShowOrHide工具  开关隐藏文件的显示<br><a href="http://download.csdn.net/detail/p709723778/6483095" target="_blank" rel="noopener">http://download.csdn.net/detail/p709723778/6483095</a></p>
+]]></content>
+      <categories>
+        <category>Mac</category>
+      </categories>
+      <tags>
+        <tag>Mac</tag>
+      </tags>
+  </entry>
+</search>

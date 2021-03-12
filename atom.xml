@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Soto</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://p709723778.gitee.io/"/>
+  <updated>2021-03-12T02:48:29.839Z</updated>
+  <id>http://p709723778.gitee.io/</id>
+  
+  <author>
+    <name>Soto Pu</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Dart ~ 运算符</title>
+    <link href="http://p709723778.gitee.io/2020/12/02/Dart-%E8%BF%90%E7%AE%97%E7%AC%A6/"/>
+    <id>http://p709723778.gitee.io/2020/12/02/Dart-%E8%BF%90%E7%AE%97%E7%AC%A6/</id>
+    <published>2020-12-02T20:30:05.000Z</published>
+    <updated>2021-03-12T02:48:29.839Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1-Dart在线编辑器&quot;&gt;&lt;a href=&quot;#1-Dart在线编辑器&quot; class=&quot;headerlink&quot; title=&quot;1.Dart在线编辑器&quot;&gt;&lt;/a&gt;1.Dart在线编辑器&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://repl.it/&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Flutter开发" scheme="http://p709723778.gitee.io/categories/Flutter%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="Dart" scheme="http://p709723778.gitee.io/tags/Dart/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS开发之 ~ iOS14 广告标识IDFA</title>
+    <link href="http://p709723778.gitee.io/2020/07/23/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-iOS14-%E5%B9%BF%E5%91%8A%E6%A0%87%E8%AF%86IDFA/"/>
+    <id>http://p709723778.gitee.io/2020/07/23/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-iOS14-%E5%B9%BF%E5%91%8A%E6%A0%87%E8%AF%86IDFA/</id>
+    <published>2020-07-23T16:53:32.000Z</published>
+    <updated>2021-03-12T02:48:29.843Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;用手机自带Safari 打开 &lt;a href=&quot;/download/iOS_14_DP_Beta_Profile.mobileconfig&quot;&gt;iOS14_Beta_Profile&lt;/a&gt; 可以进行下载描述文件安装体验iOS14系统&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;适配方案&quot;&gt;&lt;a href=&quot;#适配方案&quot; class=&quot;headerlink&quot; title=&quot;适配方案:&quot;&gt;&lt;/a&gt;适配方案:&lt;/h4&gt;&lt;p&gt;1.需要在info.plist 中添加 &lt;code&gt;NSUserTrackingUsageDescription&lt;/code&gt; 对应的描述文案&lt;/p&gt;
+&lt;p&gt;2.iOS14下新增了IDFA 权限申请 API 添加申请权限的代码,代码如下:&lt;/p&gt;
+&lt;p&gt;​    首先要导入系统框架&lt;/p&gt;
+&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;@import&lt;/span&gt; AdSupport;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;@import&lt;/span&gt; AppTrackingTransparency;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;​    适配代码&lt;/p&gt;
+&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;+ (&lt;span class=&quot;built_in&quot;&gt;NSString&lt;/span&gt; *)idfa&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    __block &lt;span class=&quot;built_in&quot;&gt;NSString&lt;/span&gt; *advertisingId = &lt;span class=&quot;string&quot;&gt;@&quot;&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (@available(iOS &lt;span class=&quot;number&quot;&gt;14&lt;/span&gt;, *)) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (ATTrackingManager.trackingAuthorizationStatus != ATTrackingManagerAuthorizationStatusAuthorized) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (status == ATTrackingManagerAuthorizationStatusAuthorized) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                    &lt;span class=&quot;built_in&quot;&gt;NSLog&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;@&quot;用户选择了同意授权IDFA权限 %@&quot;&lt;/span&gt;, advertisingId);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                    advertisingId = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &amp;#125; &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                    &lt;span class=&quot;built_in&quot;&gt;NSLog&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;@&quot;用户选择了拒绝授权IDFA权限&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125; &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            advertisingId = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125; &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;// ios14以下&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; ([[ASIdentifierManager sharedManager] isAdvertisingTrackingEnabled]) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            advertisingId = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125; &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;built_in&quot;&gt;NSLog&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;@&quot;请在设置 -&amp;gt; 隐私 -&amp;gt; 广告 -&amp;gt; 限制广告跟踪打开广告跟踪功能&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; advertisingId;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+      <category term="iOS开发" scheme="http://p709723778.gitee.io/categories/iOS%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="iOS" scheme="http://p709723778.gitee.io/tags/iOS/"/>
+    
+      <category term="IDFA" scheme="http://p709723778.gitee.io/tags/IDFA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS开发之 ~ dSYM 文件结构</title>
+    <link href="http://p709723778.gitee.io/2020/04/17/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-dSYM-%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/"/>
+    <id>http://p709723778.gitee.io/2020/04/17/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-dSYM-%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/</id>
+    <published>2020-04-17T19:26:01.000Z</published>
+    <updated>2021-03-12T02:48:29.843Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;1-获取Crash文件&quot;&gt;&lt;a href=&quot;#1-获取Crash文件&quot; class=&quot;headerlink&quot; title=&quot;1. 获取Crash文件&quot;&gt;&lt;/a&gt;1. 获取Crash文件&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;iPhone设备上获取: 设置 -&amp;gt; 隐私 -&amp;gt; 分析与改进 -&amp;gt; 分析数据 -&amp;gt; 找到对应应用的.ips文件(获取到的 .ips 改后缀为 .crash 即可)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Xcode 上查看: Xcode -&amp;gt; Window -&amp;gt; Devices and Simulators -&amp;gt; 选中Crash的设备 -&amp;gt; View Device Logs -&amp;gt; This Device -&amp;gt; 找到对应的进程crash文件 -&amp;gt; 右键Export Log -&amp;gt; 保存到需要保存的位置&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="iOS开发" scheme="http://p709723778.gitee.io/categories/iOS%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="iOS" scheme="http://p709723778.gitee.io/tags/iOS/"/>
+    
+      <category term="dSYM" scheme="http://p709723778.gitee.io/tags/dSYM/"/>
+    
+      <category term="Crash" scheme="http://p709723778.gitee.io/tags/Crash/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS开发之 ~ App Store Connect Operation Error 集合</title>
+    <link href="http://p709723778.gitee.io/2019/12/24/App-Store-Connect-Operation-Error-%E9%9B%86%E5%90%88/"/>
+    <id>http://p709723778.gitee.io/2019/12/24/App-Store-Connect-Operation-Error-%E9%9B%86%E5%90%88/</id>
+    <published>2019-12-24T19:10:52.000Z</published>
+    <updated>2021-03-12T02:48:29.839Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;一-、常用的上传工具&quot;&gt;&lt;a href=&quot;#一-、常用的上传工具&quot; class=&quot;headerlink&quot; title=&quot;一 、常用的上传工具&quot;&gt;&lt;/a&gt;一 、常用的上传工具&lt;/h3&gt;&lt;h6 id=&quot;1-Transporter-GUI工具-推荐&quot;&gt;&lt;a href=&quot;#1-Transporter-GUI工具-推荐&quot; class=&quot;headerlink&quot; title=&quot;1. Transporter GUI工具 推荐&quot;&gt;&lt;/a&gt;1. Transporter GUI工具 推荐&lt;/h6&gt;&lt;p&gt;使用说明: &lt;a href=&quot;https://help.apple.com/itc/transporter/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://help.apple.com/itc/transporter/&lt;/a&gt;&lt;/p&gt;
+&lt;h6 id=&quot;2-iTMSTransporter-macOS-Windows-Linux都有提供-推荐&quot;&gt;&lt;a href=&quot;#2-iTMSTransporter-macOS-Windows-Linux都有提供-推荐&quot; class=&quot;headerlink&quot; title=&quot;2. iTMSTransporter (macOS / Windows / Linux都有提供) 推荐&quot;&gt;&lt;/a&gt;2. iTMSTransporter (macOS / Windows / Linux都有提供) 推荐&lt;/h6&gt;&lt;p&gt;使用说明: &lt;a href=&quot;https://help.apple.com/itc/transporteruserguide/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://help.apple.com/itc/transporteruserguide/&lt;/a&gt;&lt;/p&gt;
+&lt;h6 id=&quot;3-Application-Loader-集成在Xcode内部，但是该工具已经被苹果弱化-不推荐&quot;&gt;&lt;a href=&quot;#3-Application-Loader-集成在Xcode内部，但是该工具已经被苹果弱化-不推荐&quot; class=&quot;headerlink&quot; title=&quot;3. Application Loader (集成在Xcode内部，但是该工具已经被苹果弱化) ~   不推荐&quot;&gt;&lt;/a&gt;3. &lt;del&gt;Application Loader (集成在Xcode内部，但是该工具已经被苹果弱化) ~&lt;/del&gt;   不推荐&lt;/h6&gt;&lt;p&gt;使用说明: &lt;a href=&quot;https://help.apple.com/itc/apploader/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://help.apple.com/itc/apploader/&lt;/a&gt;&lt;/p&gt;
+&lt;br/&gt;
+    
+    </summary>
+    
+    
+      <category term="iOS开发" scheme="http://p709723778.gitee.io/categories/iOS%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="iOS" scheme="http://p709723778.gitee.io/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS开发之 ~ NSUUID , CFUUID 唯一标识符</title>
+    <link href="http://p709723778.gitee.io/2019/07/02/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-NSUUID-CFUUID-%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6/"/>
+    <id>http://p709723778.gitee.io/2019/07/02/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-NSUUID-CFUUID-%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6/</id>
+    <published>2019-07-02T15:50:09.000Z</published>
+    <updated>2021-03-12T02:48:29.843Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;CFUUID&quot;&gt;&lt;a href=&quot;#CFUUID&quot; class=&quot;headerlink&quot; title=&quot;CFUUID&quot;&gt;&lt;/a&gt;CFUUID&lt;/h3&gt;&lt;p&gt;从iOS2.0开始，&lt;code&gt;CFUUID&lt;/code&gt;就已经出现了。它是&lt;strong&gt;CoreFoundatio&lt;/strong&gt;包的一部分，因此API属于C语言风格。CFUUIDCreate 方法用来创建CFUUIDRef，并且可以获得一个相应的NSString字符串&lt;/p&gt;
+&lt;p&gt;如下代码：&lt;/p&gt;
+&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;CFUUIDRef&lt;/span&gt; cfuuid = &lt;span class=&quot;built_in&quot;&gt;CFUUIDCreate&lt;/span&gt;(kCFAllocatorDefault);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;NSString&lt;/span&gt; *cfuuidString = (&lt;span class=&quot;built_in&quot;&gt;NSString&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;*)&lt;span class=&quot;built_in&quot;&gt;CFBridgingRelease&lt;/span&gt;(&lt;span class=&quot;built_in&quot;&gt;CFUUIDCreateString&lt;/span&gt;(kCFAllocatorDefault, cfuuid));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;CFRelease&lt;/span&gt;(cfuuid);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;获得的这个CFUUID值系统并没有存储。每次调用CFUUIDCreate，系统都会返回一个新的唯一标示符。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="iOS开发" scheme="http://p709723778.gitee.io/categories/iOS%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="UUID" scheme="http://p709723778.gitee.io/tags/UUID/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS开发之 ~ IDFA唯一标识符 (二)</title>
+    <link href="http://p709723778.gitee.io/2019/07/01/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-IDFA%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6-%E4%BA%8C/"/>
+    <id>http://p709723778.gitee.io/2019/07/01/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-IDFA%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6-%E4%BA%8C/</id>
+    <published>2019-07-01T15:45:02.000Z</published>
+    <updated>2021-03-12T02:48:29.843Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在此浅谈一下App再提交AppStore的时候,需要选择你的应用是否用到了IDFA,用到IDFA的场景是哪一种?下面来描述一下.此文也有参考别人的博客!&lt;/p&gt;
+&lt;img src=&quot;/2019/07/01/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-IDFA%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6-%E4%BA%8C/%E6%88%AA%E5%9B%BE1.png&quot; class=&quot;&quot; title=&quot;预览效果&quot;&gt;
+
+&lt;p&gt;以上4项代表的含义：&lt;/p&gt;
+&lt;h3 id=&quot;1-在-App-内投放广告&quot;&gt;&lt;a href=&quot;#1-在-App-内投放广告&quot; class=&quot;headerlink&quot; title=&quot;1. 在 App 内投放广告&quot;&gt;&lt;/a&gt;1. 在 App 内投放广告&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;服务应用中的广告。如果你的应用中集成了广告的时候，你需要勾选这一项。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="iOS开发" scheme="http://p709723778.gitee.io/categories/iOS%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="iOS" scheme="http://p709723778.gitee.io/tags/iOS/"/>
+    
+      <category term="IDFA" scheme="http://p709723778.gitee.io/tags/IDFA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS开发之 ~ IDFA唯一标识符 (一)</title>
+    <link href="http://p709723778.gitee.io/2019/06/24/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-IDFA%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6-%E4%B8%80/"/>
+    <id>http://p709723778.gitee.io/2019/06/24/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-IDFA%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6-%E4%B8%80/</id>
+    <published>2019-06-24T20:50:14.000Z</published>
+    <updated>2021-03-12T02:48:29.839Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;通过网上查资料看,我发现有一部分人使用IDFA用来做设备唯一标识,我个人觉的不是很好!有很大的缺陷,为什么呢?下面来详细解说&lt;/p&gt;
+&lt;p&gt;要使用IDFA首先要导入系统库 &lt;code&gt;@import AdSupport;&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;@property&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;nonatomic&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;readonly&lt;/span&gt;) &lt;span class=&quot;built_in&quot;&gt;NSUUID&lt;/span&gt; *advertisingIdentifier;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;IDFA是每个设备特有的字母数字串，仅用于服务广告。(官方解释)&lt;br&gt;&lt;br&gt;可以理解为广告标识符，在同一个设备上的所有App都会取到相同的值，是苹果专门给各广告提供商用来追踪用户而设的。广告标示符是由系统存储着的。&lt;br&gt;适用于对外：例如广告推广，换量等跨应用的用户追踪等。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="iOS开发" scheme="http://p709723778.gitee.io/categories/iOS%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="iOS" scheme="http://p709723778.gitee.io/tags/iOS/"/>
+    
+      <category term="IDFA" scheme="http://p709723778.gitee.io/tags/IDFA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mac ~ 如何在Mac上搭建Web服务器(Apache)</title>
+    <link href="http://p709723778.gitee.io/2019/06/21/%E5%A6%82%E4%BD%95%E5%9C%A8Mac%E4%B8%8A%E6%90%AD%E5%BB%BAWeb%E6%9C%8D%E5%8A%A1%E5%99%A8-Apache/"/>
+    <id>http://p709723778.gitee.io/2019/06/21/%E5%A6%82%E4%BD%95%E5%9C%A8Mac%E4%B8%8A%E6%90%AD%E5%BB%BAWeb%E6%9C%8D%E5%8A%A1%E5%99%A8-Apache/</id>
+    <published>2019-06-21T19:51:26.000Z</published>
+    <updated>2021-03-12T02:48:29.847Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;局域网搭建 Web 服务器测试环境,因为Mac OS X 自带了 Apache 和 PHP 环境，我们只需要简单的启动它就行了。惊不惊喜,意不意外!😄&lt;/p&gt;
+&lt;h1 id=&quot;1-相关命令&quot;&gt;&lt;a href=&quot;#1-相关命令&quot; class=&quot;headerlink&quot; title=&quot;1.相关命令&quot;&gt;&lt;/a&gt;1.相关命令&lt;/h1&gt;&lt;p&gt;a.启动 Apache 命令 :   &lt;code&gt;sudo apachectl start&lt;/code&gt;&lt;br&gt;b.停止 Apache 命令 :   &lt;code&gt;sudo apachectl stop&lt;/code&gt;&lt;br&gt;c.重启 Apache 命令 :   &lt;code&gt;sudo apachectl restart&lt;/code&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Mac" scheme="http://p709723778.gitee.io/categories/Mac/"/>
+    
+    
+      <category term="web服务" scheme="http://p709723778.gitee.io/tags/web%E6%9C%8D%E5%8A%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mac ~ 如何解决 app已损坏，打不开。你应该将它移到废纸篓</title>
+    <link href="http://p709723778.gitee.io/2017/12/11/Mac-%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3-app%E5%B7%B2%E6%8D%9F%E5%9D%8F%EF%BC%8C%E6%89%93%E4%B8%8D%E5%BC%80%E3%80%82%E4%BD%A0%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93/"/>
+    <id>http://p709723778.gitee.io/2017/12/11/Mac-%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3-app%E5%B7%B2%E6%8D%9F%E5%9D%8F%EF%BC%8C%E6%89%93%E4%B8%8D%E5%BC%80%E3%80%82%E4%BD%A0%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93/</id>
+    <published>2017-12-11T16:40:20.000Z</published>
+    <updated>2021-03-12T02:48:29.839Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;如遇：「xxx.app已损坏,打不开.你应该将它移到废纸篓」，并非你安装的软件已损坏，而是Mac系统的安全设置问题，因为这些应用都是破解或者汉化的,那么解决方法就是临时改变Mac系统安全设置。&lt;/p&gt;
+&lt;p&gt;出现这个问题的解决方法：&lt;/p&gt;
+&lt;p&gt;修改系统配置：系统偏好设置 -&amp;gt; 安全性与隐私。修改为任何来源&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;如果没有这个选项的话,打开终端，执行以下对应命令&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Mac" scheme="http://p709723778.gitee.io/categories/Mac/"/>
+    
+    
+      <category term="Mac" scheme="http://p709723778.gitee.io/tags/Mac/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS开发之 ~ Apple Open Source</title>
+    <link href="http://p709723778.gitee.io/2017/09/08/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-Apple-Open-Source/"/>
+    <id>http://p709723778.gitee.io/2017/09/08/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-Apple-Open-Source/</id>
+    <published>2017-09-08T21:23:22.000Z</published>
+    <updated>2021-03-12T02:48:29.839Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;源码下载:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;压缩文件: &lt;a href=&quot;https://opensource.apple.com/tarballs/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://opensource.apple.com/tarballs/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;源代码文件: &lt;a href=&quot;https://opensource.apple.com/source/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://opensource.apple.com/source/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="iOS开发" scheme="http://p709723778.gitee.io/categories/iOS%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="iOS" scheme="http://p709723778.gitee.io/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS开发之 ~ GCD深度解析</title>
+    <link href="http://p709723778.gitee.io/2017/08/19/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-GCD%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90/"/>
+    <id>http://p709723778.gitee.io/2017/08/19/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-GCD%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90/</id>
+    <published>2017-08-19T20:10:41.000Z</published>
+    <updated>2021-03-12T02:48:29.839Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;1-当同步遇到了串行&quot;&gt;&lt;a href=&quot;#1-当同步遇到了串行&quot; class=&quot;headerlink&quot; title=&quot;1.当同步遇到了串行&quot;&gt;&lt;/a&gt;1.当同步遇到了串行&lt;/h4&gt;&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;NSLog&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;@&quot;1&quot;&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;// 任务1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;dispatch_sync&lt;/span&gt;(dispatch_get_main_queue(), ^&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;NSLog&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;@&quot;2&quot;&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;// 任务2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;NSLog&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;@&quot;3&quot;&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;// 任务3&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;code&gt;控制台输出结果: 1&lt;/code&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="iOS开发" scheme="http://p709723778.gitee.io/categories/iOS%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="iOS" scheme="http://p709723778.gitee.io/tags/iOS/"/>
+    
+      <category term="GCD" scheme="http://p709723778.gitee.io/tags/GCD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS开发之 ~ Xcode 调试区图标含义</title>
+    <link href="http://p709723778.gitee.io/2017/03/26/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-Xcode-%E8%B0%83%E8%AF%95%E5%8C%BA%E5%9B%BE%E6%A0%87%E5%90%AB%E4%B9%89/"/>
+    <id>http://p709723778.gitee.io/2017/03/26/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-Xcode-%E8%B0%83%E8%AF%95%E5%8C%BA%E5%9B%BE%E6%A0%87%E5%90%AB%E4%B9%89/</id>
+    <published>2017-03-26T15:55:43.000Z</published>
+    <updated>2021-03-12T02:48:29.843Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;好奇Xcode调试区域每个字母表示什么含义的同学可以参考一下&lt;br&gt;图片引用自苹果官方文档说明&lt;br&gt;&lt;a href=&quot;https://developer.apple.com/library/archive/documentation/DeveloperTools/Conceptual/debugging_with_xcode/chapters/debugging_tools.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://developer.apple.com/library/archive/documentation/DeveloperTools/Conceptual/debugging_with_xcode/chapters/debugging_tools.html&lt;/a&gt;&lt;/p&gt;
+&lt;img src=&quot;/2017/03/26/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-Xcode-%E8%B0%83%E8%AF%95%E5%8C%BA%E5%9B%BE%E6%A0%87%E5%90%AB%E4%B9%89/%E6%88%AA%E5%9B%BE1.png&quot; class=&quot;&quot; title=&quot;预览效果&quot;&gt;
+    
+    </summary>
+    
+    
+      <category term="iOS开发" scheme="http://p709723778.gitee.io/categories/iOS%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="Xcode" scheme="http://p709723778.gitee.io/tags/Xcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS开发之 ~ NSProxy浅说</title>
+    <link href="http://p709723778.gitee.io/2016/12/29/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-NSProxy%E6%B5%85%E8%AF%B4/"/>
+    <id>http://p709723778.gitee.io/2016/12/29/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-NSProxy%E6%B5%85%E8%AF%B4/</id>
+    <published>2016-12-29T18:10:24.000Z</published>
+    <updated>2021-03-12T02:48:29.843Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;概要&quot;&gt;&lt;a href=&quot;#概要&quot; class=&quot;headerlink&quot; title=&quot;概要&quot;&gt;&lt;/a&gt;概要&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;NSProxy是一个抽象的超类,它遵守了 NSObject
+        
+      
+    
+    </summary>
+    
+    
+      <category term="iOS开发" scheme="http://p709723778.gitee.io/categories/iOS%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="iOS" scheme="http://p709723778.gitee.io/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS开发之 ~ NSTimer 循环引用</title>
+    <link href="http://p709723778.gitee.io/2016/12/23/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-NSTimer-%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8/"/>
+    <id>http://p709723778.gitee.io/2016/12/23/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-NSTimer-%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8/</id>
+    <published>2016-12-23T18:10:24.000Z</published>
+    <updated>2021-03-12T02:48:29.843Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;1-概述&quot;&gt;&lt;a href=&quot;#1-概述&quot; class=&quot;headerlink&quot; title=&quot;1. 概述&quot;&gt;&lt;/a&gt;1. 概述&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;在使用NSTimer，如果使用不得当特别会引起循环引用，造成内存泄露。所以怎么避免循环引用问题，下面我提出几种解决NSTimer的几种循环引用。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在iOS中，NSTimer的使用是非常频繁的，但是NSTimer在使用中需要注意，避免循环引用的问题。之前经常这样写&lt;/p&gt;
+&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;- (&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;)setupTimer &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.timer = [&lt;span class=&quot;built_in&quot;&gt;NSTimer&lt;/span&gt; scheduledTimerWithTimeInterval:&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; target:&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt; selector:&lt;span class=&quot;keyword&quot;&gt;@selector&lt;/span&gt;(timerAction) userInfo:&lt;span class=&quot;literal&quot;&gt;nil&lt;/span&gt; repeats:&lt;span class=&quot;literal&quot;&gt;YES&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- (&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;)dealloc &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.timer invalidate];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.timer = &lt;span class=&quot;literal&quot;&gt;nil&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;由于self强引用了timer，同时timer也强引用了self，所以循环引用造成dealloc方法根本不会走，self和timer都不会被释放，造成内存泄漏。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="iOS开发" scheme="http://p709723778.gitee.io/categories/iOS%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="iOS" scheme="http://p709723778.gitee.io/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS开发之 ~ 循环引用</title>
+    <link href="http://p709723778.gitee.io/2016/12/11/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8/"/>
+    <id>http://p709723778.gitee.io/2016/12/11/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8/</id>
+    <published>2016-12-11T11:32:51.000Z</published>
+    <updated>2021-03-12T02:48:29.847Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;1-概述&quot;&gt;&lt;a href=&quot;#1-概述&quot; class=&quot;headerlink&quot; title=&quot;1. 概述&quot;&gt;&lt;/a&gt;1. 概述&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;iOS内存中的分区有：堆、栈、静态区。其中，栈和静态区是操作系统自己管理回收，不会造成循环引用。在堆中的相互引用无法回收，有可能造成循环引用。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;循环引用的实质：多个对象相互之间有强引用，不能施放让系统回收。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;解决循环引用一般是将 strong 引用改为 weak 引用。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="iOS开发" scheme="http://p709723778.gitee.io/categories/iOS%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="iOS" scheme="http://p709723778.gitee.io/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Sourcetree ~ 不停的提示 password required</title>
+    <link href="http://p709723778.gitee.io/2015/03/25/Sourcetree-password-required/"/>
+    <id>http://p709723778.gitee.io/2015/03/25/Sourcetree-password-required/</id>
+    <published>2015-03-25T15:26:53.000Z</published>
+    <updated>2021-03-12T02:48:29.839Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;br/&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;问题: Sourcetree 不停的让输入密码，报 password
+        
+      
+    
+    </summary>
+    
+    
+      <category term="开发工具" scheme="http://p709723778.gitee.io/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="Sourcetree" scheme="http://p709723778.gitee.io/tags/Sourcetree/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>个人简介</title>
+    <link href="http://p709723778.gitee.io/2015/03/24/about/"/>
+    <id>http://p709723778.gitee.io/2015/03/24/about/</id>
+    <published>2015-03-24T21:49:30.000Z</published>
+    <updated>2021-03-12T02:48:29.839Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;An iOS Engineer, Live in Shenzhen, Guangdong, China.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img style=&quot;margin-top: 3px&quot; align=&quot;left&quot;
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="about" scheme="http://p709723778.gitee.io/tags/about/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo ~ 相关介绍</title>
+    <link href="http://p709723778.gitee.io/2015/03/24/Hexo-%E7%9B%B8%E5%85%B3%E8%AF%B4%E6%98%8E/"/>
+    <id>http://p709723778.gitee.io/2015/03/24/Hexo-%E7%9B%B8%E5%85%B3%E8%AF%B4%E6%98%8E/</id>
+    <published>2015-03-24T21:30:11.000Z</published>
+    <updated>2021-03-12T02:48:29.839Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Hexo-命令&quot;&gt;&lt;a href=&quot;#Hexo-命令&quot; class=&quot;headerlink&quot; title=&quot;Hexo 命令&quot;&gt;&lt;/a&gt;Hexo 命令&lt;/h1&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&quot;left&quot;&gt;命令&lt;/th&gt;
+&lt;th align=&quot;center&quot;&gt;命令说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;hexo new “My New Post”&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;创建文章&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;hexo server&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;启动服务&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;hexo generate&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;生成静态文件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;hexo deploy&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;hexo 部署&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;hexo clean&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;hexo清理编译文件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;hexo new page categories&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;创建分类&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;hexo new page tags&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;创建标签&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;hexo new page photos&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;创建相册&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+    
+    </summary>
+    
+    
+      <category term="Hexo" scheme="http://p709723778.gitee.io/categories/Hexo/"/>
+    
+    
+      <category term="Hexo" scheme="http://p709723778.gitee.io/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mac ~ iTerm2 快捷操作</title>
+    <link href="http://p709723778.gitee.io/2014/09/11/Mac-iTerm2%20%E5%BF%AB%E6%8D%B7%E6%93%8D%E4%BD%9C/"/>
+    <id>http://p709723778.gitee.io/2014/09/11/Mac-iTerm2%20%E5%BF%AB%E6%8D%B7%E6%93%8D%E4%BD%9C/</id>
+    <published>2014-09-11T16:25:39.000Z</published>
+    <updated>2021-03-12T02:48:29.839Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;iTerm2是一款专为Mac OS X编写的，功能齐全的终端仿真程序，旨在为用户提供OS X下最佳的命令行经验。如果你能了解更多mac终端iTerm2快捷键，使用起来会更顺手。&lt;/p&gt;
+&lt;p&gt;官网: &lt;a href=&quot;https://iterm2.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://iterm2.com/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;标签&quot;&gt;&lt;a href=&quot;#标签&quot; class=&quot;headerlink&quot; title=&quot;标签&quot;&gt;&lt;/a&gt;标签&lt;/h3&gt;&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;新建标签：command + t&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;关闭标签：command + w&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;切换标签：command + 数字 command + 左右方向键&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;切换全屏：command + enter&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;查找：command + f&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Mac" scheme="http://p709723778.gitee.io/categories/Mac/"/>
+    
+    
+      <category term="Mac" scheme="http://p709723778.gitee.io/tags/Mac/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SVN ~ Status字段含义小记</title>
+    <link href="http://p709723778.gitee.io/2013/09/10/SVN-Status%E5%AD%97%E6%AE%B5%E5%90%AB%E4%B9%89%E5%B0%8F%E8%AE%B0/"/>
+    <id>http://p709723778.gitee.io/2013/09/10/SVN-Status%E5%AD%97%E6%AE%B5%E5%90%AB%E4%B9%89%E5%B0%8F%E8%AE%B0/</id>
+    <published>2013-09-10T16:18:10.000Z</published>
+    <updated>2021-03-12T02:48:29.839Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;执行SVN up和svn merge等命令出现在首位置的各字母含义如下：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&quot;center&quot;&gt;字符&lt;/th&gt;
+&lt;th
+        
+      
+    
+    </summary>
+    
+    
+      <category term="SVN" scheme="http://p709723778.gitee.io/categories/SVN/"/>
+    
+    
+      <category term="SVN" scheme="http://p709723778.gitee.io/tags/SVN/"/>
+    
+  </entry>
+  
+</feed>
