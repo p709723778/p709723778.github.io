@@ -302,6 +302,106 @@
 
     
     <article
+  id="post-Flutter-Stack 组件"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/01/04/Flutter-Stack%20%E7%BB%84%E4%BB%B6/"
+    >Flutter ~ Stack 组件</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/01/04/Flutter-Stack%20%E7%BB%84%E4%BB%B6/" class="article-date">
+  <time datetime="2021-01-04T14:33:49.000Z" itemprop="datePublished">2021-01-04</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Flutter%E5%BC%80%E5%8F%91/">Flutter开发</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>层叠布局和Web中的绝对定位、Android中的Frame布局是相似的，子组件可以根据距父容器四个角的位置来确定自身的位置。绝对定位允许子组件堆叠起来（按照代码中声明的顺序）。Flutter中使用<code>Stack</code>和<code>Positioned</code>这两个组件来配合实现绝对定位。<code>Stack</code>允许子组件堆叠，而<code>Positioned</code>用于根据<code>Stack</code>的四个角来确定子组件的位置。</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// <span class="markdown">Creates a stack layout widget.</span></span></span><br><span class="line"><span class="comment">///</span></span><br><span class="line"><span class="comment">/// <span class="markdown">By default, the non-positioned children of the stack are aligned by their</span></span></span><br><span class="line"><span class="comment">/// <span class="markdown">top left corners.</span></span></span><br><span class="line">Stack(&#123;</span><br><span class="line">  Key? key,</span><br><span class="line">  <span class="keyword">this</span>.alignment = AlignmentDirectional.topStart,</span><br><span class="line">  <span class="keyword">this</span>.textDirection,</span><br><span class="line">  <span class="keyword">this</span>.fit = StackFit.loose,</span><br><span class="line">  <span class="meta">@Deprecated</span>(</span><br><span class="line">    <span class="string">'Use clipBehavior instead. See the migration guide in flutter.dev/go/clip-behavior. '</span></span><br><span class="line">    <span class="string">'This feature was deprecated after v1.22.0-12.0.pre.'</span></span><br><span class="line">  )</span><br><span class="line">  <span class="keyword">this</span>.overflow = Overflow.clip,</span><br><span class="line">  <span class="keyword">this</span>.clipBehavior = Clip.hardEdge,</span><br><span class="line">  <span class="built_in">List</span>&lt;Widget&gt; children = <span class="keyword">const</span> &lt;Widget&gt;[],</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>alignment</code>：此参数决定如何去对齐没有定位（没有使用<code>Positioned</code>）或部分定位的子组件。所谓部分定位，在这里<strong>特指没有在某一个轴上定位：</strong><code>left</code>、<code>right</code>为横轴，<code>top</code>、<code>bottom</code>为纵轴，只要包含某个轴上的一个定位属性就算在该轴上有定位。</p>
+</li>
+<li><p><code>textDirection</code>：和<code>Row</code>、<code>Wrap</code>的<code>textDirection</code>功能一样，都用于确定<code>alignment</code>对齐的参考系，即：<code>textDirection</code>的值为<code>TextDirection.ltr</code>，则<code>alignment</code>的<code>start</code>代表左，<code>end</code>代表右，即<code>从左往右</code>的顺序；<code>textDirection</code>的值为<code>TextDirection.rtl</code>，则alignment的<code>start</code>代表右，<code>end</code>代表左，即<code>从右往左</code>的顺序。</p>
+</li>
+<li><p><code>fit</code>：此参数用于确定<strong>没有定位</strong>的子组件如何去适应<code>Stack</code>的大小。<code>StackFit.loose</code>表示使用子组件的大小，<code>StackFit.expand</code>表示扩伸到<code>Stack</code>的大小。</p>
+</li>
+<li><p><code>overflow</code>：此属性已经废弃,改换为clipBehavior。</p>
+</li>
+<li><p><code>clipBehavior</code>：此属性决定裁剪方式。</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>clipBehavior属性值</strong></th>
+<th align="left"><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">clipBehavior: Clip.none</td>
+<td align="left">不裁剪</td>
+</tr>
+<tr>
+<td align="center">clipBehavior: Clip.hardEdge</td>
+<td align="left">裁剪但不应用抗锯齿，裁剪速度比none模式慢一点，但比其他方式快。</td>
+</tr>
+<tr>
+<td align="center">clipBehavior: Clip.antiAlias</td>
+<td align="left">裁剪而且抗锯齿，以实现更平滑的外观。裁剪速度比antiAliasWithSaveLayer快，比hardEdge慢。</td>
+</tr>
+<tr>
+<td align="center">clipBehavior: Clip.antiAliasWithSaveLayer</td>
+<td align="left">带有抗锯齿的剪辑，并在剪辑之后立即保存saveLayer。</td>
+</tr>
+</tbody></table>
+<h3 id="初探Stack组件的使用"><a href="#初探Stack组件的使用" class="headerlink" title="初探Stack组件的使用"></a>初探Stack组件的使用</h3><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'package:flutter/material.dart'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> main() &#123;</span><br><span class="line">  runApp(</span><br><span class="line">    MaterialApp(title: <span class="string">'Stack Demo'</span>, home: StackDemo()),</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StackDemo</span> <span class="keyword">extends</span> <span class="title">StatelessWidget</span> </span>&#123;</span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">    <span class="keyword">return</span> Scaffold(</span><br><span class="line">      appBar: AppBar(</span><br><span class="line">        title: <span class="keyword">const</span> Text(<span class="string">'Stack 组件'</span>),</span><br><span class="line">      ),</span><br><span class="line">      body: Stack(</span><br><span class="line">        children: &lt;Widget&gt;[</span><br><span class="line">          Container(</span><br><span class="line">            width: <span class="number">100</span>,</span><br><span class="line">            height: <span class="number">100</span>,</span><br><span class="line">            color: Colors.red,</span><br><span class="line">          ),</span><br><span class="line">          Container(</span><br><span class="line">            width: <span class="number">90</span>,</span><br><span class="line">            height: <span class="number">90</span>,</span><br><span class="line">            color: Colors.blue,</span><br><span class="line">          ),</span><br><span class="line">          Container(</span><br><span class="line">            width: <span class="number">80</span>,</span><br><span class="line">            height: <span class="number">80</span>,</span><br><span class="line">            color: Colors.green,</span><br><span class="line">          ),</span><br><span class="line">        ],</span><br><span class="line">      ),</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的代码Stack做为根布局，叠加的方式展示3个组件，第一个组件比较大100<em>100，第二个组件稍微小点90**</em>90</p>
+<p>，第三个组件最小80*80，显示的方式是能看见第一个和第二个组件的部分区域，第三个组件是能全部显示出来</p>
+<img src="/2021/01/04/Flutter-Stack%20%E7%BB%84%E4%BB%B6/1.png" class="" title="示例图"> 
+      <a class="article-more-link" href="/2021/01/04/Flutter-Stack%20%E7%BB%84%E4%BB%B6/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dart/" rel="tag">Dart</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Flutter/" rel="tag">Flutter</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
   id="post-Flutter-Dart运算符"
   class="article article-type-post"
   itemscope
@@ -724,68 +824,6 @@
 <p>服务应用中的广告。如果你的应用中集成了广告的时候，你需要勾选这一项。</p>
 </blockquote> 
       <a class="article-more-link" href="/2019/07/01/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-IDFA%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6-%E4%BA%8C/"
-        >阅读更多...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IDFA/" rel="tag">IDFA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-    
-</article>
-
-    
-    <article
-  id="post-iOS开发之-IDFA唯一标识符-一"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2019/06/24/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-IDFA%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6-%E4%B8%80/"
-    >iOS开发之 ~ IDFA唯一标识符 (一)</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2019/06/24/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-IDFA%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6-%E4%B8%80/" class="article-date">
-  <time datetime="2019-06-24T20:50:14.000Z" itemprop="datePublished">2019-06-24</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/iOS%E5%BC%80%E5%8F%91/">iOS开发</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>通过网上查资料看,我发现有一部分人使用IDFA用来做设备唯一标识,我个人觉的不是很好!有很大的缺陷,为什么呢?下面来详细解说</p>
-<p>要使用IDFA首先要导入系统库 <code>@import AdSupport;</code></p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">NSUUID</span> *advertisingIdentifier;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>IDFA是每个设备特有的字母数字串，仅用于服务广告。(官方解释)<br><br>可以理解为广告标识符，在同一个设备上的所有App都会取到相同的值，是苹果专门给各广告提供商用来追踪用户而设的。广告标示符是由系统存储着的。<br>适用于对外：例如广告推广，换量等跨应用的用户追踪等。</p>
-</blockquote> 
-      <a class="article-more-link" href="/2019/06/24/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-IDFA%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6-%E4%B8%80/"
         >阅读更多...</a
       >
        

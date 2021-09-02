@@ -19,6 +19,84 @@
       </tags>
   </entry>
   <entry>
+    <title>Flutter ~ Stack 组件</title>
+    <url>/2021/01/04/Flutter-Stack%20%E7%BB%84%E4%BB%B6/</url>
+    <content><![CDATA[<p>层叠布局和Web中的绝对定位、Android中的Frame布局是相似的，子组件可以根据距父容器四个角的位置来确定自身的位置。绝对定位允许子组件堆叠起来（按照代码中声明的顺序）。Flutter中使用<code>Stack</code>和<code>Positioned</code>这两个组件来配合实现绝对定位。<code>Stack</code>允许子组件堆叠，而<code>Positioned</code>用于根据<code>Stack</code>的四个角来确定子组件的位置。</p>
+<figure class="highlight dart"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// <span class="markdown">Creates a stack layout widget.</span></span></span><br><span class="line"><span class="comment">///</span></span><br><span class="line"><span class="comment">/// <span class="markdown">By default, the non-positioned children of the stack are aligned by their</span></span></span><br><span class="line"><span class="comment">/// <span class="markdown">top left corners.</span></span></span><br><span class="line">Stack(&#123;</span><br><span class="line">  Key? key,</span><br><span class="line">  <span class="keyword">this</span>.alignment = AlignmentDirectional.topStart,</span><br><span class="line">  <span class="keyword">this</span>.textDirection,</span><br><span class="line">  <span class="keyword">this</span>.fit = StackFit.loose,</span><br><span class="line">  <span class="meta">@Deprecated</span>(</span><br><span class="line">    <span class="string">'Use clipBehavior instead. See the migration guide in flutter.dev/go/clip-behavior. '</span></span><br><span class="line">    <span class="string">'This feature was deprecated after v1.22.0-12.0.pre.'</span></span><br><span class="line">  )</span><br><span class="line">  <span class="keyword">this</span>.overflow = Overflow.clip,</span><br><span class="line">  <span class="keyword">this</span>.clipBehavior = Clip.hardEdge,</span><br><span class="line">  <span class="built_in">List</span>&lt;Widget&gt; children = <span class="keyword">const</span> &lt;Widget&gt;[],</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>alignment</code>：此参数决定如何去对齐没有定位（没有使用<code>Positioned</code>）或部分定位的子组件。所谓部分定位，在这里<strong>特指没有在某一个轴上定位：</strong><code>left</code>、<code>right</code>为横轴，<code>top</code>、<code>bottom</code>为纵轴，只要包含某个轴上的一个定位属性就算在该轴上有定位。</p>
+</li>
+<li><p><code>textDirection</code>：和<code>Row</code>、<code>Wrap</code>的<code>textDirection</code>功能一样，都用于确定<code>alignment</code>对齐的参考系，即：<code>textDirection</code>的值为<code>TextDirection.ltr</code>，则<code>alignment</code>的<code>start</code>代表左，<code>end</code>代表右，即<code>从左往右</code>的顺序；<code>textDirection</code>的值为<code>TextDirection.rtl</code>，则alignment的<code>start</code>代表右，<code>end</code>代表左，即<code>从右往左</code>的顺序。</p>
+</li>
+<li><p><code>fit</code>：此参数用于确定<strong>没有定位</strong>的子组件如何去适应<code>Stack</code>的大小。<code>StackFit.loose</code>表示使用子组件的大小，<code>StackFit.expand</code>表示扩伸到<code>Stack</code>的大小。</p>
+</li>
+<li><p><code>overflow</code>：此属性已经废弃,改换为clipBehavior。</p>
+</li>
+<li><p><code>clipBehavior</code>：此属性决定裁剪方式。</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>clipBehavior属性值</strong></th>
+<th align="left"><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">clipBehavior: Clip.none</td>
+<td align="left">不裁剪</td>
+</tr>
+<tr>
+<td align="center">clipBehavior: Clip.hardEdge</td>
+<td align="left">裁剪但不应用抗锯齿，裁剪速度比none模式慢一点，但比其他方式快。</td>
+</tr>
+<tr>
+<td align="center">clipBehavior: Clip.antiAlias</td>
+<td align="left">裁剪而且抗锯齿，以实现更平滑的外观。裁剪速度比antiAliasWithSaveLayer快，比hardEdge慢。</td>
+</tr>
+<tr>
+<td align="center">clipBehavior: Clip.antiAliasWithSaveLayer</td>
+<td align="left">带有抗锯齿的剪辑，并在剪辑之后立即保存saveLayer。</td>
+</tr>
+</tbody></table>
+<h3 id="初探Stack组件的使用"><a href="#初探Stack组件的使用" class="headerlink" title="初探Stack组件的使用"></a>初探Stack组件的使用</h3><figure class="highlight dart"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'package:flutter/material.dart'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> main() &#123;</span><br><span class="line">  runApp(</span><br><span class="line">    MaterialApp(title: <span class="string">'Stack Demo'</span>, home: StackDemo()),</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StackDemo</span> <span class="keyword">extends</span> <span class="title">StatelessWidget</span> </span>&#123;</span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">    <span class="keyword">return</span> Scaffold(</span><br><span class="line">      appBar: AppBar(</span><br><span class="line">        title: <span class="keyword">const</span> Text(<span class="string">'Stack 组件'</span>),</span><br><span class="line">      ),</span><br><span class="line">      body: Stack(</span><br><span class="line">        children: &lt;Widget&gt;[</span><br><span class="line">          Container(</span><br><span class="line">            width: <span class="number">100</span>,</span><br><span class="line">            height: <span class="number">100</span>,</span><br><span class="line">            color: Colors.red,</span><br><span class="line">          ),</span><br><span class="line">          Container(</span><br><span class="line">            width: <span class="number">90</span>,</span><br><span class="line">            height: <span class="number">90</span>,</span><br><span class="line">            color: Colors.blue,</span><br><span class="line">          ),</span><br><span class="line">          Container(</span><br><span class="line">            width: <span class="number">80</span>,</span><br><span class="line">            height: <span class="number">80</span>,</span><br><span class="line">            color: Colors.green,</span><br><span class="line">          ),</span><br><span class="line">        ],</span><br><span class="line">      ),</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的代码Stack做为根布局，叠加的方式展示3个组件，第一个组件比较大100<em>100，第二个组件稍微小点90**</em>90</p>
+<p>，第三个组件最小80*80，显示的方式是能看见第一个和第二个组件的部分区域，第三个组件是能全部显示出来</p>
+<img src="/2021/01/04/Flutter-Stack%20%E7%BB%84%E4%BB%B6/1.png" class="" title="示例图">
+
+<a id="more"></a>
+
+<h3 id="fit-属性使用"><a href="#fit-属性使用" class="headerlink" title="fit 属性使用"></a>fit 属性使用</h3><p>如果指定是StackFit.expand，所以的子组件会和Stack一样大的</p>
+<figure class="highlight dart"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'package:flutter/material.dart'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> main() &#123;</span><br><span class="line">  runApp(</span><br><span class="line">    MaterialApp(title: <span class="string">'Stack Demo'</span>, home: StackScreen()),</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StackScreen</span> <span class="keyword">extends</span> <span class="title">StatelessWidget</span> </span>&#123;</span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">    <span class="keyword">return</span> Scaffold(</span><br><span class="line">      appBar: AppBar(</span><br><span class="line">        title: <span class="keyword">const</span> Text(<span class="string">"Stack title"</span>),</span><br><span class="line">      ),</span><br><span class="line">      body: Stack(</span><br><span class="line">        fit: StackFit.expand,</span><br><span class="line">        children: &lt;Widget&gt;[</span><br><span class="line">          Container(</span><br><span class="line">            width: <span class="number">100</span>,</span><br><span class="line">            height: <span class="number">100</span>,</span><br><span class="line">            color: Colors.red,</span><br><span class="line">          ),</span><br><span class="line">          Container(</span><br><span class="line">            width: <span class="number">90</span>,</span><br><span class="line">            height: <span class="number">90</span>,</span><br><span class="line">            color: Colors.blue,</span><br><span class="line">          ),</span><br><span class="line">          Container(</span><br><span class="line">            width: <span class="number">80</span>,</span><br><span class="line">            height: <span class="number">80</span>,</span><br><span class="line">            color: Colors.green,</span><br><span class="line">          ),</span><br><span class="line">        ],</span><br><span class="line">      ),</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>显示内容就只最后一个组件，虽然我们给这个组件指定了一个80*80的宽高是不会 生效的，因为我们已经指定了子元素和Stack一样大小，也就是说设置了StackFit.expand，StackFit.expand的效果优先</p>
+<img src="/2021/01/04/Flutter-Stack%20%E7%BB%84%E4%BB%B6/2.png" class="" title="示例图">
+
+<h3 id="Positioned"><a href="#Positioned" class="headerlink" title="Positioned"></a>Positioned</h3><p>这个使用控制Widget的位置，通过他可以随意摆放一个组件，有点像绝对布局</p>
+<figure class="highlight dart"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> Positioned(&#123;</span><br><span class="line">  Key? key,</span><br><span class="line">  <span class="keyword">this</span>.left,</span><br><span class="line">  <span class="keyword">this</span>.top,</span><br><span class="line">  <span class="keyword">this</span>.right,</span><br><span class="line">  <span class="keyword">this</span>.bottom,</span><br><span class="line">  <span class="keyword">this</span>.width,</span><br><span class="line">  <span class="keyword">this</span>.height,</span><br><span class="line">  required Widget child,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>left、top 、right、 bottom分别代表离Stack左、上、右、底四边的距离</p>
+<figure class="highlight dart"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'package:flutter/material.dart'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> main() &#123;</span><br><span class="line">  runApp(</span><br><span class="line">    MaterialApp(title: <span class="string">'Stack Demo'</span>, home: PositionScreen()),</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PositionScreen</span> <span class="keyword">extends</span> <span class="title">StatelessWidget</span> </span>&#123;</span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">    <span class="keyword">return</span> Scaffold(</span><br><span class="line">      appBar: AppBar(</span><br><span class="line">        title: <span class="keyword">const</span> Text(<span class="string">"Postion Title"</span>),</span><br><span class="line">      ),</span><br><span class="line">      body: Stack(</span><br><span class="line">        children: &lt;Widget&gt;[</span><br><span class="line">          Positioned(</span><br><span class="line">            top: <span class="number">100.0</span>,</span><br><span class="line">            child: Container(</span><br><span class="line">              color: Colors.blue,</span><br><span class="line">              child: <span class="keyword">const</span> Text(<span class="string">"第一个组件"</span>),</span><br><span class="line">            ),</span><br><span class="line">          ),</span><br><span class="line">          Positioned(</span><br><span class="line">            top: <span class="number">200</span>,</span><br><span class="line">            right: <span class="number">100</span>,</span><br><span class="line">            child: Container(</span><br><span class="line">              color: Colors.yellow,</span><br><span class="line">              child: <span class="keyword">const</span> Text(<span class="string">"第二个组件"</span>),</span><br><span class="line">            ),</span><br><span class="line">          ),</span><br><span class="line">          Positioned(</span><br><span class="line">            left: <span class="number">100.0</span>,</span><br><span class="line">            child: Container(</span><br><span class="line">              color: Colors.red,</span><br><span class="line">              child: <span class="keyword">const</span> Text(<span class="string">"第三个组件"</span>),</span><br><span class="line">            ),</span><br><span class="line">          ),</span><br><span class="line">        ],</span><br><span class="line">      ),</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个例子的效果就是</p>
+<ul>
+<li>第一个组件距离顶部Stack 有100的间距</li>
+<li>第二个组件距离顶部200，距离右边100间距</li>
+<li>第三个组件距离左边100间距</li>
+</ul>
+<img src="/2021/01/04/Flutter-Stack%20%E7%BB%84%E4%BB%B6/3.png" class="" title="示例图">
+]]></content>
+      <categories>
+        <category>Flutter开发</category>
+      </categories>
+      <tags>
+        <tag>Dart</tag>
+        <tag>Flutter</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Flutter ~ Dart运算符</title>
     <url>/2020/12/02/Flutter-Dart%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
     <content><![CDATA[<h2 id="1-Dart在线编辑器"><a href="#1-Dart在线编辑器" class="headerlink" title="1.Dart在线编辑器"></a>1.Dart在线编辑器</h2><ul>

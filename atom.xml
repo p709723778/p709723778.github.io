@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://p709723778.gitee.io/"/>
-  <updated>2021-09-01T12:48:36.185Z</updated>
+  <updated>2021-09-02T07:33:38.208Z</updated>
   <id>http://p709723778.gitee.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://p709723778.gitee.io/2021/09/01/Flutter-Text-%E5%90%8C%E6%97%B6%E6%B7%BB%E5%8A%A0%E4%B8%AD%E5%88%92%E7%BA%BF%E5%92%8C%E4%B8%8B%E5%88%92%E7%BA%BF/"/>
     <id>http://p709723778.gitee.io/2021/09/01/Flutter-Text-%E5%90%8C%E6%97%B6%E6%B7%BB%E5%8A%A0%E4%B8%AD%E5%88%92%E7%BA%BF%E5%92%8C%E4%B8%8B%E5%88%92%E7%BA%BF/</id>
     <published>2021-09-01T20:25:59.000Z</published>
-    <updated>2021-09-01T12:48:36.185Z</updated>
+    <updated>2021-09-02T07:33:38.208Z</updated>
     
     <summary type="html">
     
@@ -40,11 +40,77 @@
   </entry>
   
   <entry>
+    <title>Flutter ~ Stack 组件</title>
+    <link href="http://p709723778.gitee.io/2021/01/04/Flutter-Stack%20%E7%BB%84%E4%BB%B6/"/>
+    <id>http://p709723778.gitee.io/2021/01/04/Flutter-Stack%20%E7%BB%84%E4%BB%B6/</id>
+    <published>2021-01-04T14:33:49.000Z</published>
+    <updated>2021-09-02T07:33:38.208Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;层叠布局和Web中的绝对定位、Android中的Frame布局是相似的，子组件可以根据距父容器四个角的位置来确定自身的位置。绝对定位允许子组件堆叠起来（按照代码中声明的顺序）。Flutter中使用&lt;code&gt;Stack&lt;/code&gt;和&lt;code&gt;Positioned&lt;/code&gt;这两个组件来配合实现绝对定位。&lt;code&gt;Stack&lt;/code&gt;允许子组件堆叠，而&lt;code&gt;Positioned&lt;/code&gt;用于根据&lt;code&gt;Stack&lt;/code&gt;的四个角来确定子组件的位置。&lt;/p&gt;
+&lt;figure class=&quot;highlight dart&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/// &lt;span class=&quot;markdown&quot;&gt;Creates a stack layout widget.&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;///&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/// &lt;span class=&quot;markdown&quot;&gt;By default, the non-positioned children of the stack are aligned by their&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/// &lt;span class=&quot;markdown&quot;&gt;top left corners.&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Stack(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  Key? key,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.alignment = AlignmentDirectional.topStart,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.textDirection,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.fit = StackFit.loose,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;meta&quot;&gt;@Deprecated&lt;/span&gt;(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&#39;Use clipBehavior instead. See the migration guide in flutter.dev/go/clip-behavior. &#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&#39;This feature was deprecated after v1.22.0-12.0.pre.&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  )&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.overflow = Overflow.clip,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.clipBehavior = Clip.hardEdge,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;built_in&quot;&gt;List&lt;/span&gt;&amp;lt;Widget&amp;gt; children = &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; &amp;lt;Widget&amp;gt;[],&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;alignment&lt;/code&gt;：此参数决定如何去对齐没有定位（没有使用&lt;code&gt;Positioned&lt;/code&gt;）或部分定位的子组件。所谓部分定位，在这里&lt;strong&gt;特指没有在某一个轴上定位：&lt;/strong&gt;&lt;code&gt;left&lt;/code&gt;、&lt;code&gt;right&lt;/code&gt;为横轴，&lt;code&gt;top&lt;/code&gt;、&lt;code&gt;bottom&lt;/code&gt;为纵轴，只要包含某个轴上的一个定位属性就算在该轴上有定位。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;textDirection&lt;/code&gt;：和&lt;code&gt;Row&lt;/code&gt;、&lt;code&gt;Wrap&lt;/code&gt;的&lt;code&gt;textDirection&lt;/code&gt;功能一样，都用于确定&lt;code&gt;alignment&lt;/code&gt;对齐的参考系，即：&lt;code&gt;textDirection&lt;/code&gt;的值为&lt;code&gt;TextDirection.ltr&lt;/code&gt;，则&lt;code&gt;alignment&lt;/code&gt;的&lt;code&gt;start&lt;/code&gt;代表左，&lt;code&gt;end&lt;/code&gt;代表右，即&lt;code&gt;从左往右&lt;/code&gt;的顺序；&lt;code&gt;textDirection&lt;/code&gt;的值为&lt;code&gt;TextDirection.rtl&lt;/code&gt;，则alignment的&lt;code&gt;start&lt;/code&gt;代表右，&lt;code&gt;end&lt;/code&gt;代表左，即&lt;code&gt;从右往左&lt;/code&gt;的顺序。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;fit&lt;/code&gt;：此参数用于确定&lt;strong&gt;没有定位&lt;/strong&gt;的子组件如何去适应&lt;code&gt;Stack&lt;/code&gt;的大小。&lt;code&gt;StackFit.loose&lt;/code&gt;表示使用子组件的大小，&lt;code&gt;StackFit.expand&lt;/code&gt;表示扩伸到&lt;code&gt;Stack&lt;/code&gt;的大小。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;overflow&lt;/code&gt;：此属性已经废弃,改换为clipBehavior。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;clipBehavior&lt;/code&gt;：此属性决定裁剪方式。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&quot;center&quot;&gt;&lt;strong&gt;clipBehavior属性值&lt;/strong&gt;&lt;/th&gt;
+&lt;th align=&quot;left&quot;&gt;&lt;strong&gt;说明&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;clipBehavior: Clip.none&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;不裁剪&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;clipBehavior: Clip.hardEdge&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;裁剪但不应用抗锯齿，裁剪速度比none模式慢一点，但比其他方式快。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;clipBehavior: Clip.antiAlias&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;裁剪而且抗锯齿，以实现更平滑的外观。裁剪速度比antiAliasWithSaveLayer快，比hardEdge慢。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;clipBehavior: Clip.antiAliasWithSaveLayer&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;带有抗锯齿的剪辑，并在剪辑之后立即保存saveLayer。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&quot;初探Stack组件的使用&quot;&gt;&lt;a href=&quot;#初探Stack组件的使用&quot; class=&quot;headerlink&quot; title=&quot;初探Stack组件的使用&quot;&gt;&lt;/a&gt;初探Stack组件的使用&lt;/h3&gt;&lt;figure class=&quot;highlight dart&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;package:flutter/material.dart&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; main() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  runApp(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    MaterialApp(title: &lt;span class=&quot;string&quot;&gt;&#39;Stack Demo&#39;&lt;/span&gt;, home: StackDemo()),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  );&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;StackDemo&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;StatelessWidget&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;meta&quot;&gt;@override&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  Widget build(BuildContext context) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; Scaffold(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      appBar: AppBar(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        title: &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; Text(&lt;span class=&quot;string&quot;&gt;&#39;Stack 组件&#39;&lt;/span&gt;),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      ),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      body: Stack(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        children: &amp;lt;Widget&amp;gt;[&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          Container(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            width: &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            height: &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            color: Colors.red,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          ),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          Container(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            width: &lt;span class=&quot;number&quot;&gt;90&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            height: &lt;span class=&quot;number&quot;&gt;90&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            color: Colors.blue,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          ),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          Container(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            width: &lt;span class=&quot;number&quot;&gt;80&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            height: &lt;span class=&quot;number&quot;&gt;80&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            color: Colors.green,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          ),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        ],&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      ),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    );&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;上面的代码Stack做为根布局，叠加的方式展示3个组件，第一个组件比较大100&lt;em&gt;100，第二个组件稍微小点90**&lt;/em&gt;90&lt;/p&gt;
+&lt;p&gt;，第三个组件最小80*80，显示的方式是能看见第一个和第二个组件的部分区域，第三个组件是能全部显示出来&lt;/p&gt;
+&lt;img src=&quot;/2021/01/04/Flutter-Stack%20%E7%BB%84%E4%BB%B6/1.png&quot; class=&quot;&quot; title=&quot;示例图&quot;&gt;
+    
+    </summary>
+    
+    
+      <category term="Flutter开发" scheme="http://p709723778.gitee.io/categories/Flutter%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="Dart" scheme="http://p709723778.gitee.io/tags/Dart/"/>
+    
+      <category term="Flutter" scheme="http://p709723778.gitee.io/tags/Flutter/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Flutter ~ Dart运算符</title>
     <link href="http://p709723778.gitee.io/2020/12/02/Flutter-Dart%E8%BF%90%E7%AE%97%E7%AC%A6/"/>
     <id>http://p709723778.gitee.io/2020/12/02/Flutter-Dart%E8%BF%90%E7%AE%97%E7%AC%A6/</id>
     <published>2020-12-02T20:30:05.000Z</published>
-    <updated>2021-09-01T12:48:36.185Z</updated>
+    <updated>2021-09-02T07:33:38.208Z</updated>
     
     <summary type="html">
     
@@ -76,7 +142,7 @@
     <link href="http://p709723778.gitee.io/2020/11/12/Flutter-Dart%E8%AF%AD%E6%B3%95%E7%89%B9%E6%80%A7/"/>
     <id>http://p709723778.gitee.io/2020/11/12/Flutter-Dart%E8%AF%AD%E6%B3%95%E7%89%B9%E6%80%A7/</id>
     <published>2020-11-12T11:23:55.000Z</published>
-    <updated>2021-09-01T12:48:36.185Z</updated>
+    <updated>2021-09-02T07:33:38.208Z</updated>
     
     <summary type="html">
     
@@ -110,7 +176,7 @@
     <link href="http://p709723778.gitee.io/2020/07/23/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-iOS14-%E5%B9%BF%E5%91%8A%E6%A0%87%E8%AF%86IDFA/"/>
     <id>http://p709723778.gitee.io/2020/07/23/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-iOS14-%E5%B9%BF%E5%91%8A%E6%A0%87%E8%AF%86IDFA/</id>
     <published>2020-07-23T16:53:32.000Z</published>
-    <updated>2021-09-01T12:48:36.193Z</updated>
+    <updated>2021-09-02T07:33:38.216Z</updated>
     
     <summary type="html">
     
@@ -142,7 +208,7 @@
     <link href="http://p709723778.gitee.io/2020/04/17/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-dSYM-%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/"/>
     <id>http://p709723778.gitee.io/2020/04/17/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-dSYM-%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/</id>
     <published>2020-04-17T19:26:01.000Z</published>
-    <updated>2021-09-01T12:48:36.193Z</updated>
+    <updated>2021-09-02T07:33:38.216Z</updated>
     
     <summary type="html">
     
@@ -172,7 +238,7 @@
     <link href="http://p709723778.gitee.io/2019/12/24/App-Store-Connect-Operation-Error-%E9%9B%86%E5%90%88/"/>
     <id>http://p709723778.gitee.io/2019/12/24/App-Store-Connect-Operation-Error-%E9%9B%86%E5%90%88/</id>
     <published>2019-12-24T19:10:52.000Z</published>
-    <updated>2021-09-01T12:48:36.185Z</updated>
+    <updated>2021-09-02T07:33:38.208Z</updated>
     
     <summary type="html">
     
@@ -196,7 +262,7 @@
     <link href="http://p709723778.gitee.io/2019/07/02/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-NSUUID-CFUUID-%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6/"/>
     <id>http://p709723778.gitee.io/2019/07/02/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-NSUUID-CFUUID-%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6/</id>
     <published>2019-07-02T15:50:09.000Z</published>
-    <updated>2021-09-01T12:48:36.193Z</updated>
+    <updated>2021-09-02T07:33:38.216Z</updated>
     
     <summary type="html">
     
@@ -221,7 +287,7 @@
     <link href="http://p709723778.gitee.io/2019/07/01/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-IDFA%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6-%E4%BA%8C/"/>
     <id>http://p709723778.gitee.io/2019/07/01/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-IDFA%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6-%E4%BA%8C/</id>
     <published>2019-07-01T15:45:02.000Z</published>
-    <updated>2021-09-01T12:48:36.189Z</updated>
+    <updated>2021-09-02T07:33:38.212Z</updated>
     
     <summary type="html">
     
@@ -250,7 +316,7 @@
     <link href="http://p709723778.gitee.io/2019/06/24/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-IDFA%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6-%E4%B8%80/"/>
     <id>http://p709723778.gitee.io/2019/06/24/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-IDFA%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6-%E4%B8%80/</id>
     <published>2019-06-24T20:50:14.000Z</published>
-    <updated>2021-09-01T12:48:36.189Z</updated>
+    <updated>2021-09-02T07:33:38.208Z</updated>
     
     <summary type="html">
     
@@ -278,7 +344,7 @@
     <link href="http://p709723778.gitee.io/2019/06/21/%E5%A6%82%E4%BD%95%E5%9C%A8Mac%E4%B8%8A%E6%90%AD%E5%BB%BAWeb%E6%9C%8D%E5%8A%A1%E5%99%A8-Apache/"/>
     <id>http://p709723778.gitee.io/2019/06/21/%E5%A6%82%E4%BD%95%E5%9C%A8Mac%E4%B8%8A%E6%90%AD%E5%BB%BAWeb%E6%9C%8D%E5%8A%A1%E5%99%A8-Apache/</id>
     <published>2019-06-21T19:51:26.000Z</published>
-    <updated>2021-09-01T12:48:36.197Z</updated>
+    <updated>2021-09-02T07:33:38.216Z</updated>
     
     <summary type="html">
     
@@ -300,7 +366,7 @@
     <link href="http://p709723778.gitee.io/2017/12/11/Mac-%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3-app%E5%B7%B2%E6%8D%9F%E5%9D%8F%EF%BC%8C%E6%89%93%E4%B8%8D%E5%BC%80%E3%80%82%E4%BD%A0%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93/"/>
     <id>http://p709723778.gitee.io/2017/12/11/Mac-%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3-app%E5%B7%B2%E6%8D%9F%E5%9D%8F%EF%BC%8C%E6%89%93%E4%B8%8D%E5%BC%80%E3%80%82%E4%BD%A0%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93/</id>
     <published>2017-12-11T16:40:20.000Z</published>
-    <updated>2021-09-01T12:48:36.185Z</updated>
+    <updated>2021-09-02T07:33:38.208Z</updated>
     
     <summary type="html">
     
@@ -326,7 +392,7 @@
     <link href="http://p709723778.gitee.io/2017/09/08/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-Apple-Open-Source/"/>
     <id>http://p709723778.gitee.io/2017/09/08/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-Apple-Open-Source/</id>
     <published>2017-09-08T21:23:22.000Z</published>
-    <updated>2021-09-01T12:48:36.189Z</updated>
+    <updated>2021-09-02T07:33:38.208Z</updated>
     
     <summary type="html">
     
@@ -353,7 +419,7 @@
     <link href="http://p709723778.gitee.io/2017/08/19/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-GCD%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90/"/>
     <id>http://p709723778.gitee.io/2017/08/19/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-GCD%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90/</id>
     <published>2017-08-19T20:10:41.000Z</published>
-    <updated>2021-09-01T12:48:36.189Z</updated>
+    <updated>2021-09-02T07:33:38.208Z</updated>
     
     <summary type="html">
     
@@ -378,7 +444,7 @@
     <link href="http://p709723778.gitee.io/2017/03/26/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-Xcode-%E8%B0%83%E8%AF%95%E5%8C%BA%E5%9B%BE%E6%A0%87%E5%90%AB%E4%B9%89/"/>
     <id>http://p709723778.gitee.io/2017/03/26/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-Xcode-%E8%B0%83%E8%AF%95%E5%8C%BA%E5%9B%BE%E6%A0%87%E5%90%AB%E4%B9%89/</id>
     <published>2017-03-26T15:55:43.000Z</published>
-    <updated>2021-09-01T12:48:36.193Z</updated>
+    <updated>2021-09-02T07:33:38.216Z</updated>
     
     <summary type="html">
     
@@ -400,7 +466,7 @@
     <link href="http://p709723778.gitee.io/2016/12/29/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-NSProxy%E6%B5%85%E8%AF%B4/"/>
     <id>http://p709723778.gitee.io/2016/12/29/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-NSProxy%E6%B5%85%E8%AF%B4/</id>
     <published>2016-12-29T18:10:24.000Z</published>
-    <updated>2021-09-01T12:48:36.193Z</updated>
+    <updated>2021-09-02T07:33:38.212Z</updated>
     
     <summary type="html">
     
@@ -428,7 +494,7 @@
     <link href="http://p709723778.gitee.io/2016/12/23/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-NSTimer-%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8/"/>
     <id>http://p709723778.gitee.io/2016/12/23/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-NSTimer-%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8/</id>
     <published>2016-12-23T18:10:24.000Z</published>
-    <updated>2021-09-01T12:48:36.193Z</updated>
+    <updated>2021-09-02T07:33:38.212Z</updated>
     
     <summary type="html">
     
@@ -455,7 +521,7 @@
     <link href="http://p709723778.gitee.io/2016/12/11/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8/"/>
     <id>http://p709723778.gitee.io/2016/12/11/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8/</id>
     <published>2016-12-11T11:32:51.000Z</published>
-    <updated>2021-09-01T12:48:36.197Z</updated>
+    <updated>2021-09-02T07:33:38.216Z</updated>
     
     <summary type="html">
     
@@ -484,7 +550,7 @@
     <link href="http://p709723778.gitee.io/2015/03/25/Sourcetree-password-required/"/>
     <id>http://p709723778.gitee.io/2015/03/25/Sourcetree-password-required/</id>
     <published>2015-03-25T15:26:53.000Z</published>
-    <updated>2021-09-01T12:48:36.189Z</updated>
+    <updated>2021-09-02T07:33:38.208Z</updated>
     
     <summary type="html">
     
@@ -514,7 +580,7 @@
     <link href="http://p709723778.gitee.io/2015/03/24/about/"/>
     <id>http://p709723778.gitee.io/2015/03/24/about/</id>
     <published>2015-03-24T21:49:30.000Z</published>
-    <updated>2021-09-01T12:48:36.189Z</updated>
+    <updated>2021-09-02T07:33:38.208Z</updated>
     
     <summary type="html">
     
@@ -535,66 +601,6 @@
     
     
       <category term="about" scheme="http://p709723778.gitee.io/tags/about/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo ~ 相关介绍</title>
-    <link href="http://p709723778.gitee.io/2015/03/24/Hexo-%E7%9B%B8%E5%85%B3%E8%AF%B4%E6%98%8E/"/>
-    <id>http://p709723778.gitee.io/2015/03/24/Hexo-%E7%9B%B8%E5%85%B3%E8%AF%B4%E6%98%8E/</id>
-    <published>2015-03-24T21:30:11.000Z</published>
-    <updated>2021-09-01T12:48:36.185Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Hexo-命令&quot;&gt;&lt;a href=&quot;#Hexo-命令&quot; class=&quot;headerlink&quot; title=&quot;Hexo 命令&quot;&gt;&lt;/a&gt;Hexo 命令&lt;/h1&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th align=&quot;left&quot;&gt;命令&lt;/th&gt;
-&lt;th align=&quot;center&quot;&gt;命令说明&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;hexo new “My New Post”&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;创建文章&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;hexo server&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;启动服务&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;hexo generate&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;生成静态文件&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;hexo deploy&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;hexo 部署&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;hexo clean&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;hexo清理编译文件&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;hexo new page categories&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;创建分类&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;hexo new page tags&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;创建标签&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;hexo new page photos&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;创建相册&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="http://p709723778.gitee.io/categories/Hexo/"/>
-    
-    
-      <category term="Hexo" scheme="http://p709723778.gitee.io/tags/Hexo/"/>
     
   </entry>
   
