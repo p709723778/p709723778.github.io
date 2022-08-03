@@ -1,6 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Flutter ~ AS设置常用的代码模版</title>
+    <url>/2021/10/23/Flutter-AS%E8%AE%BE%E7%BD%AE%E5%B8%B8%E7%94%A8%E7%9A%84%E4%BB%A3%E7%A0%81%E6%A8%A1%E7%89%88/</url>
+    <content><![CDATA[<blockquote>
+<p>我们在日常开发中，使用 Android Studio 新建的 dart 文件，里面没有任何代码，类名称都是需要自己在手动写上去，文件名和类名称还不一样，dart文件名是以 <code>_</code> 来分割，类名称要遵循<code>大驼峰命名法</code>， 比较浪费时间，因此我们要使用代码模版来解决此问题。</p>
+<p>比如：我们创建了一个 <code>hello_test.dart</code> 文件，dart代码内容 <code>class HelloTest { }</code> </p>
+</blockquote>
+<h3 id="1-打开-File-and-Code-Templates"><a href="#1-打开-File-and-Code-Templates" class="headerlink" title="1. 打开 File and Code Templates"></a>1. 打开 File and Code Templates</h3><blockquote>
+<p>Preferences &gt; Editor &gt; File and Code Templates</p>
+</blockquote>
+<img src="/2021/10/23/Flutter-AS%E8%AE%BE%E7%BD%AE%E5%B8%B8%E7%94%A8%E7%9A%84%E4%BB%A3%E7%A0%81%E6%A8%A1%E7%89%88/1.png" class="" title="示例图">
+
+<a id="more"></a>
+
+<h3 id="2-设置代码模版"><a href="#2-设置代码模版" class="headerlink" title="2. 设置代码模版"></a>2. 设置代码模版</h3><p>在<code>File and Code Templates</code> 里，选择 <code>Files</code> 一栏，点击左上角加号，新建名字是 <code>Dart File For Name</code> ，扩展名为 dart 的代码模版。</p>
+<img src="/2021/10/23/Flutter-AS%E8%AE%BE%E7%BD%AE%E5%B8%B8%E7%94%A8%E7%9A%84%E4%BB%A3%E7%A0%81%E6%A8%A1%E7%89%88/2.png" class="" title="示例图">
+
+<p>然后在输入框中填入如下模版代码：</p>
+<figure class="highlight dart"><table><tr><td class="code"><pre><span class="line">#<span class="keyword">set</span>( $items = $NAME.split(<span class="string">"_"</span>) )</span><br><span class="line">#<span class="keyword">set</span>( $<span class="class"><span class="keyword">class</span> = "" )</span></span><br><span class="line"><span class="class">#<span class="title">set</span>( $<span class="title">item</span> = "" )</span></span><br><span class="line"><span class="class">#<span class="title">foreach</span>($<span class="title">item</span> <span class="title">in</span> $<span class="title">items</span>)</span></span><br><span class="line"><span class="class">#<span class="title">set</span>( $<span class="title">class</span> = $<span class="title">class</span> + $<span class="title">item</span>.<span class="title">substring</span>(0,1).<span class="title">toUpperCase</span>()+$<span class="title">item</span>.<span class="title">substring</span>(1))</span></span><br><span class="line"><span class="class">#<span class="title">end</span></span></span><br><span class="line"><span class="class"><span class="title">class</span> $</span>&#123;<span class="class"><span class="keyword">class</span>&#125;</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后点击右下角的Apply &gt; OK就创建成功了。</p>
+<h3 id="3-验证代码模版"><a href="#3-验证代码模版" class="headerlink" title="3. 验证代码模版"></a>3. 验证代码模版</h3><blockquote>
+<p>File &gt; New &gt; 模版</p>
+</blockquote>
+<p>模版菜单图如下:</p>
+<img src="/2021/10/23/Flutter-AS%E8%AE%BE%E7%BD%AE%E5%B8%B8%E7%94%A8%E7%9A%84%E4%BB%A3%E7%A0%81%E6%A8%A1%E7%89%88/3.png" class="" title="示例图">
+
+<p>新建类名称图如下:</p>
+<img src="/2021/10/23/Flutter-AS%E8%AE%BE%E7%BD%AE%E5%B8%B8%E7%94%A8%E7%9A%84%E4%BB%A3%E7%A0%81%E6%A8%A1%E7%89%88/4.png" class="" title="示例图">
+
+<p>在打开的页面中会看到刚才创建的class，说明创建成功了。试一下生成代码的效果，如下所示。</p>
+<figure class="highlight dart"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloTest</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>总结: 通过参照以上操作可以编写自己特定的代码模版。</p>
+]]></content>
+      <categories>
+        <category>Flutter开发</category>
+      </categories>
+      <tags>
+        <tag>Dart</tag>
+        <tag>Flutter</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Flutter ~ Text 同时添加中划线和下划线</title>
     <url>/2021/09/01/Flutter-Text-%E5%90%8C%E6%97%B6%E6%B7%BB%E5%8A%A0%E4%B8%AD%E5%88%92%E7%BA%BF%E5%92%8C%E4%B8%8B%E5%88%92%E7%BA%BF/</url>
     <content><![CDATA[<img src="/2021/09/01/Flutter-Text-%E5%90%8C%E6%97%B6%E6%B7%BB%E5%8A%A0%E4%B8%AD%E5%88%92%E7%BA%BF%E5%92%8C%E4%B8%8B%E5%88%92%E7%BA%BF/1.png" class="" title="示例图">
