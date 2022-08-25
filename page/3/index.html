@@ -158,6 +158,68 @@
     
     
     <article
+  id="post-iOS开发之-NSTimer-循环引用"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2016/12/23/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-NSTimer-%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8/"
+    >iOS开发之 ~ NSTimer 循环引用</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2016/12/23/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-NSTimer-%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8/" class="article-date">
+  <time datetime="2016-12-23T18:10:24.000Z" itemprop="datePublished">2016-12-23</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/iOS%E5%BC%80%E5%8F%91/">iOS开发</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h2><blockquote>
+<p>在使用NSTimer，如果使用不得当特别会引起循环引用，造成内存泄露。所以怎么避免循环引用问题，下面我提出几种解决NSTimer的几种循环引用。</p>
+</blockquote>
+<p>在iOS中，NSTimer的使用是非常频繁的，但是NSTimer在使用中需要注意，避免循环引用的问题。之前经常这样写</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)setupTimer &#123;</span><br><span class="line">    <span class="keyword">self</span>.timer = [<span class="built_in">NSTimer</span> scheduledTimerWithTimeInterval:<span class="number">1</span> target:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(timerAction) userInfo:<span class="literal">nil</span> repeats:<span class="literal">YES</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)dealloc &#123;</span><br><span class="line">    [<span class="keyword">self</span>.timer invalidate];</span><br><span class="line">    <span class="keyword">self</span>.timer = <span class="literal">nil</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>由于self强引用了timer，同时timer也强引用了self，所以循环引用造成dealloc方法根本不会走，self和timer都不会被释放，造成内存泄漏。</p> 
+      <a class="article-more-link" href="/2016/12/23/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-NSTimer-%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+</article>
+
+    
+    <article
   id="post-iOS开发之-循环引用"
   class="article article-type-post"
   itemscope

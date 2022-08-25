@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://p709723778.gitee.io/"/>
-  <updated>2022-08-03T07:04:30.871Z</updated>
+  <updated>2022-08-25T11:22:37.967Z</updated>
   <id>http://p709723778.gitee.io/</id>
   
   <author>
@@ -17,11 +17,43 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Flutter ~ ThemeData通过ThemeExtension扩展自定义属性</title>
+    <link href="http://p709723778.gitee.io/2022/08/25/Flutter-ThemeData%E9%80%9A%E8%BF%87ThemeExtension%E6%89%A9%E5%B1%95%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7/"/>
+    <id>http://p709723778.gitee.io/2022/08/25/Flutter-ThemeData%E9%80%9A%E8%BF%87ThemeExtension%E6%89%A9%E5%B1%95%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7/</id>
+    <published>2022-08-25T18:46:06.000Z</published>
+    <updated>2022-08-25T11:22:37.967Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;ThemeExtensions 是在Flutter 3.0 中ThemeData类中新增的对象，通过它可以扩展自己想自定义的属性字段, Flutter 3.0之前需要编写一个扩展类来处理。&lt;/p&gt;
+&lt;p&gt;Flutter 3.0之前可以参考 &lt;a href=&quot;https://juejin.cn/post/7065585593786302500&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;在 flutter 中如何使用和扩展  ThemeData&lt;/a&gt; 这篇文章。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;下面我们来介绍如果在Flutter 3.0中使用官方方法来扩展。&lt;/p&gt;
+&lt;p&gt;在ThemeData中 多了一个 &lt;a href=&quot;https://github.com/flutter/flutter/blob/f1875d570e/packages/flutter/lib/src/material/theme_data.dart#L1127&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;final Map&amp;lt;Object, ThemeExtension&amp;gt; extensions&lt;/a&gt; 字段声明&lt;/p&gt;
+&lt;p&gt;要定义ThemeExtension扩展类，需要将一个或多个ThemeExtension子类传递给&lt;a href=&quot;https://api.flutter.dev/flutter/material/ThemeData/ThemeData.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ThemeData.new&lt;/a&gt; 或 &lt;a href=&quot;https://api.flutter.dev/flutter/material/ThemeData/copyWith.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;copyWith&lt;/a&gt; 的extensions属性。&lt;/p&gt;
+&lt;p&gt;要获取扩展名，请使用&lt;a href=&quot;https://api.flutter.dev/flutter/material/ThemeData/extension.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Theme.of(context).extension&lt;MyColors&gt;()&lt;/a&gt;. &lt;/p&gt;
+&lt;p&gt;完整的Demo如下:&lt;/p&gt;
+&lt;img src=&quot;/2022/08/25/Flutter-ThemeData%E9%80%9A%E8%BF%87ThemeExtension%E6%89%A9%E5%B1%95%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7/1.gif&quot; class=&quot;&quot; title=&quot;示例图&quot;&gt;
+    
+    </summary>
+    
+    
+      <category term="Flutter开发" scheme="http://p709723778.gitee.io/categories/Flutter%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="Dart" scheme="http://p709723778.gitee.io/tags/Dart/"/>
+    
+      <category term="Flutter" scheme="http://p709723778.gitee.io/tags/Flutter/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Flutter ~ AS设置常用的代码模版</title>
     <link href="http://p709723778.gitee.io/2021/10/23/Flutter-AS%E8%AE%BE%E7%BD%AE%E5%B8%B8%E7%94%A8%E7%9A%84%E4%BB%A3%E7%A0%81%E6%A8%A1%E7%89%88/"/>
     <id>http://p709723778.gitee.io/2021/10/23/Flutter-AS%E8%AE%BE%E7%BD%AE%E5%B8%B8%E7%94%A8%E7%9A%84%E4%BB%A3%E7%A0%81%E6%A8%A1%E7%89%88/</id>
     <published>2021-10-23T14:29:02.000Z</published>
-    <updated>2022-08-03T07:04:30.871Z</updated>
+    <updated>2022-08-25T11:22:37.963Z</updated>
     
     <summary type="html">
     
@@ -51,7 +83,7 @@
     <link href="http://p709723778.gitee.io/2021/09/01/Flutter-Text-%E5%90%8C%E6%97%B6%E6%B7%BB%E5%8A%A0%E4%B8%AD%E5%88%92%E7%BA%BF%E5%92%8C%E4%B8%8B%E5%88%92%E7%BA%BF/"/>
     <id>http://p709723778.gitee.io/2021/09/01/Flutter-Text-%E5%90%8C%E6%97%B6%E6%B7%BB%E5%8A%A0%E4%B8%AD%E5%88%92%E7%BA%BF%E5%92%8C%E4%B8%8B%E5%88%92%E7%BA%BF/</id>
     <published>2021-09-01T20:25:59.000Z</published>
-    <updated>2022-08-03T07:04:30.875Z</updated>
+    <updated>2022-08-25T11:22:37.967Z</updated>
     
     <summary type="html">
     
@@ -74,7 +106,7 @@
     <link href="http://p709723778.gitee.io/2021/01/04/Flutter-Stack%20%E7%BB%84%E4%BB%B6/"/>
     <id>http://p709723778.gitee.io/2021/01/04/Flutter-Stack%20%E7%BB%84%E4%BB%B6/</id>
     <published>2021-01-04T14:33:49.000Z</published>
-    <updated>2022-08-03T07:04:30.875Z</updated>
+    <updated>2022-08-25T11:22:37.967Z</updated>
     
     <summary type="html">
     
@@ -140,7 +172,7 @@
     <link href="http://p709723778.gitee.io/2020/12/04/Flutter-%E5%B0%8F%E6%95%B0%E5%8F%96%E6%95%B4%E7%9A%84%E5%A4%9A%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F-%E4%BF%9D%E7%95%99%E5%B0%8F%E6%95%B0%E7%82%B9%E5%90%8E-n-%E4%BD%8D/"/>
     <id>http://p709723778.gitee.io/2020/12/04/Flutter-%E5%B0%8F%E6%95%B0%E5%8F%96%E6%95%B4%E7%9A%84%E5%A4%9A%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F-%E4%BF%9D%E7%95%99%E5%B0%8F%E6%95%B0%E7%82%B9%E5%90%8E-n-%E4%BD%8D/</id>
     <published>2020-12-04T18:05:01.000Z</published>
-    <updated>2022-08-03T07:04:30.875Z</updated>
+    <updated>2022-08-25T11:22:37.971Z</updated>
     
     <summary type="html">
     
@@ -164,7 +196,7 @@
     <link href="http://p709723778.gitee.io/2020/12/02/Flutter-Dart%E8%BF%90%E7%AE%97%E7%AC%A6/"/>
     <id>http://p709723778.gitee.io/2020/12/02/Flutter-Dart%E8%BF%90%E7%AE%97%E7%AC%A6/</id>
     <published>2020-12-02T20:30:05.000Z</published>
-    <updated>2022-08-03T07:04:30.875Z</updated>
+    <updated>2022-08-25T11:22:37.967Z</updated>
     
     <summary type="html">
     
@@ -196,7 +228,7 @@
     <link href="http://p709723778.gitee.io/2020/11/12/Flutter-Dart%E8%AF%AD%E6%B3%95%E7%89%B9%E6%80%A7/"/>
     <id>http://p709723778.gitee.io/2020/11/12/Flutter-Dart%E8%AF%AD%E6%B3%95%E7%89%B9%E6%80%A7/</id>
     <published>2020-11-12T11:23:55.000Z</published>
-    <updated>2022-08-03T07:04:30.875Z</updated>
+    <updated>2022-08-25T11:22:37.967Z</updated>
     
     <summary type="html">
     
@@ -230,7 +262,7 @@
     <link href="http://p709723778.gitee.io/2020/07/23/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-iOS14-%E5%B9%BF%E5%91%8A%E6%A0%87%E8%AF%86IDFA/"/>
     <id>http://p709723778.gitee.io/2020/07/23/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-iOS14-%E5%B9%BF%E5%91%8A%E6%A0%87%E8%AF%86IDFA/</id>
     <published>2020-07-23T16:53:32.000Z</published>
-    <updated>2022-08-03T07:04:30.883Z</updated>
+    <updated>2022-08-25T11:22:37.983Z</updated>
     
     <summary type="html">
     
@@ -262,7 +294,7 @@
     <link href="http://p709723778.gitee.io/2020/04/17/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-dSYM-%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/"/>
     <id>http://p709723778.gitee.io/2020/04/17/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-dSYM-%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/</id>
     <published>2020-04-17T19:26:01.000Z</published>
-    <updated>2022-08-03T07:04:30.883Z</updated>
+    <updated>2022-08-25T11:22:37.979Z</updated>
     
     <summary type="html">
     
@@ -292,7 +324,7 @@
     <link href="http://p709723778.gitee.io/2019/12/24/App-Store-Connect-Operation-Error-%E9%9B%86%E5%90%88/"/>
     <id>http://p709723778.gitee.io/2019/12/24/App-Store-Connect-Operation-Error-%E9%9B%86%E5%90%88/</id>
     <published>2019-12-24T19:10:52.000Z</published>
-    <updated>2022-08-03T07:04:30.871Z</updated>
+    <updated>2022-08-25T11:22:37.963Z</updated>
     
     <summary type="html">
     
@@ -316,7 +348,7 @@
     <link href="http://p709723778.gitee.io/2019/07/02/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-NSUUID-CFUUID-%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6/"/>
     <id>http://p709723778.gitee.io/2019/07/02/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-NSUUID-CFUUID-%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6/</id>
     <published>2019-07-02T15:50:09.000Z</published>
-    <updated>2022-08-03T07:04:30.883Z</updated>
+    <updated>2022-08-25T11:22:37.979Z</updated>
     
     <summary type="html">
     
@@ -341,7 +373,7 @@
     <link href="http://p709723778.gitee.io/2019/07/01/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-IDFA%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6-%E4%BA%8C/"/>
     <id>http://p709723778.gitee.io/2019/07/01/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-IDFA%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6-%E4%BA%8C/</id>
     <published>2019-07-01T15:45:02.000Z</published>
-    <updated>2022-08-03T07:04:30.879Z</updated>
+    <updated>2022-08-25T11:22:37.975Z</updated>
     
     <summary type="html">
     
@@ -370,7 +402,7 @@
     <link href="http://p709723778.gitee.io/2019/06/24/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-IDFA%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6-%E4%B8%80/"/>
     <id>http://p709723778.gitee.io/2019/06/24/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-IDFA%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6-%E4%B8%80/</id>
     <published>2019-06-24T20:50:14.000Z</published>
-    <updated>2022-08-03T07:04:30.875Z</updated>
+    <updated>2022-08-25T11:22:37.975Z</updated>
     
     <summary type="html">
     
@@ -398,7 +430,7 @@
     <link href="http://p709723778.gitee.io/2019/06/21/%E5%A6%82%E4%BD%95%E5%9C%A8Mac%E4%B8%8A%E6%90%AD%E5%BB%BAWeb%E6%9C%8D%E5%8A%A1%E5%99%A8-Apache/"/>
     <id>http://p709723778.gitee.io/2019/06/21/%E5%A6%82%E4%BD%95%E5%9C%A8Mac%E4%B8%8A%E6%90%AD%E5%BB%BAWeb%E6%9C%8D%E5%8A%A1%E5%99%A8-Apache/</id>
     <published>2019-06-21T19:51:26.000Z</published>
-    <updated>2022-08-03T07:04:30.883Z</updated>
+    <updated>2022-08-25T11:22:37.983Z</updated>
     
     <summary type="html">
     
@@ -420,7 +452,7 @@
     <link href="http://p709723778.gitee.io/2017/12/11/Mac-%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3-app%E5%B7%B2%E6%8D%9F%E5%9D%8F%EF%BC%8C%E6%89%93%E4%B8%8D%E5%BC%80%E3%80%82%E4%BD%A0%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93/"/>
     <id>http://p709723778.gitee.io/2017/12/11/Mac-%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3-app%E5%B7%B2%E6%8D%9F%E5%9D%8F%EF%BC%8C%E6%89%93%E4%B8%8D%E5%BC%80%E3%80%82%E4%BD%A0%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93/</id>
     <published>2017-12-11T16:40:20.000Z</published>
-    <updated>2022-08-03T07:04:30.875Z</updated>
+    <updated>2022-08-25T11:22:37.971Z</updated>
     
     <summary type="html">
     
@@ -446,7 +478,7 @@
     <link href="http://p709723778.gitee.io/2017/09/08/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-Apple-Open-Source/"/>
     <id>http://p709723778.gitee.io/2017/09/08/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-Apple-Open-Source/</id>
     <published>2017-09-08T21:23:22.000Z</published>
-    <updated>2022-08-03T07:04:30.875Z</updated>
+    <updated>2022-08-25T11:22:37.975Z</updated>
     
     <summary type="html">
     
@@ -473,7 +505,7 @@
     <link href="http://p709723778.gitee.io/2017/08/19/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-GCD%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90/"/>
     <id>http://p709723778.gitee.io/2017/08/19/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-GCD%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90/</id>
     <published>2017-08-19T20:10:41.000Z</published>
-    <updated>2022-08-03T07:04:30.875Z</updated>
+    <updated>2022-08-25T11:22:37.975Z</updated>
     
     <summary type="html">
     
@@ -498,7 +530,7 @@
     <link href="http://p709723778.gitee.io/2017/03/26/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-Xcode-%E8%B0%83%E8%AF%95%E5%8C%BA%E5%9B%BE%E6%A0%87%E5%90%AB%E4%B9%89/"/>
     <id>http://p709723778.gitee.io/2017/03/26/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-Xcode-%E8%B0%83%E8%AF%95%E5%8C%BA%E5%9B%BE%E6%A0%87%E5%90%AB%E4%B9%89/</id>
     <published>2017-03-26T15:55:43.000Z</published>
-    <updated>2022-08-03T07:04:30.883Z</updated>
+    <updated>2022-08-25T11:22:37.979Z</updated>
     
     <summary type="html">
     
@@ -520,7 +552,7 @@
     <link href="http://p709723778.gitee.io/2016/12/29/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-NSProxy%E6%B5%85%E8%AF%B4/"/>
     <id>http://p709723778.gitee.io/2016/12/29/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-NSProxy%E6%B5%85%E8%AF%B4/</id>
     <published>2016-12-29T18:10:24.000Z</published>
-    <updated>2022-08-03T07:04:30.879Z</updated>
+    <updated>2022-08-25T11:22:37.979Z</updated>
     
     <summary type="html">
     
@@ -548,7 +580,7 @@
     <link href="http://p709723778.gitee.io/2016/12/23/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-NSTimer-%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8/"/>
     <id>http://p709723778.gitee.io/2016/12/23/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-NSTimer-%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8/</id>
     <published>2016-12-23T18:10:24.000Z</published>
-    <updated>2022-08-03T07:04:30.879Z</updated>
+    <updated>2022-08-25T11:22:37.979Z</updated>
     
     <summary type="html">
     
@@ -559,35 +591,6 @@
 &lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;- (&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;)setupTimer &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.timer = [&lt;span class=&quot;built_in&quot;&gt;NSTimer&lt;/span&gt; scheduledTimerWithTimeInterval:&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; target:&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt; selector:&lt;span class=&quot;keyword&quot;&gt;@selector&lt;/span&gt;(timerAction) userInfo:&lt;span class=&quot;literal&quot;&gt;nil&lt;/span&gt; repeats:&lt;span class=&quot;literal&quot;&gt;YES&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- (&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;)dealloc &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.timer invalidate];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.timer = &lt;span class=&quot;literal&quot;&gt;nil&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 
 &lt;p&gt;由于self强引用了timer，同时timer也强引用了self，所以循环引用造成dealloc方法根本不会走，self和timer都不会被释放，造成内存泄漏。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="iOS开发" scheme="http://p709723778.gitee.io/categories/iOS%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="iOS" scheme="http://p709723778.gitee.io/tags/iOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS开发之 ~ 循环引用</title>
-    <link href="http://p709723778.gitee.io/2016/12/11/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8/"/>
-    <id>http://p709723778.gitee.io/2016/12/11/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8/</id>
-    <published>2016-12-11T11:32:51.000Z</published>
-    <updated>2022-08-03T07:04:30.883Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;1-概述&quot;&gt;&lt;a href=&quot;#1-概述&quot; class=&quot;headerlink&quot; title=&quot;1. 概述&quot;&gt;&lt;/a&gt;1. 概述&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;iOS内存中的分区有：堆、栈、静态区。其中，栈和静态区是操作系统自己管理回收，不会造成循环引用。在堆中的相互引用无法回收，有可能造成循环引用。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;循环引用的实质：多个对象相互之间有强引用，不能施放让系统回收。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;解决循环引用一般是将 strong 引用改为 weak 引用。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
     
     </summary>
     

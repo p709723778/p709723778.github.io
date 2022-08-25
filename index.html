@@ -255,6 +255,71 @@
 
     
     <article
+  id="post-Flutter-ThemeData通过ThemeExtension扩展自定义属性"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/08/25/Flutter-ThemeData%E9%80%9A%E8%BF%87ThemeExtension%E6%89%A9%E5%B1%95%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7/"
+    >Flutter ~ ThemeData通过ThemeExtension扩展自定义属性</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/08/25/Flutter-ThemeData%E9%80%9A%E8%BF%87ThemeExtension%E6%89%A9%E5%B1%95%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7/" class="article-date">
+  <time datetime="2022-08-25T18:46:06.000Z" itemprop="datePublished">2022-08-25</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Flutter%E5%BC%80%E5%8F%91/">Flutter开发</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <blockquote>
+<p>ThemeExtensions 是在Flutter 3.0 中ThemeData类中新增的对象，通过它可以扩展自己想自定义的属性字段, Flutter 3.0之前需要编写一个扩展类来处理。</p>
+<p>Flutter 3.0之前可以参考 <a href="https://juejin.cn/post/7065585593786302500" target="_blank" rel="noopener">在 flutter 中如何使用和扩展  ThemeData</a> 这篇文章。</p>
+</blockquote>
+<p>下面我们来介绍如果在Flutter 3.0中使用官方方法来扩展。</p>
+<p>在ThemeData中 多了一个 <a href="https://github.com/flutter/flutter/blob/f1875d570e/packages/flutter/lib/src/material/theme_data.dart#L1127" target="_blank" rel="noopener">final Map&lt;Object, ThemeExtension&gt; extensions</a> 字段声明</p>
+<p>要定义ThemeExtension扩展类，需要将一个或多个ThemeExtension子类传递给<a href="https://api.flutter.dev/flutter/material/ThemeData/ThemeData.html" target="_blank" rel="noopener">ThemeData.new</a> 或 <a href="https://api.flutter.dev/flutter/material/ThemeData/copyWith.html" target="_blank" rel="noopener">copyWith</a> 的extensions属性。</p>
+<p>要获取扩展名，请使用<a href="https://api.flutter.dev/flutter/material/ThemeData/extension.html" target="_blank" rel="noopener">Theme.of(context).extension<MyColors>()</a>. </p>
+<p>完整的Demo如下:</p>
+<img src="/2022/08/25/Flutter-ThemeData%E9%80%9A%E8%BF%87ThemeExtension%E6%89%A9%E5%B1%95%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7/1.gif" class="" title="示例图"> 
+      <a class="article-more-link" href="/2022/08/25/Flutter-ThemeData%E9%80%9A%E8%BF%87ThemeExtension%E6%89%A9%E5%B1%95%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dart/" rel="tag">Dart</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Flutter/" rel="tag">Flutter</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+</article>
+
+    
+    <article
   id="post-Flutter-AS设置常用的代码模版"
   class="article article-type-post"
   itemscope
@@ -778,65 +843,6 @@
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Crash/" rel="tag">Crash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dSYM/" rel="tag">dSYM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-    
-</article>
-
-    
-    <article
-  id="post-App-Store-Connect-Operation-Error-集合"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2019/12/24/App-Store-Connect-Operation-Error-%E9%9B%86%E5%90%88/"
-    >iOS开发之 ~ App Store Connect Operation Error 集合</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2019/12/24/App-Store-Connect-Operation-Error-%E9%9B%86%E5%90%88/" class="article-date">
-  <time datetime="2019-12-24T19:10:52.000Z" itemprop="datePublished">2019-12-24</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/iOS%E5%BC%80%E5%8F%91/">iOS开发</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h3 id="一-、常用的上传工具"><a href="#一-、常用的上传工具" class="headerlink" title="一 、常用的上传工具"></a>一 、常用的上传工具</h3><h6 id="1-Transporter-GUI工具-推荐"><a href="#1-Transporter-GUI工具-推荐" class="headerlink" title="1. Transporter GUI工具 推荐"></a>1. Transporter GUI工具 推荐</h6><p>使用说明: <a href="https://help.apple.com/itc/transporter/" target="_blank" rel="noopener">https://help.apple.com/itc/transporter/</a></p>
-<h6 id="2-iTMSTransporter-macOS-Windows-Linux都有提供-推荐"><a href="#2-iTMSTransporter-macOS-Windows-Linux都有提供-推荐" class="headerlink" title="2. iTMSTransporter (macOS / Windows / Linux都有提供) 推荐"></a>2. iTMSTransporter (macOS / Windows / Linux都有提供) 推荐</h6><p>使用说明: <a href="https://help.apple.com/itc/transporteruserguide/" target="_blank" rel="noopener">https://help.apple.com/itc/transporteruserguide/</a></p>
-<h6 id="3-Application-Loader-集成在Xcode内部，但是该工具已经被苹果弱化-不推荐"><a href="#3-Application-Loader-集成在Xcode内部，但是该工具已经被苹果弱化-不推荐" class="headerlink" title="3. Application Loader (集成在Xcode内部，但是该工具已经被苹果弱化) ~   不推荐"></a>3. <del>Application Loader (集成在Xcode内部，但是该工具已经被苹果弱化) ~</del>   不推荐</h6><p>使用说明: <a href="https://help.apple.com/itc/apploader/" target="_blank" rel="noopener">https://help.apple.com/itc/apploader/</a></p>
-<br/> 
-      <a class="article-more-link" href="/2019/12/24/App-Store-Connect-Operation-Error-%E9%9B%86%E5%90%88/"
-        >阅读更多...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li></ul>
 
     </footer>
   </div>
