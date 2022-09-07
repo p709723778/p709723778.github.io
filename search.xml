@@ -71,6 +71,26 @@
       </tags>
   </entry>
   <entry>
+    <title>Flutter ~ GZip解压缩</title>
+    <url>/2021/09/07/Flutter-GZip%E8%A7%A3%E5%8E%8B%E7%BC%A9/</url>
+    <content><![CDATA[<blockquote>
+<p>GZip最早由Jean-loup Gailly和Mark Adler创建，用于UNⅨ系统的文件压缩。我们在Linux中经常会用到后缀为.gz的文件，它们就是GZip格式的。现今已经成为Internet 上使用非常普遍的一种数据压缩格式，或者说一种文件格式</p>
+</blockquote>
+<p>废话不多说，直接上代码。</p>
+<h4 id="代码运行示例"><a href="#代码运行示例" class="headerlink" title="代码运行示例:"></a>代码运行示例:</h4><figure class="highlight dart"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> main() &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"准备 GZip压缩"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//原始字符串</span></span><br><span class="line">    <span class="keyword">const</span> testString = <span class="string">'测试一下GZip压缩字符串'</span>;</span><br><span class="line">    <span class="comment">//GZip 压缩后的文本</span></span><br><span class="line">    <span class="keyword">final</span> zipString = GzipUtil.gzipEncode(testString);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"GZip 编码-<span class="subst">$zipString</span>"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//GZip 解压</span></span><br><span class="line">    <span class="keyword">final</span> zipString2 = GzipUtil.gzipDecode(zipString);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"GZip 解码-<span class="subst">$zipString2</span>"</span>);</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="工具类源码"><a href="#工具类源码" class="headerlink" title="工具类源码:"></a>工具类源码:</h4><figure class="highlight dart"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'dart:convert'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'dart:io'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GzipUtil</span> </span>&#123;</span><br><span class="line">  <span class="comment">///<span class="markdown">GZIP 压缩</span></span></span><br><span class="line">  <span class="keyword">static</span> <span class="built_in">String</span>? gzipEncode(<span class="built_in">String</span>? str) &#123;</span><br><span class="line">    <span class="keyword">if</span> (str == <span class="keyword">null</span>) <span class="keyword">return</span> str;</span><br><span class="line">    <span class="comment">//先来转换一下</span></span><br><span class="line">    <span class="keyword">final</span> stringBytes = utf8.encode(str);</span><br><span class="line">    <span class="comment">//然后使用 gzip 压缩</span></span><br><span class="line">    <span class="keyword">final</span> gzipBytes = GZipCodec().encode(stringBytes);</span><br><span class="line">    <span class="comment">//然后再编码一下进行网络传输</span></span><br><span class="line">    <span class="keyword">final</span> compressedString = base64UrlEncode(gzipBytes);</span><br><span class="line">    <span class="keyword">return</span> compressedString;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">///<span class="markdown">GZIP 解压缩</span></span></span><br><span class="line">  <span class="keyword">static</span> <span class="built_in">String</span>? gzipDecode(<span class="built_in">String</span>? str) &#123;</span><br><span class="line">    <span class="keyword">if</span> (str == <span class="keyword">null</span>) <span class="keyword">return</span> str;</span><br><span class="line">    <span class="comment">//先来解码一下</span></span><br><span class="line">    <span class="keyword">final</span> <span class="built_in">List</span>&lt;<span class="built_in">int</span>&gt; stringBytes = base64Url.decode(str);</span><br><span class="line">    <span class="comment">//然后使用 gzip 压缩</span></span><br><span class="line">    <span class="keyword">final</span> gzipBytes = GZipCodec().decode(stringBytes);</span><br><span class="line">    <span class="comment">//然后再编码一下</span></span><br><span class="line">    <span class="keyword">final</span> compressedString = utf8.decode(gzipBytes);</span><br><span class="line">    <span class="keyword">return</span> compressedString;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Flutter开发</category>
+      </categories>
+      <tags>
+        <tag>Dart</tag>
+        <tag>Flutter</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Flutter ~ Text 同时添加中划线和下划线</title>
     <url>/2021/09/01/Flutter-Text-%E5%90%8C%E6%97%B6%E6%B7%BB%E5%8A%A0%E4%B8%AD%E5%88%92%E7%BA%BF%E5%92%8C%E4%B8%8B%E5%88%92%E7%BA%BF/</url>
     <content><![CDATA[<img src="/2021/09/01/Flutter-Text-%E5%90%8C%E6%97%B6%E6%B7%BB%E5%8A%A0%E4%B8%AD%E5%88%92%E7%BA%BF%E5%92%8C%E4%B8%8B%E5%88%92%E7%BA%BF/1.png" class="" title="示例图">

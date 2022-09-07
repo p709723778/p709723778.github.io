@@ -158,6 +158,67 @@
     
     
     <article
+  id="post-iOS开发之-dSYM-文件结构"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/04/17/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-dSYM-%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/"
+    >iOS开发之 ~ dSYM 文件结构</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/04/17/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-dSYM-%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/" class="article-date">
+  <time datetime="2020-04-17T19:26:01.000Z" itemprop="datePublished">2020-04-17</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/iOS%E5%BC%80%E5%8F%91/">iOS开发</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="1-获取Crash文件"><a href="#1-获取Crash文件" class="headerlink" title="1. 获取Crash文件"></a>1. 获取Crash文件</h2><ul>
+<li><p>iPhone设备上获取: 设置 -&gt; 隐私 -&gt; 分析与改进 -&gt; 分析数据 -&gt; 找到对应应用的.ips文件(获取到的 .ips 改后缀为 .crash 即可)</p>
+</li>
+<li><p>Xcode 上查看: Xcode -&gt; Window -&gt; Devices and Simulators -&gt; 选中Crash的设备 -&gt; View Device Logs -&gt; This Device -&gt; 找到对应的进程crash文件 -&gt; 右键Export Log -&gt; 保存到需要保存的位置</p>
+</li>
+</ul> 
+      <a class="article-more-link" href="/2020/04/17/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-dSYM-%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Crash/" rel="tag">Crash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dSYM/" rel="tag">dSYM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+</article>
+
+    
+    <article
   id="post-App-Store-Connect-Operation-Error-集合"
   class="article article-type-post"
   itemscope
@@ -694,89 +755,13 @@
 </article>
 
     
-    <article
-  id="post-iOS开发之-NSProxy浅说"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2016/12/29/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-NSProxy%E6%B5%85%E8%AF%B4/"
-    >iOS开发之 ~ NSProxy浅说</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2016/12/29/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-NSProxy%E6%B5%85%E8%AF%B4/" class="article-date">
-  <time datetime="2016-12-29T18:10:24.000Z" itemprop="datePublished">2016-12-29</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/iOS%E5%BC%80%E5%8F%91/">iOS开发</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h3 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h3><blockquote>
-<p>NSProxy是一个抽象的超类,它遵守了 NSObject 协议，并且是不继承自NSObject的。可以通过它的API为其它的Object对象或者不存在的对象提供替身。</p>
-</blockquote>
-<p>.h头文件声明如下</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@class</span> <span class="title">NSMethodSignature</span>, <span class="title">NSInvocation</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">NS_ROOT_CLASS</span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">NSProxy</span> &lt;<span class="title">NSObject</span>&gt; </span>&#123;</span><br><span class="line">    Class	isa;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">+ (<span class="keyword">id</span>)alloc;</span><br><span class="line">+ (<span class="keyword">id</span>)allocWithZone:(<span class="keyword">nullable</span> <span class="built_in">NSZone</span> *)zone <span class="built_in">NS_AUTOMATED_REFCOUNT_UNAVAILABLE</span>;</span><br><span class="line">+ (Class)<span class="keyword">class</span>;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)forwardInvocation:(<span class="built_in">NSInvocation</span> *)invocation;</span><br><span class="line">- (<span class="keyword">nullable</span> <span class="built_in">NSMethodSignature</span> *)methodSignatureForSelector:(SEL)sel <span class="built_in">NS_SWIFT_UNAVAILABLE</span>(<span class="string">"NSInvocation and related APIs not available"</span>);</span><br><span class="line">- (<span class="keyword">void</span>)dealloc;</span><br><span class="line">- (<span class="keyword">void</span>)finalize;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">readonly</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *description;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">readonly</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *debugDescription;</span><br><span class="line">+ (<span class="built_in">BOOL</span>)respondsToSelector:(SEL)aSelector;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">BOOL</span>)allowsWeakReference API_UNAVAILABLE(macos, ios, watchos, tvos);</span><br><span class="line">- (<span class="built_in">BOOL</span>)retainWeakReference API_UNAVAILABLE(macos, ios, watchos, tvos);</span><br><span class="line"></span><br><span class="line"><span class="comment">// - (id)forwardingTargetForSelector:(SEL)aSelector;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-
-<p><code>NSProxy</code> 的使用一般比较少,没了解之前看到它心里就冒出”这什么鬼,有点深奥呦!”的想法,其实非常简单，通常你只需要实现两个方法：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)forwardInvocation:(<span class="built_in">NSInvocation</span> *)invocation;</span><br><span class="line">- (<span class="keyword">nullable</span> <span class="built_in">NSMethodSignature</span> *)methodSignatureForSelector:(SEL)sel <span class="built_in">NS_SWIFT_UNAVAILABLE</span>(<span class="string">"NSInvocation and related APIs not available"</span>);</span><br></pre></td></tr></table></figure>
-
-<p>那么我们通过Demo来给大家演示一下NSProxy的使用.</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">MyProxy</span> : <span class="title">NSProxy</span></span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">id</span> _object;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">+ (<span class="keyword">id</span>)proxyForObject:(<span class="keyword">id</span>)obj;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">MyProxy</span></span></span><br><span class="line"></span><br><span class="line">+ (<span class="keyword">id</span>)proxyForObject:(<span class="keyword">id</span>)obj &#123;</span><br><span class="line">    MyProxy *instance = [MyProxy alloc];</span><br><span class="line">    instance-&gt;_object = obj;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> instance;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSMethodSignature</span> *)methodSignatureForSelector:(SEL)sel &#123;</span><br><span class="line">    <span class="keyword">return</span> [_object methodSignatureForSelector:sel];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)forwardInvocation:(<span class="built_in">NSInvocation</span> *)invocation &#123;</span><br><span class="line">    <span class="keyword">if</span> ([_object respondsToSelector:invocation.selector]) &#123;</span><br><span class="line">        <span class="built_in">NSString</span> *selectorName = <span class="built_in">NSStringFromSelector</span>(invocation.selector);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"Before calling \"%@\"."</span>, selectorName);</span><br><span class="line">        [invocation invokeWithTarget:_object];</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"After calling \"%@\"."</span>, selectorName);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 调用堆栈的符号</span></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, [<span class="built_in">NSThread</span> callStackSymbols]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-
-<p>这是我们的 Proxy 简单实现，我们需要持有一个被代理对象的引用，然后将消息转发到这个对象上，在转发之前和以后我们就可以做自己想做的事情了。</p>
-<p><code>methodSignatureForSelector:</code> 方法需要获取一个方法签名，用来生成 NSInvocation，我们直接将这个调用转发到被代理对象中。紧接着，<code>forwardInvocation:</code> 会被调用，将 NSInvocation 用被代理对象调用。我们就可以在这个方法里做一些手脚，比如埋点计数等。在这个例子中，我只是简单地将对象所调用的方法的 selector 打印出来。</p>
-<p>然后我们看看用于测试的主函数：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions &#123;</span><br><span class="line">    <span class="comment">// Override point for customization after application launch.</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSURL</span> *url = [MyProxy proxyForObject:[<span class="built_in">NSURL</span> URLWithString:<span class="string">@"https://www.baidu.com/"</span>]];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSURLSessionDataTask</span> *task = [[<span class="built_in">NSURLSession</span> sharedSession] dataTaskWithURL:url completionHandler:^(<span class="built_in">NSData</span> *_Nullable data, <span class="built_in">NSURLResponse</span> *_Nullable response, <span class="built_in">NSError</span> *_Nullable error) &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;];</span><br><span class="line"></span><br><span class="line">    [task resume];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>就是简单构造一个 <code>NSURL</code>，只不过我们先用了 <code>MyProxy</code> 封装代理后传给 <code>NSURLSession</code> 去使用，输出结果如下：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2016</span><span class="number">-12</span><span class="number">-29</span> <span class="number">18</span>:<span class="number">40</span>:<span class="number">24.998735</span>+<span class="number">0800</span> test[<span class="number">12184</span>:<span class="number">851334</span>] Before calling <span class="string">"absoluteURL"</span>.</span><br><span class="line"><span class="number">2016</span><span class="number">-12</span><span class="number">-29</span> <span class="number">18</span>:<span class="number">40</span>:<span class="number">24.998814</span>+<span class="number">0800</span> test[<span class="number">12184</span>:<span class="number">851334</span>] After calling <span class="string">"absoluteURL"</span>.</span><br></pre></td></tr></table></figure>
-
-<p>也就是说，系统用 <code>NSURL</code> 的 <code>absoluteURL</code> 属性来获取真正的 URL 数据，至此我们就已经可以跟踪已有类的行为了，甚至还可以通过 <code>[NSThread callStackSymbols]</code> 来跟踪调用改方法的函数调用栈：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2016</span><span class="number">-12</span><span class="number">-29</span> <span class="number">18</span>:<span class="number">40</span>:<span class="number">25.000404</span>+<span class="number">0800</span> test[<span class="number">12184</span>:<span class="number">851334</span>] (</span><br><span class="line">	<span class="number">0</span>   test                                <span class="number">0x0000000102575108</span> -[MyProxy forwardInvocation:] + <span class="number">296</span></span><br><span class="line">	<span class="number">1</span>   CoreFoundation                      <span class="number">0x00000001a3042e64</span> <span class="number">271</span>BBB21<span class="number">-28</span>D6<span class="number">-37</span>CE<span class="number">-894</span>F<span class="number">-43</span>B3352DA6CE + <span class="number">1162852</span></span><br><span class="line">	<span class="number">2</span>   CoreFoundation                      <span class="number">0x00000001a304509c</span> _CF_forwarding_prep_0 + <span class="number">92</span></span><br><span class="line">	<span class="number">3</span>   CoreFoundation                      <span class="number">0x00000001a3011758</span> <span class="built_in">CFURLCopyAbsoluteURL</span> + <span class="number">68</span></span><br><span class="line">	<span class="number">4</span>   <span class="built_in">CFNetwork</span>                           <span class="number">0x00000001a361acb8</span> <span class="built_in">CFNetwork</span> + <span class="number">23736</span></span><br><span class="line">	<span class="number">5</span>   <span class="built_in">CFNetwork</span>                           <span class="number">0x00000001a361ab80</span> <span class="built_in">CFNetwork</span> + <span class="number">23424</span></span><br><span class="line">	<span class="number">6</span>   <span class="built_in">CFNetwork</span>                           <span class="number">0x00000001a361f7b4</span> <span class="built_in">CFNetwork</span> + <span class="number">42932</span></span><br><span class="line">	<span class="number">7</span>   test                                <span class="number">0x0000000102575b54</span> -[AppDelegate application:didFinishLaunchingWithOptions:] + <span class="number">276</span></span><br><span class="line">	<span class="number">8</span>   <span class="built_in">UIKitCore</span>                           <span class="number">0x00000001a588c9dc</span> FBF3D986<span class="number">-2</span>D16<span class="number">-3</span>B6C-BE71<span class="number">-216144</span>F6307F + <span class="number">11676124</span></span><br><span class="line">	<span class="number">9</span>   <span class="built_in">UIKitCore</span>                           <span class="number">0x00000001a588e97c</span> FBF3D986<span class="number">-2</span>D16<span class="number">-3</span>B6C-BE71<span class="number">-216144</span>F6307F + <span class="number">11684220</span></span><br><span class="line">	<span class="number">10</span>  <span class="built_in">UIKitCore</span>                           <span class="number">0x00000001a58940dc</span> FBF3D986<span class="number">-2</span>D16<span class="number">-3</span>B6C-BE71<span class="number">-216144</span>F6307F + <span class="number">11706588</span></span><br><span class="line">	<span class="number">11</span>  <span class="built_in">UIKitCore</span>                           <span class="number">0x00000001a4f6eef4</span> FBF3D986<span class="number">-2</span>D16<span class="number">-3</span>B6C-BE71<span class="number">-216144</span>F6307F + <span class="number">2117364</span></span><br><span class="line">	<span class="number">12</span>  <span class="built_in">UIKitCore</span>                           <span class="number">0x00000001a589005c</span> FBF3D986<span class="number">-2</span>D16<span class="number">-3</span>B6C-BE71<span class="number">-216144</span>F6307F + <span class="number">11690076</span></span><br><span class="line">	<span class="number">13</span>  <span class="built_in">UIKitCore</span>                           <span class="number">0x00000001a5890464</span> FBF3D986<span class="number">-2</span>D16<span class="number">-3</span>B6C-BE71<span class="number">-216144</span>F6307F + <span class="number">11691108</span></span><br><span class="line">	<span class="number">14</span>  <span class="built_in">UIKitCore</span>                           <span class="number">0x00000001a5895a08</span> <span class="built_in">UIApplicationMain</span> + <span class="number">164</span></span><br><span class="line">	<span class="number">15</span>  test                                <span class="number">0x0000000102574ecc</span> main + <span class="number">332</span></span><br><span class="line">	<span class="number">16</span>  libdyld.dylib                       <span class="number">0x00000001a2c99588</span> A333D9F4<span class="number">-8</span>DA0<span class="number">-330</span>D-B17E<span class="number">-0</span>A92EC3DEF07 + <span class="number">5512</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<p>并借此来跟踪一些系统行为。</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-    
-</article>
-
-    
   </article>
   
 
   
   <nav class="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
+    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
   </nav>
   
 </section>

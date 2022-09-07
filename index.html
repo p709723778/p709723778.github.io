@@ -383,6 +383,66 @@
 
     
     <article
+  id="post-Flutter-GZip解压缩"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/09/07/Flutter-GZip%E8%A7%A3%E5%8E%8B%E7%BC%A9/"
+    >Flutter ~ GZip解压缩</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/09/07/Flutter-GZip%E8%A7%A3%E5%8E%8B%E7%BC%A9/" class="article-date">
+  <time datetime="2021-09-07T19:22:35.000Z" itemprop="datePublished">2021-09-07</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Flutter%E5%BC%80%E5%8F%91/">Flutter开发</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <blockquote>
+<p>GZip最早由Jean-loup Gailly和Mark Adler创建，用于UNⅨ系统的文件压缩。我们在Linux中经常会用到后缀为.gz的文件，它们就是GZip格式的。现今已经成为Internet 上使用非常普遍的一种数据压缩格式，或者说一种文件格式</p>
+</blockquote>
+<p>废话不多说，直接上代码。</p>
+<h4 id="代码运行示例"><a href="#代码运行示例" class="headerlink" title="代码运行示例:"></a>代码运行示例:</h4><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> main() &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"准备 GZip压缩"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//原始字符串</span></span><br><span class="line">    <span class="keyword">const</span> testString = <span class="string">'测试一下GZip压缩字符串'</span>;</span><br><span class="line">    <span class="comment">//GZip 压缩后的文本</span></span><br><span class="line">    <span class="keyword">final</span> zipString = GzipUtil.gzipEncode(testString);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"GZip 编码-<span class="subst">$zipString</span>"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//GZip 解压</span></span><br><span class="line">    <span class="keyword">final</span> zipString2 = GzipUtil.gzipDecode(zipString);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"GZip 解码-<span class="subst">$zipString2</span>"</span>);</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="工具类源码"><a href="#工具类源码" class="headerlink" title="工具类源码:"></a>工具类源码:</h4><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'dart:convert'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'dart:io'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GzipUtil</span> </span>&#123;</span><br><span class="line">  <span class="comment">///<span class="markdown">GZIP 压缩</span></span></span><br><span class="line">  <span class="keyword">static</span> <span class="built_in">String</span>? gzipEncode(<span class="built_in">String</span>? str) &#123;</span><br><span class="line">    <span class="keyword">if</span> (str == <span class="keyword">null</span>) <span class="keyword">return</span> str;</span><br><span class="line">    <span class="comment">//先来转换一下</span></span><br><span class="line">    <span class="keyword">final</span> stringBytes = utf8.encode(str);</span><br><span class="line">    <span class="comment">//然后使用 gzip 压缩</span></span><br><span class="line">    <span class="keyword">final</span> gzipBytes = GZipCodec().encode(stringBytes);</span><br><span class="line">    <span class="comment">//然后再编码一下进行网络传输</span></span><br><span class="line">    <span class="keyword">final</span> compressedString = base64UrlEncode(gzipBytes);</span><br><span class="line">    <span class="keyword">return</span> compressedString;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">///<span class="markdown">GZIP 解压缩</span></span></span><br><span class="line">  <span class="keyword">static</span> <span class="built_in">String</span>? gzipDecode(<span class="built_in">String</span>? str) &#123;</span><br><span class="line">    <span class="keyword">if</span> (str == <span class="keyword">null</span>) <span class="keyword">return</span> str;</span><br><span class="line">    <span class="comment">//先来解码一下</span></span><br><span class="line">    <span class="keyword">final</span> <span class="built_in">List</span>&lt;<span class="built_in">int</span>&gt; stringBytes = base64Url.decode(str);</span><br><span class="line">    <span class="comment">//然后使用 gzip 压缩</span></span><br><span class="line">    <span class="keyword">final</span> gzipBytes = GZipCodec().decode(stringBytes);</span><br><span class="line">    <span class="comment">//然后再编码一下</span></span><br><span class="line">    <span class="keyword">final</span> compressedString = utf8.decode(gzipBytes);</span><br><span class="line">    <span class="keyword">return</span> compressedString;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dart/" rel="tag">Dart</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Flutter/" rel="tag">Flutter</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+</article>
+
+    
+    <article
   id="post-Flutter-Text-同时添加中划线和下划线"
   class="article article-type-post"
   itemscope
@@ -791,74 +851,13 @@
 </article>
 
     
-    <article
-  id="post-iOS开发之-dSYM-文件结构"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/04/17/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-dSYM-%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/"
-    >iOS开发之 ~ dSYM 文件结构</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2020/04/17/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-dSYM-%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/" class="article-date">
-  <time datetime="2020-04-17T19:26:01.000Z" itemprop="datePublished">2020-04-17</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/iOS%E5%BC%80%E5%8F%91/">iOS开发</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="1-获取Crash文件"><a href="#1-获取Crash文件" class="headerlink" title="1. 获取Crash文件"></a>1. 获取Crash文件</h2><ul>
-<li><p>iPhone设备上获取: 设置 -&gt; 隐私 -&gt; 分析与改进 -&gt; 分析数据 -&gt; 找到对应应用的.ips文件(获取到的 .ips 改后缀为 .crash 即可)</p>
-</li>
-<li><p>Xcode 上查看: Xcode -&gt; Window -&gt; Devices and Simulators -&gt; 选中Crash的设备 -&gt; View Device Logs -&gt; This Device -&gt; 找到对应的进程crash文件 -&gt; 右键Export Log -&gt; 保存到需要保存的位置</p>
-</li>
-</ul> 
-      <a class="article-more-link" href="/2020/04/17/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-dSYM-%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/"
-        >阅读更多...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Crash/" rel="tag">Crash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dSYM/" rel="tag">dSYM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-    
-</article>
-
-    
   </article>
   
 
   
   <nav class="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
   </nav>
   
 </section>
