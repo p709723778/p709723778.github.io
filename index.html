@@ -322,6 +322,72 @@
 
     
     <article
+  id="post-Flutter-编译禁用空安全"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/11/04/Flutter-%E7%BC%96%E8%AF%91%E7%A6%81%E7%94%A8%E7%A9%BA%E5%AE%89%E5%85%A8/"
+    >Flutter ~ 编译禁用空安全</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/11/04/Flutter-%E7%BC%96%E8%AF%91%E7%A6%81%E7%94%A8%E7%A9%BA%E5%AE%89%E5%85%A8/" class="article-date">
+  <time datetime="2021-11-04T11:26:38.000Z" itemprop="datePublished">2021-11-04</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Flutter%E5%BC%80%E5%8F%91/">Flutter开发</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <blockquote>
+<p>因为把pubspec.yaml文件environment的SDK版本进行了升级，导致一些第三方库报错不支持安全模式.</p>
+</blockquote>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Waiting <span class="keyword">for</span> connection from debug service <span class="keyword">on</span> Chrome...</span><br><span class="line">Error: Cannot run <span class="keyword">with</span> sound <span class="keyword">null</span> safety, because the following dependencies</span><br><span class="line">don<span class="string">'t support null safety:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"> - package:xxxx</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Android-原生禁用空安全"><a href="#Android-原生禁用空安全" class="headerlink" title="Android 原生禁用空安全"></a>Android 原生禁用空安全</h3><p>在flutter工程中找到android目录下<code>gradle.properties</code>文件,添加 <code>extra-front-end-options=--no-sound-null-safety</code></p>
+<h3 id="iOS-原生禁用空安全"><a href="#iOS-原生禁用空安全" class="headerlink" title="iOS 原生禁用空安全"></a>iOS 原生禁用空安全</h3><p>在 <code>Build Settings</code> =&gt; <code>User-Defined</code>  添加 键 <code>EXTRA_FRONT_END_OPTIONS</code> ，值 <code>--no-sound-null-safety</code></p>
+<p><a href="https://stackoverflow.com/questions/67304114/how-to-add-flutter-run-time-arguments-to-xcode" target="_blank" rel="noopener">参考stackoverflow</a></p> 
+      <a class="article-more-link" href="/2021/11/04/Flutter-%E7%BC%96%E8%AF%91%E7%A6%81%E7%94%A8%E7%A9%BA%E5%AE%89%E5%85%A8/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dart/" rel="tag">Dart</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Flutter/" rel="tag">Flutter</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-Flutter-AS设置常用的代码模版"
   class="article article-type-post"
   itemscope
@@ -785,72 +851,6 @@
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dart/" rel="tag">Dart</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Flutter/" rel="tag">Flutter</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-iOS开发之-iOS14-广告标识IDFA"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/07/23/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-iOS14-%E5%B9%BF%E5%91%8A%E6%A0%87%E8%AF%86IDFA/"
-    >iOS开发之 ~ iOS14 广告标识IDFA</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2020/07/23/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-iOS14-%E5%B9%BF%E5%91%8A%E6%A0%87%E8%AF%86IDFA/" class="article-date">
-  <time datetime="2020-07-23T16:53:32.000Z" itemprop="datePublished">2020-07-23</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/iOS%E5%BC%80%E5%8F%91/">iOS开发</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <blockquote>
-<p>用手机自带Safari 打开 <a href="/download/iOS_14_DP_Beta_Profile.mobileconfig">iOS14_Beta_Profile</a> 可以进行下载描述文件安装体验iOS14系统</p>
-</blockquote>
-<h4 id="适配方案"><a href="#适配方案" class="headerlink" title="适配方案:"></a>适配方案:</h4><p>1.需要在info.plist 中添加 <code>NSUserTrackingUsageDescription</code> 对应的描述文案</p>
-<p>2.iOS14下新增了IDFA 权限申请 API 添加申请权限的代码,代码如下:</p>
-<p>​    首先要导入系统框架</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@import</span> AdSupport;</span><br><span class="line"><span class="keyword">@import</span> AppTrackingTransparency;</span><br></pre></td></tr></table></figure>
-
-<p>​    适配代码</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="built_in">NSString</span> *)idfa</span><br><span class="line">&#123;</span><br><span class="line">    __block <span class="built_in">NSString</span> *advertisingId = <span class="string">@""</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (@available(iOS <span class="number">14</span>, *)) &#123;</span><br><span class="line">        <span class="keyword">if</span> (ATTrackingManager.trackingAuthorizationStatus != ATTrackingManagerAuthorizationStatusAuthorized) &#123;</span><br><span class="line">            [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) &#123;</span><br><span class="line">                <span class="keyword">if</span> (status == ATTrackingManagerAuthorizationStatusAuthorized) &#123;</span><br><span class="line">                    <span class="built_in">NSLog</span>(<span class="string">@"用户选择了同意授权IDFA权限 %@"</span>, advertisingId);</span><br><span class="line">                    advertisingId = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="built_in">NSLog</span>(<span class="string">@"用户选择了拒绝授权IDFA权限"</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            advertisingId = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// ios14以下</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> ([[ASIdentifierManager sharedManager] isAdvertisingTrackingEnabled]) &#123;</span><br><span class="line">            advertisingId = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"请在设置 -&gt; 隐私 -&gt; 广告 -&gt; 限制广告跟踪打开广告跟踪功能"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> advertisingId;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 
-      <a class="article-more-link" href="/2020/07/23/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-iOS14-%E5%B9%BF%E5%91%8A%E6%A0%87%E8%AF%86IDFA/"
-        >阅读更多...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IDFA/" rel="tag">IDFA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li></ul>
 
     </footer>
   </div>

@@ -28,6 +28,38 @@
       </tags>
   </entry>
   <entry>
+    <title>Flutter ~ 编译禁用空安全</title>
+    <url>/2021/11/04/Flutter-%E7%BC%96%E8%AF%91%E7%A6%81%E7%94%A8%E7%A9%BA%E5%AE%89%E5%85%A8/</url>
+    <content><![CDATA[<blockquote>
+<p>因为把pubspec.yaml文件environment的SDK版本进行了升级，导致一些第三方库报错不支持安全模式.</p>
+</blockquote>
+<figure class="highlight dart"><table><tr><td class="code"><pre><span class="line">Waiting <span class="keyword">for</span> connection from debug service <span class="keyword">on</span> Chrome...</span><br><span class="line">Error: Cannot run <span class="keyword">with</span> sound <span class="keyword">null</span> safety, because the following dependencies</span><br><span class="line">don<span class="string">'t support null safety:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"> - package:xxxx</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Android-原生禁用空安全"><a href="#Android-原生禁用空安全" class="headerlink" title="Android 原生禁用空安全"></a>Android 原生禁用空安全</h3><p>在flutter工程中找到android目录下<code>gradle.properties</code>文件,添加 <code>extra-front-end-options=--no-sound-null-safety</code></p>
+<h3 id="iOS-原生禁用空安全"><a href="#iOS-原生禁用空安全" class="headerlink" title="iOS 原生禁用空安全"></a>iOS 原生禁用空安全</h3><p>在 <code>Build Settings</code> =&gt; <code>User-Defined</code>  添加 键 <code>EXTRA_FRONT_END_OPTIONS</code> ，值 <code>--no-sound-null-safety</code></p>
+<p><a href="https://stackoverflow.com/questions/67304114/how-to-add-flutter-run-time-arguments-to-xcode" target="_blank" rel="noopener">参考stackoverflow</a></p>
+<a id="more"></a>
+
+
+<h3 id="Flutter层禁用空安全"><a href="#Flutter层禁用空安全" class="headerlink" title="Flutter层禁用空安全"></a>Flutter层禁用空安全</h3><h5 id="1-命令禁用"><a href="#1-命令禁用" class="headerlink" title="1. 命令禁用"></a>1. 命令禁用</h5><figure class="highlight dart"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// <span class="markdown">运行</span></span></span><br><span class="line">flutter run --no-sound-<span class="keyword">null</span>-safety</span><br><span class="line"></span><br><span class="line"><span class="comment">/// <span class="markdown">打包</span></span></span><br><span class="line">flutter build apk --no-sound-<span class="keyword">null</span>-safety --release</span><br></pre></td></tr></table></figure>
+
+<p>但是我们常用的是使用编辑器启动的，而且使用命令启动不好操作断点，所以我们还是在代码或编辑器里面配置。</p>
+<h5 id="2-使用的是Android-Studio配置如下"><a href="#2-使用的是Android-Studio配置如下" class="headerlink" title="2. 使用的是Android Studio配置如下"></a>2. 使用的是Android Studio配置如下</h5><img src="/2021/11/04/Flutter-%E7%BC%96%E8%AF%91%E7%A6%81%E7%94%A8%E7%A9%BA%E5%AE%89%E5%85%A8/1.webp" class="" title="示例图">
+
+<img src="/2021/11/04/Flutter-%E7%BC%96%E8%AF%91%E7%A6%81%E7%94%A8%E7%A9%BA%E5%AE%89%E5%85%A8/2.webp" class="" title="示例图">
+
+<h5 id="3-使用的是VSCode配置如下"><a href="#3-使用的是VSCode配置如下" class="headerlink" title="3. 使用的是VSCode配置如下"></a>3. 使用的是VSCode配置如下</h5><img src="/2021/11/04/Flutter-%E7%BC%96%E8%AF%91%E7%A6%81%E7%94%A8%E7%A9%BA%E5%AE%89%E5%85%A8/3.webp" class="" title="示例图">]]></content>
+      <categories>
+        <category>Flutter开发</category>
+      </categories>
+      <tags>
+        <tag>Dart</tag>
+        <tag>Flutter</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Flutter ~ AS设置常用的代码模版</title>
     <url>/2021/10/23/Flutter-AS%E8%AE%BE%E7%BD%AE%E5%B8%B8%E7%94%A8%E7%9A%84%E4%BB%A3%E7%A0%81%E6%A8%A1%E7%89%88/</url>
     <content><![CDATA[<blockquote>
