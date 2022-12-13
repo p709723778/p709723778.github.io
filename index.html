@@ -256,6 +256,67 @@
 
     
     <article
+  id="post-Flutter-如何优雅地使用新版enum功能"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/12/12/Flutter-%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E5%9C%B0%E4%BD%BF%E7%94%A8%E6%96%B0%E7%89%88enum%E5%8A%9F%E8%83%BD/"
+    >Flutter ~ 如何优雅地使用新版enum功能</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/12/12/Flutter-%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E5%9C%B0%E4%BD%BF%E7%94%A8%E6%96%B0%E7%89%88enum%E5%8A%9F%E8%83%BD/" class="article-date">
+  <time datetime="2022-12-12T11:11:37.000Z" itemprop="datePublished">2022-12-12</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Flutter%E5%BC%80%E5%8F%91/">Flutter开发</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <blockquote>
+<p>Dart 2.17 新增了一些enum的功能，一起来看看吧！</p>
+<p>我也是看大佬 王叔不秃 学到的新姿势, 通过<a href="https://chat.openai.com/chat" target="_blank" rel="noopener">ChatGPT</a>询问，给到的答案也通过switch来写对应方法来转换枚举。🤓</p>
+</blockquote>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> main() &#123;</span><br><span class="line">  <span class="keyword">final</span> p = PortType.fromString(<span class="string">'USB-C'</span>);</span><br><span class="line">  <span class="built_in">print</span>(p);</span><br><span class="line">  <span class="built_in">print</span>(p.isUSB);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">enum</span> PortType &#123;</span><br><span class="line">  usbA(<span class="string">'USB-A'</span>, isUSB: <span class="keyword">true</span>),</span><br><span class="line">  usbC(<span class="string">'USB-C'</span>, isUSB: <span class="keyword">true</span>),</span><br><span class="line">  lightning(<span class="string">'LIGHTNING'</span>),</span><br><span class="line">  unknown(<span class="string">'UNKNOWN'</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">final</span> <span class="built_in">String</span> name;</span><br><span class="line">  <span class="keyword">final</span> <span class="built_in">bool</span> isUSB;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> PortType(<span class="keyword">this</span>.name, &#123;<span class="keyword">this</span>.isUSB = <span class="keyword">false</span>&#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">static</span> PortType fromString(<span class="built_in">String</span> name) &#123;</span><br><span class="line">    <span class="keyword">return</span> values.firstWhere((v) =&gt; v.name == name,</span><br><span class="line">        orElse: () =&gt; PortType.unknown);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意事项:</p>
+<p><code>最后一个枚举项后面的 &quot;,&quot; 需要改成 &quot;;&quot;   否则无法通过编译。</code></p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dart/" rel="tag">Dart</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Flutter/" rel="tag">Flutter</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-Flutter-ThemeData通过ThemeExtension扩展自定义属性"
   class="article article-type-post"
   itemscope
@@ -770,74 +831,6 @@
 <p>它的意思是左边如果为空返回 null，否则返回右边的值。</p>
 <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> main() &#123;</span><br><span class="line">  Animal animal = <span class="keyword">new</span> Animal(<span class="string">'cat'</span>);</span><br><span class="line">  Animal empty = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//animal 非空，返回 animal.name 的值 cat</span></span><br><span class="line">  <span class="built_in">print</span>(animal?.name);</span><br><span class="line">  <span class="comment">//empty 为空，返回 null</span></span><br><span class="line">  <span class="built_in">print</span>(empty?.name);</span><br><span class="line"></span><br><span class="line">  <span class="comment">//animal 非空，可以直接访问 animal.name 的值 cat</span></span><br><span class="line">  <span class="built_in">print</span>(animal.name);</span><br><span class="line">  <span class="comment">//empty 为空，抛出异常</span></span><br><span class="line">  <span class="built_in">print</span>(empty.name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">  <span class="keyword">final</span> <span class="built_in">String</span> name;</span><br><span class="line">  Animal(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 
       <a class="article-more-link" href="/2020/12/02/Flutter-Dart%E8%BF%90%E7%AE%97%E7%AC%A6/"
-        >阅读更多...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dart/" rel="tag">Dart</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Flutter/" rel="tag">Flutter</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-Flutter-Dart语法特性"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/11/12/Flutter-Dart%E8%AF%AD%E6%B3%95%E7%89%B9%E6%80%A7/"
-    >Flutter ~ Dart语法特性</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2020/11/12/Flutter-Dart%E8%AF%AD%E6%B3%95%E7%89%B9%E6%80%A7/" class="article-date">
-  <time datetime="2020-11-12T11:23:55.000Z" itemprop="datePublished">2020-11-12</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Flutter%E5%BC%80%E5%8F%91/">Flutter开发</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="一-Dart-的基本语法"><a href="#一-Dart-的基本语法" class="headerlink" title="一. Dart 的基本语法"></a>一. Dart 的基本语法</h2><h3 id="1、程序入口"><a href="#1、程序入口" class="headerlink" title="1、程序入口"></a>1、程序入口</h3><ul>
-<li>Dart 的入口也是 main 函数，且没有返回值。</li>
-<li>传递给 main 的命令行参数，会存放在 <code>List&lt;String&gt; args</code> 中。</li>
-<li>定义字符串可以使用单引号或双引号。</li>
-<li>每行语句必须使用分号结尾。</li>
-</ul>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">main(<span class="built_in">List</span>&lt;<span class="built_in">String</span>&gt; args) &#123;</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">"Hello World"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="2、声明变量"><a href="#2、声明变量" class="headerlink" title="2、声明变量"></a>2、声明变量</h3><ul>
-<li><p>明确声明：变量类型 变量名称 = 赋值;</p>
-</li>
-<li><p>类型推导：<code>var / dynamic / const / final</code> 变量名称 = 赋值;</p> 
-      <a class="article-more-link" href="/2020/11/12/Flutter-Dart%E8%AF%AD%E6%B3%95%E7%89%B9%E6%80%A7/"
         >阅读更多...</a
       >
        

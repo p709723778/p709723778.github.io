@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Flutter ~ 如何优雅地使用新版enum功能</title>
+    <url>/2022/12/12/Flutter-%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E5%9C%B0%E4%BD%BF%E7%94%A8%E6%96%B0%E7%89%88enum%E5%8A%9F%E8%83%BD/</url>
+    <content><![CDATA[<blockquote>
+<p>Dart 2.17 新增了一些enum的功能，一起来看看吧！</p>
+<p>我也是看大佬 王叔不秃 学到的新姿势, 通过<a href="https://chat.openai.com/chat" target="_blank" rel="noopener">ChatGPT</a>询问，给到的答案也通过switch来写对应方法来转换枚举。🤓</p>
+</blockquote>
+<figure class="highlight dart"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> main() &#123;</span><br><span class="line">  <span class="keyword">final</span> p = PortType.fromString(<span class="string">'USB-C'</span>);</span><br><span class="line">  <span class="built_in">print</span>(p);</span><br><span class="line">  <span class="built_in">print</span>(p.isUSB);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">enum</span> PortType &#123;</span><br><span class="line">  usbA(<span class="string">'USB-A'</span>, isUSB: <span class="keyword">true</span>),</span><br><span class="line">  usbC(<span class="string">'USB-C'</span>, isUSB: <span class="keyword">true</span>),</span><br><span class="line">  lightning(<span class="string">'LIGHTNING'</span>),</span><br><span class="line">  unknown(<span class="string">'UNKNOWN'</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">final</span> <span class="built_in">String</span> name;</span><br><span class="line">  <span class="keyword">final</span> <span class="built_in">bool</span> isUSB;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> PortType(<span class="keyword">this</span>.name, &#123;<span class="keyword">this</span>.isUSB = <span class="keyword">false</span>&#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">static</span> PortType fromString(<span class="built_in">String</span> name) &#123;</span><br><span class="line">    <span class="keyword">return</span> values.firstWhere((v) =&gt; v.name == name,</span><br><span class="line">        orElse: () =&gt; PortType.unknown);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意事项:</p>
+<p><code>最后一个枚举项后面的 &quot;,&quot; 需要改成 &quot;;&quot;   否则无法通过编译。</code></p>
+]]></content>
+      <categories>
+        <category>Flutter开发</category>
+      </categories>
+      <tags>
+        <tag>Dart</tag>
+        <tag>Flutter</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Flutter ~ ThemeData通过ThemeExtension扩展自定义属性</title>
     <url>/2022/08/25/Flutter-ThemeData%E9%80%9A%E8%BF%87ThemeExtension%E6%89%A9%E5%B1%95%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7/</url>
     <content><![CDATA[<blockquote>

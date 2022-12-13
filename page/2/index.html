@@ -158,6 +158,74 @@
     
     
     <article
+  id="post-Flutter-Dart语法特性"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/11/12/Flutter-Dart%E8%AF%AD%E6%B3%95%E7%89%B9%E6%80%A7/"
+    >Flutter ~ Dart语法特性</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/11/12/Flutter-Dart%E8%AF%AD%E6%B3%95%E7%89%B9%E6%80%A7/" class="article-date">
+  <time datetime="2020-11-12T11:23:55.000Z" itemprop="datePublished">2020-11-12</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Flutter%E5%BC%80%E5%8F%91/">Flutter开发</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="一-Dart-的基本语法"><a href="#一-Dart-的基本语法" class="headerlink" title="一. Dart 的基本语法"></a>一. Dart 的基本语法</h2><h3 id="1、程序入口"><a href="#1、程序入口" class="headerlink" title="1、程序入口"></a>1、程序入口</h3><ul>
+<li>Dart 的入口也是 main 函数，且没有返回值。</li>
+<li>传递给 main 的命令行参数，会存放在 <code>List&lt;String&gt; args</code> 中。</li>
+<li>定义字符串可以使用单引号或双引号。</li>
+<li>每行语句必须使用分号结尾。</li>
+</ul>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">main(<span class="built_in">List</span>&lt;<span class="built_in">String</span>&gt; args) &#123;</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">"Hello World"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、声明变量"><a href="#2、声明变量" class="headerlink" title="2、声明变量"></a>2、声明变量</h3><ul>
+<li><p>明确声明：变量类型 变量名称 = 赋值;</p>
+</li>
+<li><p>类型推导：<code>var / dynamic / const / final</code> 变量名称 = 赋值;</p> 
+      <a class="article-more-link" href="/2020/11/12/Flutter-Dart%E8%AF%AD%E6%B3%95%E7%89%B9%E6%80%A7/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dart/" rel="tag">Dart</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Flutter/" rel="tag">Flutter</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-iOS开发之-iOS14-广告标识IDFA"
   class="article article-type-post"
   itemscope
@@ -704,65 +772,6 @@
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-iOS开发之-GCD深度解析"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2017/08/19/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-GCD%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90/"
-    >iOS开发之 ~ GCD深度解析</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2017/08/19/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-GCD%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90/" class="article-date">
-  <time datetime="2017-08-19T20:10:41.000Z" itemprop="datePublished">2017-08-19</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/iOS%E5%BC%80%E5%8F%91/">iOS开发</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h4 id="1-当同步遇到了串行"><a href="#1-当同步遇到了串行" class="headerlink" title="1.当同步遇到了串行"></a>1.当同步遇到了串行</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"1"</span>); <span class="comment">// 任务1</span></span><br><span class="line"><span class="built_in">dispatch_sync</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"2"</span>); <span class="comment">// 任务2</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"3"</span>); <span class="comment">// 任务3</span></span><br></pre></td></tr></table></figure>
-
-<p><code>控制台输出结果: 1</code></p> 
-      <a class="article-more-link" href="/2017/08/19/iOS%E5%BC%80%E5%8F%91%E4%B9%8B-GCD%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90/"
-        >阅读更多...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GCD/" rel="tag">GCD</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li></ul>
 
     </footer>
   </div>
